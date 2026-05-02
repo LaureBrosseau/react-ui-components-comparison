@@ -264,18 +264,18 @@ export default function ProductOverview() {
             sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}
           >
             <strong>Market signal:</strong>{' '}
-            AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners. The two companies now operate as a combined group with aligned roadmaps and shared board leadership. This consolidation positions them to cover both data grids and scheduling — a broader suite that competes more directly with MUI X's component range.
+            AG Grid and Bryntum announced a <strong>strategic partnership in November 2025</strong>, backed by Adelis Equity Partners. The two companies now operate as a <strong>combined group</strong> with aligned roadmaps and shared board leadership. This consolidation positions them to cover both data grids and scheduling, a broader suite that competes more directly with MUI X's component range.
           </Alert>
         </div>
-        <div style={{ marginBottom: '48px' }} />
+        <div style={{ marginBottom: '30px' }} />
 
         {/* ── Section 2: Data Grid Head to Head ───────────────────────────── */}
         <div>
-          <p style={{ fontSize: '13px', color: '#9ca3af', marginBottom: '20px', fontStyle: 'italic' }}>
+          <p style={{ fontSize: '15px', color: '#6b7280', marginBottom: '30px', fontStyle: 'italic' }}>
             Most evaluations start with a specific component, typically the Data Grid, before expanding to broader needs.
           </p>
           <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#111827', marginBottom: '4px', letterSpacing: '-0.02em' }}>
-            Data Grid — Head to Head
+            Data Grid Comparison
           </h2>
           <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '16px' }}>
             Focused comparison of the Data Grid component specifically. Each vendor offers additional components beyond what is compared here.
