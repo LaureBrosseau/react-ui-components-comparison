@@ -1,3 +1,13 @@
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Alert from '@mui/material/Alert'
+import Chip from '@mui/material/Chip'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import Grid from '@mui/material/Grid'
 import TechLabel from '../components/TechLabel'
 
 const COLORS = {
@@ -68,69 +78,18 @@ const realItems = [
   { icon: '💸', text: 'Opportunity cost: what else could those engineers have shipped?' },
 ]
 
-function PositioningCard({ card }) {
-  return (
-    <div style={{
-      background: '#111111',
-      border: '1px solid #1f1f1f',
-      borderRadius: '10px',
-      padding: '24px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '16px',
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <span style={{
-          width: '10px', height: '10px',
-          borderRadius: '50%',
-          background: card.color,
-          flexShrink: 0,
-        }} />
-        <h3 style={{ fontSize: '15px', fontWeight: '700', color: card.color, letterSpacing: '-0.01em' }}>
-          {card.name}
-        </h3>
-      </div>
-
-      <p style={{
-        fontSize: '12px',
-        fontStyle: 'italic',
-        color: '#9ca3af',
-        fontFamily: "'JetBrains Mono', monospace",
-        lineHeight: '1.5',
-        paddingBottom: '12px',
-        borderBottom: '1px solid #1a1a1a',
-      }}>
-        {card.tagline}
-      </p>
-
-      <FieldRow label="Primary audience" value={card.audience} />
-      <FieldRow label="Core value proposition" value={card.valueProp} />
-      <FieldRow label="How they win deals" value={card.howWin} mono />
-
-      <div style={{
-        background: '#0d1117',
-        border: '1px solid #2a1f1a',
-        borderRadius: '6px',
-        padding: '12px 14px',
-        display: 'flex',
-        gap: '10px',
-        alignItems: 'flex-start',
-      }}>
-        <span style={{ fontSize: '14px', flexShrink: 0, marginTop: '1px' }}>⚠️</span>
-        <div>
-          <span style={{ fontSize: '10px', fontWeight: '700', color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
-            Messaging gap
-          </span>
-          <p style={{ fontSize: '12.5px', color: '#d1a060', lineHeight: '1.55' }}>{card.gap}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: { main: '#007FFF' },
+    background: { paper: '#111111', default: '#0a0a0a' },
+  },
+  typography: { fontFamily: "'DM Sans', sans-serif" },
+})
 
 function FieldRow({ label, value, mono }) {
   return (
-    <div>
+    <div style={{ marginBottom: '12px' }}>
       <span style={{ fontSize: '10px', fontWeight: '600', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
         {label}
       </span>
@@ -138,6 +97,7 @@ function FieldRow({ label, value, mono }) {
         fontSize: mono ? '12px' : '13px',
         color: '#d1d5db',
         lineHeight: '1.6',
+        margin: 0,
         fontFamily: mono ? "'JetBrains Mono', monospace" : "'DM Sans', sans-serif",
       }}>
         {value}
@@ -146,170 +106,212 @@ function FieldRow({ label, value, mono }) {
   )
 }
 
-function CostItem({ icon, text, variant }) {
+function PositioningCard({ card }) {
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'flex-start',
-      gap: '12px',
-      padding: '12px 16px',
-      background: variant === 'real' ? '#0d1117' : '#0f0f0f',
-      borderRadius: '6px',
-      border: `1px solid ${variant === 'real' ? '#1e2a3a' : '#1a1a1a'}`,
+    <Card sx={{
+      background: '#111111',
+      border: '1px solid #1f1f1f',
+      borderRadius: '10px',
+      height: '100%',
     }}>
-      <span style={{ fontSize: '18px', flexShrink: 0, lineHeight: '1.2' }}>{icon}</span>
-      <span style={{
-        fontSize: '13px',
-        color: variant === 'real' ? '#94a3b8' : '#6b7280',
-        lineHeight: '1.5',
-        fontFamily: variant === 'real' ? "'JetBrains Mono', monospace" : "'DM Sans', sans-serif",
-        fontSize: variant === 'real' ? '12.5px' : '13px',
-      }}>{text}</span>
-    </div>
+      <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: '4px', p: 3 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+          <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: card.color, flexShrink: 0, display: 'inline-block' }} />
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: card.color, letterSpacing: '-0.01em', margin: 0 }}>
+            {card.name}
+          </h3>
+        </div>
+
+        <p style={{
+          fontSize: '12px',
+          fontStyle: 'italic',
+          color: '#9ca3af',
+          fontFamily: "'JetBrains Mono', monospace",
+          lineHeight: '1.5',
+          paddingBottom: '14px',
+          borderBottom: '1px solid #1a1a1a',
+          margin: '0 0 12px 0',
+        }}>
+          {card.tagline}
+        </p>
+
+        <FieldRow label="Primary audience" value={card.audience} />
+        <FieldRow label="Core value proposition" value={card.valueProp} />
+        <FieldRow label="How they win deals" value={card.howWin} mono />
+
+        <Alert
+          severity="warning"
+          sx={{
+            mt: 1,
+            background: '#0d1117',
+            border: '1px solid #2a1f1a',
+            borderRadius: '6px',
+            '& .MuiAlert-icon': { color: '#f59e0b' },
+            '& .MuiAlert-message': { color: '#d1a060', fontSize: '12.5px', lineHeight: '1.55' },
+          }}
+        >
+          <span style={{ fontSize: '10px', fontWeight: '700', color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
+            Messaging gap
+          </span>
+          {card.gap}
+        </Alert>
+      </CardContent>
+    </Card>
   )
 }
 
 export default function PositioningMessaging() {
   return (
-    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
-      {/* Section 1 header */}
-      <div style={{ marginBottom: '28px' }}>
-        <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#f5f5f5', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-          Positioning & Messaging
-        </h1>
-        <p style={{ fontSize: '14px', color: '#6b7280' }}>
-          How each player positions itself — and the honest PMM assessment
-        </p>
-      </div>
-
-      {/* 2x2 card grid */}
-      <div>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: '16px',
-        marginBottom: '8px',
-      }}>
-        {cards.map(card => (
-          <PositioningCard key={card.key} card={card} />
-        ))}
-      </div>
-      <TechLabel tags={['CSS Grid', 'React component', 'Inline styles']} />
-      </div>
-      <div style={{ marginBottom: '40px' }} />
-
-      {/* Section 2: Build vs Buy */}
-      <div style={{
-        background: '#111111',
-        border: '1px solid #1f1f1f',
-        borderRadius: '10px',
-        padding: '36px',
-      }}>
-        <div style={{ marginBottom: '32px' }}>
-          <h2 style={{
-            fontSize: '20px',
-            fontWeight: '700',
-            color: '#f5f5f5',
-            letterSpacing: '-0.02em',
-            marginBottom: '8px',
-          }}>
-            Why "We'll Build It In-House" Is the Most Expensive Decision
-          </h2>
+    <ThemeProvider theme={darkTheme}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
+        <div style={{ marginBottom: '28px' }}>
+          <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#f5f5f5', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+            Positioning & Messaging
+          </h1>
           <p style={{ fontSize: '14px', color: '#6b7280' }}>
-            What teams think vs. what actually happens
+            How each player positions itself — and the honest PMM assessment
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '24px',
-          marginBottom: '28px',
-        }}>
-          {/* Left: what teams think */}
-          <div>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              marginBottom: '14px',
-            }}>
-              <span style={{
-                padding: '4px 10px',
-                background: '#1a1a1a',
-                border: '1px solid #2a2a2a',
-                borderRadius: '99px',
-                fontSize: '11px',
-                fontWeight: '600',
-                color: '#9ca3af',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-              }}>
-                What teams think
-              </span>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {thinkItems.map((item, i) => (
-                <CostItem key={i} icon={item.icon} text={item.text} variant="think" />
-              ))}
-            </div>
-          </div>
-
-          {/* Right: real cost */}
-          <div>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              marginBottom: '14px',
-            }}>
-              <span style={{
-                padding: '4px 10px',
-                background: '#1a1520',
-                border: '1px solid #ef4444',
-                borderRadius: '99px',
-                fontSize: '11px',
-                fontWeight: '600',
-                color: '#ef4444',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-              }}>
-                The real cost
-              </span>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {realItems.map((item, i) => (
-                <CostItem key={i} icon={item.icon} text={item.text} variant="real" />
-              ))}
-            </div>
-          </div>
+        <div>
+          <Grid container spacing={2} sx={{ mb: 1 }}>
+            {cards.map(card => (
+              <Grid key={card.key} size={6}>
+                <PositioningCard card={card} />
+              </Grid>
+            ))}
+          </Grid>
+          <TechLabel tags={['MUI — Card', 'MUI — Alert', 'MUI — Grid', 'Inline styles']} />
         </div>
 
-        {/* Bottom callout */}
-        <div style={{
-          background: '#0a1628',
-          border: '1px solid #1e3a5f',
-          borderLeft: '4px solid #007FFF',
-          borderRadius: '8px',
-          padding: '20px 24px',
-          display: 'flex',
-          gap: '14px',
-          alignItems: 'flex-start',
+        <div style={{ marginBottom: '40px' }} />
+
+        {/* Build vs Buy section */}
+        <Card sx={{
+          background: '#111111',
+          border: '1px solid #1f1f1f',
+          borderRadius: '10px',
         }}>
-          <span style={{ fontSize: '20px', flexShrink: 0, marginTop: '2px' }}>💡</span>
-          <p style={{ fontSize: '14px', color: '#93c5fd', lineHeight: '1.7' }}>
-            <strong style={{ color: '#60a5fa', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}>
-              MUI X Pro = $299/dev/year
-            </strong>
-            {' '}≈ 1.5 days of a senior developer's time. The break-even vs. building in-house is typically reached{' '}
-            <strong style={{ color: '#f5f5f5' }}>within the first sprint</strong>.
-            {' '}The question isn't{' '}
-            <em>"can we build it?"</em> — it's{' '}
-            <em style={{ color: '#f5f5f5' }}>"should we?"</em>
-          </p>
-        </div>
+          <CardContent sx={{ p: 4 }}>
+            <div style={{ marginBottom: '32px' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#f5f5f5', letterSpacing: '-0.02em', marginBottom: '8px' }}>
+                Why "We'll Build It In-House" Is the Most Expensive Decision
+              </h2>
+              <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+                What teams think vs. what actually happens
+              </p>
+            </div>
+
+            <Grid container spacing={3} sx={{ mb: 3 }}>
+              {/* What teams think */}
+              <Grid size={6}>
+                <Chip
+                  label="What teams think"
+                  size="small"
+                  sx={{
+                    mb: 2,
+                    background: '#1a1a1a',
+                    border: '1px solid #2a2a2a',
+                    color: '#9ca3af',
+                    fontWeight: '600',
+                    fontSize: '11px',
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    borderRadius: '99px',
+                  }}
+                />
+                <List dense disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  {thinkItems.map((item, i) => (
+                    <ListItem
+                      key={i}
+                      sx={{
+                        background: '#0f0f0f',
+                        border: '1px solid #1a1a1a',
+                        borderRadius: '6px',
+                        px: 2,
+                        py: 1.25,
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      <ListItemIcon sx={{ minWidth: 36, mt: 0.25 }}>
+                        <span style={{ fontSize: '18px', lineHeight: 1 }}>{item.icon}</span>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={item.text}
+                        slotProps={{ primary: { sx: { fontSize: '13px', color: '#6b7280', lineHeight: '1.5', fontFamily: "'DM Sans', sans-serif" } } }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Grid>
+
+              {/* The real cost */}
+              <Grid size={6}>
+                <Chip
+                  label="The real cost"
+                  size="small"
+                  sx={{
+                    mb: 2,
+                    background: '#1a0505',
+                    border: '1px solid #ef4444',
+                    color: '#ef4444',
+                    fontWeight: '600',
+                    fontSize: '11px',
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    borderRadius: '99px',
+                  }}
+                />
+                <List dense disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  {realItems.map((item, i) => (
+                    <ListItem
+                      key={i}
+                      sx={{
+                        background: '#0d1117',
+                        border: '1px solid #1e2a3a',
+                        borderRadius: '6px',
+                        px: 2,
+                        py: 1.25,
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      <ListItemIcon sx={{ minWidth: 36, mt: 0.25 }}>
+                        <span style={{ fontSize: '18px', lineHeight: 1 }}>{item.icon}</span>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={item.text}
+                        slotProps={{ primary: { sx: { fontSize: '12.5px', color: '#94a3b8', lineHeight: '1.5', fontFamily: "'JetBrains Mono', monospace" } } }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Grid>
+            </Grid>
+
+            <Alert
+              severity="info"
+              sx={{
+                background: '#0a1628',
+                border: '1px solid #1e3a5f',
+                borderLeft: '4px solid #007FFF',
+                borderRadius: '8px',
+                '& .MuiAlert-icon': { color: '#007FFF' },
+                '& .MuiAlert-message': { color: '#93c5fd', fontSize: '14px', lineHeight: '1.7' },
+              }}
+            >
+              <strong style={{ color: '#60a5fa', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}>
+                MUI X Pro = $299/dev/year
+              </strong>
+              {' '}≈ 1.5 days of a senior developer's time. The break-even vs. building in-house is typically reached{' '}
+              <strong style={{ color: '#f5f5f5' }}>within the first sprint</strong>.
+              {' '}The question isn't{' '}
+              <em>"can we build it?"</em> — it's{' '}
+              <em style={{ color: '#f5f5f5' }}>"should we?"</em>
+            </Alert>
+          </CardContent>
+        </Card>
+        <TechLabel tags={['MUI — Card', 'MUI — Chip', 'MUI — List', 'MUI — Alert', 'MUI — Grid']} />
       </div>
-      <TechLabel tags={['CSS Grid', 'Custom <div>', 'Inline styles']} />
-    </div>
+    </ThemeProvider>
   )
 }
