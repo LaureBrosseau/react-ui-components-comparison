@@ -316,10 +316,10 @@ export default function ProductOverview() {
                   PMM Insight
                 </span>
                 <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.65' }}>
-                  In most Enterprise evaluations, the real question isn't which grid has more features, it's{' '}
-                  <strong style={{ color: '#1e3a8a' }}>which solution fits best into the team's existing stack and workflow</strong>.
-                  {' '}That's where MUI X has a{' '}
-                  <em>structural advantage</em> for teams already building on Material UI.
+                  In most enterprise evaluations, the decision is rarely about feature parity, it's{' '}
+                  <strong style={{ color: '#1e3a8a' }}>about how well the solution fits into the team’s existing ecosystem and workflows</strong>.
+                  {' '}This is where MUI X has a{' '}
+                  <strong>structural advantage</strong> for teams already building on Material UI.
                 </p>
               </div>
             </div>
