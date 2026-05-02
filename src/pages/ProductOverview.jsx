@@ -238,7 +238,6 @@ export default function ProductOverview() {
             </p>
           </div>
         </div>
-        <TechLabel tags={['Custom <div>', 'Inline styles']} />
       </div>
     </div>
   )

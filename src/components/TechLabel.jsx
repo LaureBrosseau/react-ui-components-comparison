@@ -7,17 +7,24 @@ const TAG_COLORS = {
 }
 
 const TAG_PRESETS = {
-  'MUI X — DataGrid':       { color: 'mui',    icon: '⬡' },
-  'MUI X — GridToolbar':    { color: 'mui',    icon: '⬡' },
-  '@mui/material — ThemeProvider': { color: 'mui', icon: '⬡' },
-  'React Router — NavLink': { color: 'router', icon: '⇌' },
-  'Custom HTML <table>':    { color: 'html',   icon: '▤' },
-  'Custom HTML <nav>':      { color: 'html',   icon: '▤' },
-  'Custom <div>':           { color: 'html',   icon: '▤' },
-  'Custom <span>':          { color: 'html',   icon: '▤' },
-  'CSS Grid':               { color: 'css',    icon: '⊞' },
-  'Inline styles':          { color: 'css',    icon: '✦' },
-  'React component':        { color: 'react',  icon: '⚛' },
+  'MUI X — DataGrid':              { color: 'mui',    icon: '⬡' },
+  'MUI X — GridToolbar':           { color: 'mui',    icon: '⬡' },
+  '@mui/material — ThemeProvider': { color: 'mui',    icon: '⬡' },
+  'MUI — Card':                    { color: 'mui',    icon: '⬡' },
+  'MUI — Chip':                    { color: 'mui',    icon: '⬡' },
+  'MUI — List':                    { color: 'mui',    icon: '⬡' },
+  'MUI — Alert':                   { color: 'mui',    icon: '⬡' },
+  'MUI — Grid':                    { color: 'mui',    icon: '⬡' },
+  'MUI — Tabs':                    { color: 'mui',    icon: '⬡' },
+  'MUI — Accordion':               { color: 'mui',    icon: '⬡' },
+  'React Router — NavLink':        { color: 'router', icon: '⇌' },
+  'Custom HTML <table>':           { color: 'html',   icon: '▤' },
+  'Custom HTML <nav>':             { color: 'html',   icon: '▤' },
+  'Custom <div>':                  { color: 'html',   icon: '▤' },
+  'Custom <span>':                 { color: 'html',   icon: '▤' },
+  'CSS Grid':                      { color: 'css',    icon: '⊞' },
+  'Inline styles':                 { color: 'css',    icon: '✦' },
+  'React component':               { color: 'react',  icon: '⚛' },
 }
 
 function Tag({ label }) {
