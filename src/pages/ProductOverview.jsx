@@ -98,7 +98,7 @@ const gridRows = [
     mui: 'Free community / Pro $299/dev/year',
     ag: 'Free community / Enterprise $999/dev',
     bryntum: 'From $680/dev (3+ devs)',
-    inhouse: '$0 license — hidden: dev time' },
+    inhouse: '$0 license' },
   { id: 8, dimension: 'Commercial/SaaS use',
     mui: '✅ Included in all paid plans',
     ag: '✅ Included in Enterprise',

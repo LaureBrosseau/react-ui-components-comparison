@@ -36,7 +36,7 @@ const cards = [
     audience: 'Frontend engineers working on data-intensive applications',
     valueProp: 'The most feature-complete, highest-performance data grid available. Used by the most demanding teams in finance, analytics, and enterprise software.',
     howWin: '"Nothing else handles 100k+ rows, pivoting, and Excel export with this level of performance."',
-    gap: '$999/dev entry price is a significant barrier. No platform story — pure point solution. Locks you into a vendor for a single component.',
+    gap: '$999/dev entry price is a significant barrier. No platform story, pure point solution. Locks you into a vendor for a single component.',
   },
   {
     key: 'bryntum',
@@ -45,9 +45,9 @@ const cards = [
     tagline: '"The most reliable Web Components suite for Project Planning & Resource Management"',
     strategicAngle: 'Scheduling & planning specialist (Grid is one component in a broader suite)',
     audience: 'ISVs and Enterprise teams building scheduling/planning tools',
-    valueProp: 'The only complete, production-ready suite for Gantt, scheduling, and resource management — with commercial support and 5,000+ enterprise customers.',
+    valueProp: 'The only complete, production-ready suite for Gantt, scheduling, and resource management, with commercial support and 5,000+ enterprise customers.',
     howWin: '"If scheduling is core to your product, you can\'t realistically build this yourself."',
-    gap: '100% proprietary with no free tier creates adoption friction. SaaS builders face additional OEM licensing complexity. Recent PE acquisition (Adelis, June 2025) signals ambition — but also potential pricing pressure ahead.',
+    gap: '100% proprietary with no free tier creates adoption friction. SaaS builders face additional OEM licensing complexity. Recent PE acquisition (Adelis, June 2025) signals ambition, but also potential pricing pressure ahead.',
   },
   {
     key: 'inhouse',
@@ -170,7 +170,7 @@ export default function PositioningMessaging() {
             Positioning & Messaging
           </h1>
           <p style={{ fontSize: '14px', color: '#6b7280' }}>
-            How each player positions itself — and the honest PMM assessment
+            How each player positions itself and an honest PMM assessment
           </p>
         </div>
 
