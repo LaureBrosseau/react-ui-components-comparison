@@ -50,10 +50,22 @@ export default function TechLabel({ tags, align = 'left' }) {
     <div style={{
       display: 'flex',
       flexWrap: 'wrap',
+      alignItems: 'center',
       gap: '6px',
       marginTop: '8px',
       justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
     }}>
+      <span style={{
+        fontSize: '10px',
+        fontWeight: '500',
+        color: '#4b5563',
+        fontFamily: "'DM Sans', sans-serif",
+        textTransform: 'uppercase',
+        letterSpacing: '0.08em',
+        marginRight: '2px',
+      }}>
+        Built with
+      </span>
       {tags.map(tag => <Tag key={tag} label={tag} />)}
     </div>
   )

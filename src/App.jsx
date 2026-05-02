@@ -5,7 +5,6 @@ import PositioningMessaging from './pages/PositioningMessaging'
 import MUIXDemo from './pages/MUIXDemo'
 import AIInstallExperience from './pages/AIInstallExperience'
 import PMMAnalysis from './pages/PMMAnalysis'
-import TechLabel from './components/TechLabel'
 
 function Nav() {
   return (
@@ -69,9 +68,6 @@ function Nav() {
         </div>
       </div>
     </nav>
-    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '6px 24px 0' }}>
-      <TechLabel tags={['Custom HTML <nav>', 'React Router — NavLink', 'Inline styles']} />
-    </div>
     </>
   )
 }
