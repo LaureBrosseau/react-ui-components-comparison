@@ -28,9 +28,14 @@ This project compares four common approaches:
 2. **Positioning & Messaging**: How each player positions itself, with observations on messaging strengths and gaps
 3. **MUI X Live Demo**: MUI X Data Grid and AG Grid Community running side-by-side with a realistic dataset
 4. **PMM Analysis**: A structured perspective on market dynamics, positioning tensions, and trade-offs
-5. **Bonu: AI Install Experience**: This project was built using with Claude, guided through prompts to implement and compare MUI X and AG Grid.
-The installation and setup process was part of the evaluation, providing a perspective on developer onboarding, friction, and time-to-first-value from an AI-assisted workflow.
+5. **AI Install Experience**: Feedback from Claude on implementing MUI X and AG Grid in a real setup. This section highlights differences in installation, configuration, and overall developer experience, including friction points, clarity of documentation, and time-to-first-value.
 
+## How this project was built
+This project was built using Claude to implement and test MUI X and AG Grid in a real-world setup.
+
+I guided the implementation through prompts, focusing on reproducing a realistic developer experience.
+
+The comparison and positioning analysis were developed separately, based on my own PMM perspective and a dedicated positioning agent.
 
 ## Stack
 
