@@ -27,7 +27,7 @@ function Nav() {
         height: '56px',
       }}>
         <span style={{
-          fontSize: '13px',
+          fontSize: '30px',
           fontWeight: '600',
           color: '#111827',
           letterSpacing: '0.02em',
