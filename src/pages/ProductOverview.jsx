@@ -86,7 +86,7 @@ const gridRows = [
   { id: 5, dimension: 'Loses when',
     mui: 'Massive datasets, most advanced grid-specific features needed',
     ag: 'Design system coherence matters, platform approach preferred',
-    bryntum: 'Use case is standard (CRUD/dashboard) — overkill and more expensive',
+    bryntum: 'Use case is standard  — overkill and more expensive',
     inhouse: 'Real cost underestimated, time-to-market missed' },
   { id: 6, dimension: 'OSS (grid tier)',
     mui: '✅ Community tier MIT (free)',
@@ -263,7 +263,7 @@ export default function ProductOverview() {
             severity="warning"
             sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}
           >
-            <strong>⚡ Market signal:</strong>{' '}
+            <strong>Market signal:</strong>{' '}
             AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners. The two companies now operate as a combined group with aligned roadmaps and shared board leadership. This consolidation positions them to cover both data grids and scheduling — a broader suite that competes more directly with MUI X's component range.
           </Alert>
         </div>
@@ -314,7 +314,7 @@ export default function ProductOverview() {
                   PMM Insight
                 </span>
                 <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.65' }}>
-                  In most Enterprise evaluations, the real question isn't which grid has more features — it's{' '}
+                  In most Enterprise evaluations, the real question isn't which grid has more features, it's{' '}
                   <strong style={{ color: '#1e3a8a' }}>which solution fits best into the team's existing stack and workflow</strong>.
                   {' '}That's where MUI X has a{' '}
                   <em>structural advantage</em> for teams already building on Material UI.

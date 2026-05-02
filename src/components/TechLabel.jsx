@@ -63,11 +63,11 @@ export default function TechLabel({ tags, align = 'left' }) {
       justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
     }}>
       <span style={{
-        fontSize: '10px',
+        fontSize: '11px',
         fontWeight: '500',
         color: '#4b5563',
         fontFamily: "'DM Sans', sans-serif",
-        textTransform: 'uppercase',
+        textTransform: '',
         letterSpacing: '0.08em',
         marginRight: '2px',
       }}>
