@@ -267,11 +267,13 @@ export default function ProductOverview() {
             AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners. The two companies now operate as a combined group with aligned roadmaps and shared board leadership. This consolidation positions them to cover both data grids and scheduling — a broader suite that competes more directly with MUI X's component range.
           </Alert>
         </div>
-
         <div style={{ marginBottom: '48px' }} />
 
         {/* ── Section 2: Data Grid Head to Head ───────────────────────────── */}
         <div>
+          <p style={{ fontSize: '13px', color: '#9ca3af', marginBottom: '20px', fontStyle: 'italic' }}>
+            Most evaluations start with a specific component, typically the Data Grid, before expanding to broader needs.
+          </p>
           <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#111827', marginBottom: '4px', letterSpacing: '-0.02em' }}>
             Data Grid — Head to Head
           </h2>
