@@ -238,7 +238,7 @@ export default function ProductOverview() {
             Company Overview
           </h2>
           <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '16px' }}>
-            Who they are, what they build, and how they're funded.
+            Who they are, what they build, and how they approach the market.
           </p>
 
           <div>
@@ -316,8 +316,8 @@ export default function ProductOverview() {
                   PMM Insight
                 </span>
                 <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.65' }}>
-                  In most enterprise evaluations, the decision is rarely about feature parity, it's{' '}
-                  <strong style={{ color: '#1e3a8a' }}>about how well the solution fits into the team’s existing ecosystem and workflows</strong>.
+                  In most enterprise evaluations, the decision is rarely about feature parity, it's about how well{' '}
+                  <strong style={{ color: '#1e3a8a' }}> the solution fits into the team’s existing ecosystem and workflows</strong>.
                   {' '}This is where MUI X has a{' '}
                   <strong>structural advantage</strong> for teams already building on Material UI.
                 </p>
