@@ -5,6 +5,7 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
+import Alert from '@mui/material/Alert'
 import { AgGridReact } from 'ag-grid-react'
 import { AllCommunityModule, ModuleRegistry, colorSchemeLight, themeQuartz } from 'ag-grid-community'
 import { generateProspects } from '../data/prospectData'
@@ -263,59 +264,42 @@ const featureColumns = [
 ]
 
 const paidRows = [
-  { id: 1,  feature: 'Row grouping / aggregation',          mui: '⚠️ Premium',         ag: '✅ Enterprise',      bryntum: '⚠️ Partial',        effort: '4–8 weeks' },
-  { id: 2,  feature: 'Pivoting',                            mui: '⚠️ Premium',         ag: '✅ Enterprise',      bryntum: '❌',                effort: '4–8 weeks' },
-  { id: 3,  feature: 'Excel export',                        mui: '⚠️ Pro/Premium',     ag: '✅ Enterprise',      bryntum: '⚠️ Limited',        effort: '1–2 weeks' },
-  { id: 4,  feature: 'Advanced filtering',                  mui: '⚠️ Pro/Premium',     ag: '✅ Enterprise',      bryntum: '⚠️ Partial',        effort: '2–4 weeks' },
-  { id: 5,  feature: 'Large dataset performance (100k+)',   mui: '⚠️ Premium',         ag: '✅ Strong',          bryntum: '⚠️ Partial',        effort: '4–8 weeks' },
-  { id: 6,  feature: 'Charts integration',                  mui: '✅ Native',          ag: '⚠️ Separate (AG Charts)', bryntum: '❌',           effort: '2–4 weeks' },
-  { id: 7,  feature: 'Design system / theming',             mui: '✅ Native (MUI)',    ag: '❌ Manual',          bryntum: '❌',                effort: 'Ongoing' },
-  { id: 8,  feature: 'Scheduling / Gantt',                  mui: '❌',                 ag: '❌',                 bryntum: '✅ Core strength',  effort: '8–12+ weeks' },
+  { id: 1,  feature: 'Row grouping / aggregation',       mui: '⚠️ Premium only',              ag: '✅ Enterprise',                       bryntum: '⚠️ Partial',                    effort: '4–8 weeks' },
+  { id: 2,  feature: 'Pivoting',                         mui: '⚠️ Premium only',              ag: '✅ Enterprise',                       bryntum: '❌ Not supported',               effort: '4–8 weeks' },
+  { id: 3,  feature: 'Excel export',                     mui: '⚠️ Pro/Premium',               ag: '✅ Enterprise',                       bryntum: '⚠️ Limited',                    effort: '1–2 weeks' },
+  { id: 4,  feature: 'Advanced filtering',               mui: '⚠️ Pro/Premium',               ag: '✅ Enterprise',                       bryntum: '⚠️ Partial',                    effort: '2–4 weeks' },
+  { id: 5,  feature: 'Large dataset perf. (100k+ rows)', mui: '⚠️ Premium (gated)',           ag: '✅ Strong — all tiers',               bryntum: '✅ Strong',                      effort: '4–8 weeks' },
+  { id: 6,  feature: 'Tree / hierarchical data',         mui: '✅ Pro+',                       ag: '✅ Enterprise',                       bryntum: '✅ Native (Tree Grid)',           effort: '3–6 weeks' },
+  { id: 7,  feature: 'Inline cell editing',              mui: '✅ Community+',                 ag: '✅ Community+',                       bryntum: '✅ Native',                      effort: '2–4 weeks' },
+  { id: 8,  feature: 'Clipboard / copy-paste',           mui: '⚠️ Limited',                   ag: '✅ Enterprise',                       bryntum: '✅ Native (CellCopyPaste)',       effort: '1–2 weeks' },
+  { id: 9,  feature: 'Charts integration',               mui: '✅ Native (same license)',      ag: '⚠️ Separate AG Charts license',      bryntum: '❌ No charts component',         effort: '2–4 weeks' },
+  { id: 10, feature: 'Design system / theming',          mui: '✅ Native — MUI theme',         ag: '❌ Manual',                          bryntum: '❌ Standalone only',             effort: 'Ongoing' },
+  { id: 11, feature: 'Accessibility (WCAG 2.1 AA)',      mui: '✅ Targeted — some open issues', ag: '✅ Strong — ranked #1',             bryntum: '⚠️ Not prominently documented',  effort: '2–4 weeks + ongoing' },
+  { id: 12, feature: 'AI features',                      mui: '❌ Not yet available',          ag: '✅ Enterprise AI Toolkit',            bryntum: '✅ AI integration + MCP server', effort: '—' },
+  { id: 13, feature: 'Scheduling / Gantt',               mui: '❌',                            ag: '❌',                                  bryntum: '✅ Core strength',               effort: '8–12+ weeks' },
 ]
+
+function makePaidCol(field, label, color) {
+  return {
+    field, headerName: label, flex: 1, minWidth: 155, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: color, display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color, fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
+      </span>
+    ),
+    renderCell: ({ value }) => <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
+  }
+}
 
 const paidColumns = [
   {
-    field: 'feature', headerName: 'Feature', flex: 1.8, minWidth: 220, sortable: false,
-    renderCell: ({ value }) => (
-      <span style={{ fontSize: '13px', color: '#374151', fontWeight: '500' }}>{value}</span>
-    ),
+    field: 'feature', headerName: 'Feature', flex: 1.6, minWidth: 220, sortable: false,
+    renderCell: ({ value }) => <span style={{ fontSize: '13px', color: '#374151', fontWeight: '500' }}>{value}</span>,
   },
-  {
-    field: 'mui', headerName: 'MUI X Pro/Premium', flex: 1, minWidth: 150, sortable: false,
-    renderHeader: () => (
-      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#007FFF', display: 'inline-block' }} />
-        <span style={{ fontWeight: '700', color: '#007FFF', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>MUI X Pro/Premium</span>
-      </span>
-    ),
-    renderCell: ({ value }) => (
-      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
-    ),
-  },
-  {
-    field: 'ag', headerName: 'AG Grid Enterprise', flex: 1, minWidth: 160, sortable: false,
-    renderHeader: () => (
-      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#16a34a', display: 'inline-block' }} />
-        <span style={{ fontWeight: '700', color: '#16a34a', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>AG Grid Enterprise</span>
-      </span>
-    ),
-    renderCell: ({ value }) => (
-      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
-    ),
-  },
-  {
-    field: 'bryntum', headerName: 'Bryntum', flex: 1, minWidth: 140, sortable: false,
-    renderHeader: () => (
-      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#e67e22', display: 'inline-block' }} />
-        <span style={{ fontWeight: '700', color: '#e67e22', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Bryntum</span>
-      </span>
-    ),
-    renderCell: ({ value }) => (
-      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
-    ),
-  },
+  makePaidCol('mui',     'MUI X Pro/Premium',  '#007FFF'),
+  makePaidCol('ag',      'AG Grid Enterprise', '#16a34a'),
+  makePaidCol('bryntum', 'Bryntum',            '#e67e22'),
   {
     field: 'effort', headerName: 'Build in-house', flex: 0.8, minWidth: 130, sortable: false,
     renderHeader: () => (
@@ -324,9 +308,7 @@ const paidColumns = [
         <span style={{ fontWeight: '700', color: '#9ca3af', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Build in-house</span>
       </span>
     ),
-    renderCell: ({ value }) => (
-      <span style={{ fontSize: '12px', color: '#d97706', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
-    ),
+    renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#d97706', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
   },
 ]
 
@@ -336,6 +318,7 @@ function featureColor(val) {
   if (val?.startsWith('⚠️')) return '#d97706'
   return '#374151'
 }
+
 
 // ─── Tab button ───────────────────────────────────────────────────────────────
 
@@ -581,15 +564,25 @@ export default function MUIXDemo() {
                   disableRowSelectionOnClick
                   style={{ minHeight: 200 }}
                 />
-              </div>             
+              </div>
+              <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'MUI — Alert']} />
+              <Alert severity="info" sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
+                <strong>About the "Build in-house" estimates:</strong>{' '}
+                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience). {' '}
+                They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '} <br/>
+                The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
+                These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
+                <em>For reference: one week of senior frontend development is often comparable to the annual cost of a commercial component license.</em>
+              </Alert>
             </div>
           )}
 
           {featureTab === 'paid' && (
             <div>
-              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '12px', fontStyle: '' }}>
-                Comparison of paid features to show how each solution differentiates beyond the baseline.
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '16px', fontStyle: '' }}>
+                Comparison of paid features to highlight where each solution delivers additional value beyond the community baseline.
               </p>
+
               <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
                 <DataGrid
                   rows={paidRows}
@@ -600,7 +593,14 @@ export default function MUIXDemo() {
                   style={{ minHeight: 200 }}
                 />
               </div>
-              <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'Inline styles']} />
+              <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'MUI — Alert']} />
+              <Alert severity="info" sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
+                <strong>About the "Build in-house" estimates:</strong>{' '}
+                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience). {' '}
+                They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '} <br/>
+                The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
+                These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
+                <em>For reference: one week of senior frontend development is often comparable to the annual cost of a commercial component license.</em>              </Alert>
             </div>
           )}
         </ThemeProvider>
