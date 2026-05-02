@@ -70,6 +70,8 @@ const thinkItems = [
   { icon: '💰', text: 'No license fees' },
   { icon: '🔑', text: 'Full ownership of the codebase' },
   { icon: '🔓', text: 'No external dependency' },
+  { icon: '🧩', text: '"We only need a basic version to start"' },
+  { icon: '🚀', text: '"We can iterate quickly after launch"' },
 ]
 
 const realItems = [
