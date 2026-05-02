@@ -384,16 +384,15 @@ function Tab3() {
         paddingBottom: '24px',
         borderBottom: '1px solid #1f1f1f',
       }}>
-        "The main positioning issue with MUI today is that it's widely adopted, but not clearly defined."
+        "MUI has built remarkable traction in the React ecosystem, millions of developers, a thriving open-source community, and enterprise adoption across some of the world's leading companies.The positioning opportunity is not about fixing something broken. It's about giving clearer language to what MUI X already is, so the narrative can match the product's real capabilities."
       </p>
 
       {/* Body paragraphs */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
         {[
-          `MUI sits somewhere between a component library, a design system, and a broader platform. That creates ambiguity in how it's perceived — especially compared to more specialized players like AG Grid, which are very clearly positioned as category leaders.`,
-          `My read: MUI should position itself as a UI platform for product teams, not just developers. The shift is from "component library" to "the system that helps teams design, build, and scale consistent interfaces across the entire product lifecycle."`,
-          `This matters because the problem MUI solves isn't just about coding faster. It's about helping teams build consistent, scalable product interfaces — and that involves developers, design leads, and product managers. "Product teams" better reflects both the actual use case and the buying dynamics at the Enterprise level.`,
-          `The opportunity is clear: MUI wins on adoption and breadth. The next evolution is winning on clarity and Enterprise narrative — before a well-funded competitor decides to own that positioning first.`,
+          `MUI wins on adoption and breadth, and that foundation is what makes the opportunity real. The opportunity isn't to change who MUI speaks to, but to extend the narrative upward along the buying chain.`
+          `Developers are already the champions. What's missing is giving them the language to sell MUI X internally — a story that resonates with the tech lead who recommends, and the Engineering Manager or CTO who approves the budget. That story exists in the product: platform coherence, reduced integration overhead, consistent design system across teams, lower TCO than building in-house or stitching together point solutions.`
+          `The positioning opportunity is not a category shift. It's about making the Enterprise value of MUI X as clear and compelling as its developer experience already is.`,
         ].map((text, i) => (
           <p key={i} style={{ fontSize: '15px', color: '#d1d5db', lineHeight: '1.8' }}>
             {text}
@@ -412,14 +411,13 @@ function Tab3() {
           '& .MuiAlert-message': { color: '#bbf7d0', fontSize: '14px', lineHeight: '1.7' },
         }}
       >
-        This is not a positioning weakness to fix — it's a positioning opportunity to capture. MUI has the product, the community, and the ecosystem.{' '}
-        <strong style={{ color: '#f5f5f5' }}>It needs the story.</strong>
+        The product is there. The community is there. The opportunity is to make the Enterprise value proposition as clear and compelling as the developer experience already is.{' '}
       </Alert>
       <TechLabel tags={['MUI — Alert']} />
 
       <p style={{ fontSize: '12px', color: '#4b5563', marginTop: '20px', lineHeight: '1.6', fontStyle: 'italic' }}>
         Analysis based on public positioning, pricing pages, and product documentation as of May 2026.
-        Built with MUI X — because eating your own cooking is the best way to understand it.
+        Built with MUI X.
       </p>
     </div>
   )
@@ -450,7 +448,7 @@ export default function PMMAnalysis() {
             borderRadius: '6px',
             display: 'inline-block',
           }}>
-            This analysis is built with MUI components — Data Grid, Tabs, Accordion, Alert, and Chip.
+            This analysis is built with MUI components: Data Grid, Tabs, Accordion, Alert, and Chip.
             The tool reflects the product.
           </p>
         </div>
