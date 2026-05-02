@@ -3,9 +3,13 @@ import { useEffect, useState } from 'react'
 import ProductOverview from './pages/ProductOverview'
 import PositioningMessaging from './pages/PositioningMessaging'
 import MUIXDemo from './pages/MUIXDemo'
+import AIInstallExperience from './pages/AIInstallExperience'
+import PMMAnalysis from './pages/PMMAnalysis'
+import TechLabel from './components/TechLabel'
 
 function Nav() {
   return (
+    <>
     <nav style={{
       background: 'rgba(8,8,8,0.95)',
       borderBottom: '1px solid #1f1f1f',
@@ -39,7 +43,9 @@ function Nav() {
           {[
             { to: '/', label: 'Product Overview' },
             { to: '/positioning', label: 'Positioning & Messaging' },
-            { to: '/demo', label: 'MUI X Live Demo' },
+            { to: '/demo', label: 'Live Demo' },
+            { to: '/pmm', label: 'PMM Analysis' },
+            { to: '/ai-install', label: 'AI Install XP' },
           ].map(({ to, label }) => (
             <NavLink
               key={to}
@@ -63,6 +69,10 @@ function Nav() {
         </div>
       </div>
     </nav>
+    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '6px 24px 0' }}>
+      <TechLabel tags={['Custom HTML <nav>', 'React Router — NavLink', 'Inline styles']} />
+    </div>
+    </>
   )
 }
 
@@ -97,6 +107,8 @@ function Inner() {
           <Route path="/" element={<ProductOverview />} />
           <Route path="/positioning" element={<PositioningMessaging />} />
           <Route path="/demo" element={<MUIXDemo />} />
+          <Route path="/pmm" element={<PMMAnalysis />} />
+          <Route path="/ai-install" element={<AIInstallExperience />} />
         </Routes>
       </PageWrapper>
     </>

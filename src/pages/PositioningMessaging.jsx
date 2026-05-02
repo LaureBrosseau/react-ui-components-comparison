@@ -1,8 +1,10 @@
+import TechLabel from '../components/TechLabel'
+
 const COLORS = {
   mui: '#007FFF',
   ag: '#2ecc71',
   bryntum: '#e67e22',
-  inhouse: '#6b7280',
+  inhouse: '#ec4899',
 }
 
 const cards = [
@@ -181,16 +183,20 @@ export default function PositioningMessaging() {
       </div>
 
       {/* 2x2 card grid */}
+      <div>
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
         gap: '16px',
-        marginBottom: '48px',
+        marginBottom: '8px',
       }}>
         {cards.map(card => (
           <PositioningCard key={card.key} card={card} />
         ))}
       </div>
+      <TechLabel tags={['CSS Grid', 'React component', 'Inline styles']} />
+      </div>
+      <div style={{ marginBottom: '40px' }} />
 
       {/* Section 2: Build vs Buy */}
       <div style={{
@@ -303,6 +309,7 @@ export default function PositioningMessaging() {
           </p>
         </div>
       </div>
+      <TechLabel tags={['CSS Grid', 'Custom <div>', 'Inline styles']} />
     </div>
   )
 }
