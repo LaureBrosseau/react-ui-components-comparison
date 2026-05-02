@@ -15,13 +15,13 @@ This project was built as part of a deep-dive into the React enterprise UI compo
 
 1. **Product Overview**: Side-by-side comparison table across 10 dimensions
 2. **Positioning & Messaging**: How each player sells, messaging gaps, and a Build vs Buy cost analysis
-3. **MUI X Live Demo**: MUI X Data Grid Community running live with 500 rows of realistic employee data
+3. **MUI X Live Demo**: MUI X Data Grid Community and AG Grid Community running live side-by-side with 200 rows of enterprise prospect data
 4. **PMM Analysis**: A product marketer's read on positioning, gaps, and opportunities in the React enterprise UI space
 5. **Bonus**: An AI Developer Experience Report
    
 ## Stack
 
-Vite + React + TailwindCSS + MUI X Community
+Vite + React + TailwindCSS + MUI X Community + AG Grid Community
 
 ## Run locally
 
