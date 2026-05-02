@@ -288,7 +288,7 @@ export default function PositioningMessaging() {
                       </ListItemIcon>
                       <ListItemText
                         primary={item.text}
-                        slotProps={{ primary: { sx: { fontSize: '12.5px', color: '#7f1d1d', lineHeight: '1.5', fontFamily: "'JetBrains Mono', monospace" } } }}
+                        slotProps={{ primary: { sx: { fontSize: '13px', color: '#7f1d1d', lineHeight: '1.5', fontFamily: "'DM Sans', sans-serif" } } }}
                       />
                     </ListItem>
                   ))}
