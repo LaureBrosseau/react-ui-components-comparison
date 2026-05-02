@@ -233,8 +233,8 @@ export default function ProductOverview() {
               PMM Insight
             </span>
             <p style={{ fontSize: '14px', color: '#cbd5e1', lineHeight: '1.65' }}>
-              MUI X is not competing on grid features alone — it's competing on <strong style={{ color: '#f5f5f5' }}>platform coherence</strong>. The real buying decision is:{' '}
-              <em style={{ color: '#93c5fd' }}>best-of-breed component vs. integrated UI platform</em>.
+              In most Enterprise evaluations, the real question isn't which grid has more features, it's <strong style={{ color: '#f5f5f5' }}>which solution fits best into the team's existing stack and workflow</strong>. That's where {' '}
+              <em style={{ color: '#93c5fd' }}>MUI X has a structural advantage for teams already building on Material UI</em>.
             </p>
           </div>
         </div>
