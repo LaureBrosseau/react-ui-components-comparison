@@ -139,16 +139,16 @@ const darkTheme = createTheme({
 const COLORS = { mui: '#007FFF', ag: '#2ecc71', bryntum: '#e67e22', inhouse: '#ec4899' }
 
 const strategyRows = [
-  { id: 1,  dimension: 'Category Strategy',  mui: 'Broad UI platform (horizontal)',          ag: 'Category king — data grids',              bryntum: 'Niche specialist — scheduling',       inhouse: 'No category — full bespoke' },
+  { id: 1,  dimension: 'Category Strategy',  mui: 'Broad UI platform (horizontal)',          ag: 'Category king — data grids',              bryntum: 'Complex UI specialist — scheduling, planning & grid', inhouse: 'No category — full bespoke' },
   { id: 2,  dimension: 'Product Scope',       mui: 'Wide, moderate depth',                   ag: 'Narrow, extreme depth',                   bryntum: 'Medium scope, deep niche',            inhouse: 'Unlimited scope, zero speed' },
   { id: 3,  dimension: 'Buyer Perception',    mui: 'Default choice for React UI',            ag: 'Serious enterprise grid',                 bryntum: 'Advanced niche tools',                inhouse: '"We\'re different, our needs are unique"' },
   { id: 4,  dimension: 'Business Model',      mui: 'Open-core (land → expand)',              ag: 'Premium enterprise licensing',            bryntum: 'High-ticket specialized components',  inhouse: '$0 license, hidden FTE cost' },
   { id: 5,  dimension: 'OSS Strategy',        mui: 'Free Core + paid MUI X',                ag: 'Free Community + paid Enterprise',        bryntum: '100% proprietary, no free tier',      inhouse: 'You own everything — and maintain everything' },
   { id: 6,  dimension: 'Primary Strength',    mui: 'Developer mindshare + ecosystem',       ag: 'Feature depth + performance',             bryntum: 'Hard-to-replicate niche features',    inhouse: 'Full control, no vendor dependency' },
-  { id: 7,  dimension: 'Primary Weakness',    mui: 'Positioning dilution (library vs platform)', ag: 'Narrow scope, expensive entry',       bryntum: 'Brand awareness + OEM complexity',    inhouse: 'Underestimates true cost — always' },
+  { id: 7,  dimension: 'Primary Weakness',    mui: 'Enterprise narrative still emerging — opportunity to sharpen', ag: 'Narrow scope, expensive entry', bryntum: 'Brand awareness + OEM complexity', inhouse: 'Underestimates true cost — always' },
   { id: 8,  dimension: 'Key Proof Points',    mui: '5.8M weekly npm downloads, 93.9k GitHub stars', ag: 'Category leadership in finance/trading', bryntum: '5,000+ customers, 80+ countries', inhouse: '6–12 weeks to replicate basic grid features' },
-  { id: 9,  dimension: 'Notable Customers',   mui: 'Spotify, Amazon, NASA, Netflix, Unity', ag: 'Financial services, trading platforms',   bryntum: 'Ferrari, Red Bull, HSBC, IMAX',       inhouse: 'Every team that regretted it later' },
-  { id: 10, dimension: '2025 Market Signal',  mui: 'v9 launch — Material UI + MUI X unified', ag: 'Partnership announced with Bryntum',   bryntum: 'Partnership announced with AG Grid',  inhouse: 'AI-assisted dev makes this more tempting — and more risky' },
+  { id: 9,  dimension: 'Notable Customers',   mui: 'Spotify, Amazon, NASA, Netflix, Unity', ag: 'Financial services, trading platforms',   bryntum: 'Ferrari, Red Bull, HSBC, IMAX',       inhouse: 'Every team that underestimated the real cost' },
+  { id: 10, dimension: '2025 Market Signal',  mui: 'v9 launch — Material UI + MUI X unified', ag: 'Formed combined group with Bryntum, backed by Adelis Equity — expanding toward full-stack UI component suite', bryntum: 'PE acquisition by Adelis + partnership with AG Grid — accelerating international expansion and product breadth', inhouse: 'AI-assisted dev makes this more tempting — and more risky' },
 ]
 
 function makeCol(field, label, color) {
@@ -201,13 +201,13 @@ const accordions = [
     title: 'Gap #1 — No sharp category definition',
     summary: 'MUI oscillates between library, design system, and platform',
     chip: { label: 'High Priority', color: 'error' },
-    body: `MUI's positioning today sits uncomfortably between three different categories:
+    body: `MUI's positioning spans three adjacent categories — a natural result of a product that has grown faster than its category definition:
 
 • UI component library (what most developers think it is)
 • Design system platform (what it's evolving toward)
 • Enterprise UI infrastructure (what MUI X could become)
 
-This ambiguity is manageable when you're the default choice for developers. It becomes a liability when you're trying to close Enterprise deals against specialists like AG Grid who have razor-sharp positioning.`,
+This breadth is a strength for adoption. In Enterprise sales cycles, it's an opportunity to sharpen the story for a more specific buyer.`,
   },
   {
     id: 'gap2',
@@ -217,7 +217,7 @@ This ambiguity is manageable when you're the default choice for developers. It b
     chip: { label: 'High Priority', color: 'error' },
     body: `MUI's messaging is dev-first, which makes sense for adoption — but it creates a gap at the enterprise buying stage. When a CTO evaluates MUI X against AG Grid, they need to hear about SLAs, support tiers, security, governance, and TCO. These narratives exist in the product but not in the marketing.
 
-AG Grid's positioning is explicitly enterprise-grade. MUI X has the substance — it's missing the story.`,
+AG Grid's positioning is explicitly enterprise-grade. MUI X has the substance — the opportunity is to make that story more explicit for an Enterprise audience.`,
   },
   {
     id: 'gap3',
@@ -235,7 +235,7 @@ This perception gap is hard to close by adding features alone. It requires a del
     title: 'Opportunity #1 — Own "React UI Platform"',
     summary: 'Define a category MUI can win outright',
     chip: { label: 'Strategic', color: 'success' },
-    body: `Instead of competing with AG Grid on feature depth (a losing battle) or with design system tools on design governance (a crowded space), MUI can define and own a new category:
+    body: `Rather than competing on feature depth alone — a crowded and expensive race — or with design system tools on design governance (a crowded space), MUI can define and own a new category:
 
 "The end-to-end UI platform for React product teams"
 
@@ -255,7 +255,7 @@ This reframe does three things:
 • Signals Enterprise-grade intent to CTOs and VPs
 • Creates distance from the "just a library" perception
 
-The product already supports this narrative. The marketing doesn't yet.`,
+The product already supports this narrative — the opportunity is to activate it explicitly in marketing and sales materials.`,
   },
   {
     id: 'opp3',
@@ -326,7 +326,7 @@ function Tab1() {
             '& .MuiAlert-message': { color: '#cbd5e1', fontSize: '13px', lineHeight: '1.65' },
           }}
         >
-          <strong style={{ color: '#93c5fd' }}>AG Grid and Bryntum announced a strategic partnership in 2025</strong> — two competitors choosing to integrate rather than fight. This signals market maturation and puts pressure on MUI to sharpen its differentiation beyond "we do everything."
+          <strong style={{ color: '#93c5fd' }}>AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners.</strong> They now operate as a combined group with aligned roadmaps and shared board leadership — positioning them to cover both data grids and scheduling with a single vendor relationship. This is a direct competitive response to MUI X's breadth advantage.
         </Alert>
         <TechLabel tags={['MUI — Alert']} />
       </div>
@@ -384,7 +384,7 @@ function Tab3() {
         paddingBottom: '24px',
         borderBottom: '1px solid #1f1f1f',
       }}>
-        "MUI has built remarkable traction in the React ecosystem, millions of developers, a thriving open-source community, and enterprise adoption across some of the world's leading companies."
+        "MUI has built remarkable traction in the React ecosystem — millions of developers, a thriving open-source community, and enterprise adoption across some of the world's leading companies."
       </p>
 
       {/* Body paragraphs */}
@@ -418,7 +418,7 @@ function Tab3() {
 
       <p style={{ fontSize: '12px', color: '#4b5563', marginTop: '20px', lineHeight: '1.6', fontStyle: 'italic' }}>
         Analysis based on public positioning, pricing pages, and product documentation as of May 2026.
-        Built with MUI X.
+        Built with MUI X — Data Grid, Tabs, Accordion, Alert, and Chip.
       </p>
     </div>
   )

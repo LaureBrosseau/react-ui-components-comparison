@@ -43,10 +43,11 @@ const cards = [
     name: 'Bryntum',
     color: COLORS.bryntum,
     tagline: '"The most reliable Web Components suite for Project Planning & Resource Management"',
+    strategicAngle: 'Scheduling & planning specialist (Grid is one component in a broader suite)',
     audience: 'ISVs and Enterprise teams building scheduling/planning tools',
     valueProp: 'The only complete, production-ready suite for Gantt, scheduling, and resource management — with commercial support and 5,000+ enterprise customers.',
     howWin: '"If scheduling is core to your product, you can\'t realistically build this yourself."',
-    gap: '100% proprietary with no free tier creates adoption friction. SaaS builders face additional OEM licensing complexity. Niche positioning limits broader market appeal.',
+    gap: '100% proprietary with no free tier creates adoption friction. SaaS builders face additional OEM licensing complexity. Recent PE acquisition (Adelis, June 2025) signals ambition — but also potential pricing pressure ahead.',
   },
   {
     key: 'inhouse',
@@ -135,6 +136,9 @@ function PositioningCard({ card }) {
           {card.tagline}
         </p>
 
+        {card.strategicAngle && (
+          <FieldRow label="Strategic Angle" value={card.strategicAngle} />
+        )}
         <FieldRow label="Primary audience" value={card.audience} />
         <FieldRow label="Core value proposition" value={card.valueProp} />
         <FieldRow label="How they win deals" value={card.howWin} mono />
@@ -304,9 +308,9 @@ export default function PositioningMessaging() {
               </strong>
               {' '}≈ 1.5 days of a senior developer's time. The break-even vs. building in-house is typically reached{' '}
               <strong style={{ color: '#f5f5f5' }}>within the first sprint</strong>.
-              {' '}The question isn't{' '}
-              <em>"can we build it?"</em> — it's{' '}
-              <em style={{ color: '#f5f5f5' }}>"should we?"</em>
+              {' '}The question is never{' '}
+              <em>"can we build it?"</em> — it's always{' '}
+              <em style={{ color: '#f5f5f5' }}>"what else could the team have shipped instead?"</em>
             </Alert>
           </CardContent>
         </Card>
