@@ -1,6 +1,6 @@
 # React UI Components — Competitive Analysis
 
-A PMM competitive analysis tool built to understand MUI X's market positioning vs AG Grid, Bryntum, and the build in-house alternative.
+A PMM competitive analysis tool built to understand MUI X's market positioning vs AG Grid, Bryntum, and the build in-house alternative, as well as key REACT UI components comparison.
 
 ## What this is
 
