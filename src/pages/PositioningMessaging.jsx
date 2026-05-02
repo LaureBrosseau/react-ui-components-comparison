@@ -26,7 +26,7 @@ const cards = [
     strategicAngle: 'UI platform extension for React teams standardizing on Material UI',
     audience: 'React developers and their managers in multi-product orgs',
     valueProp: 'The only advanced component suite that integrates natively with the world\'s most-used React UI library. One API, one theme, one team.',
-    howWin: '"You\'re already on Material UI — MUI X is the natural upgrade path. No new design system to learn."',
+    howWin: '"You\'re already on Material UI, MUI X is the natural upgrade path. No new design system to learn."',
     gap: 'Messaging is dev-first, not yet CTO-first. Enterprise value (TCO, governance, support SLA) is undersold.',
   },
   {
@@ -205,17 +205,17 @@ export default function PositioningMessaging() {
           <CardContent sx={{ p: 4 }}>
             <div style={{ marginBottom: '32px' }}>
               <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#111827', letterSpacing: '-0.02em', marginBottom: '8px' }}>
-                Why "We'll Build It In-House" Is the Most Expensive Decision
+                Build vs In-House: Perceived vs Actual Cost
               </h2>
               <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
-                What teams think vs. what actually happens
+                Why internal builds often look simpler upfront than they are in practice
               </p>
             </div>
 
             <Grid container spacing={3} sx={{ mb: 3 }}>
               <Grid size={6}>
                 <Chip
-                  label="What teams think"
+                  label="Perceived cost & effort"
                   size="small"
                   sx={{
                     mb: 2,
@@ -256,7 +256,7 @@ export default function PositioningMessaging() {
 
               <Grid size={6}>
                 <Chip
-                  label="The real cost"
+                  label="Actual cost & complexity"
                   size="small"
                   sx={{
                     mb: 2,
@@ -304,10 +304,10 @@ export default function PositioningMessaging() {
                 MUI X Pro = $299/dev/year
               </strong>
               {' '}≈ 1.5 days of a senior developer's time. The break-even vs. building in-house is typically reached{' '}
-              <strong>within the first sprint</strong>.
-              {' '}The question is never{' '}
-              <em>"can we build it?"</em> — it's always{' '}
-              <em>"what else could the team have shipped instead?"</em>
+              <strong>within the first sprint</strong>.<br />
+                {' '}The question is never{' '}
+              <strong>"can we build it?"</strong> it's always{' '}
+              <strong>"what else could the team have shipped instead?"</strong>
             </Alert>
           </CardContent>
         </Card>
