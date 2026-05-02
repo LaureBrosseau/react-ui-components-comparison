@@ -1,6 +1,10 @@
 import { useMemo, useState, useCallback } from 'react'
 import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
 import { AgGridReact } from 'ag-grid-react'
 import { AllCommunityModule, ModuleRegistry, colorSchemeLight, themeQuartz } from 'ag-grid-community'
 import { generateProspects } from '../data/prospectData'
@@ -199,18 +203,131 @@ const agColumns = [
 // ─── Feature table ────────────────────────────────────────────────────────────
 
 const featureRows = [
-  { feature: 'Column sorting (multi)',            mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
-  { feature: 'Column filtering',                  mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '1–2 weeks' },
-  { feature: 'Pagination',                        mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '1–2 days' },
-  { feature: 'Column resizing',                   mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '1 week' },
-  { feature: 'CSV export',                        mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
-  { feature: 'Checkbox selection',                mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
-  { feature: 'Keyboard navigation (accessible)',  mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–4 weeks' },
-  { feature: 'Row virtualisation (100k+ rows)',   mui: '⚠️ Pro only',        ag: '✅ Community',       effort: '4–8 weeks' },
-  { feature: 'Excel export',                      mui: '❌ Not available',   ag: '⚠️ Enterprise',     effort: '1–2 weeks' },
-  { feature: 'Pivot / grouping',                  mui: '⚠️ Premium',         ag: '⚠️ Enterprise',     effort: '4–8 weeks' },
-  { feature: 'MUI design system integration',     mui: '✅ Native',          ag: '❌ Manual',          effort: 'Ongoing' },
-  { feature: 'Theming API',                       mui: '✅ MUI theme',       ag: '⚠️ Custom CSS',     effort: 'Ongoing' },
+  { id: 1,  feature: 'Column sorting (multi)',            mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
+  { id: 2,  feature: 'Column filtering',                  mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '1–2 weeks' },
+  { id: 3,  feature: 'Pagination',                        mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '1–2 days' },
+  { id: 4,  feature: 'Column resizing',                   mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '1 week' },
+  { id: 5,  feature: 'CSV export',                        mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
+  { id: 6,  feature: 'Checkbox selection',                mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
+  { id: 7,  feature: 'Keyboard navigation (accessible)',  mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–4 weeks' },
+  { id: 8,  feature: 'Row virtualisation (100k+ rows)',   mui: '⚠️ Pro only',        ag: '✅ Community',       effort: '4–8 weeks' },
+  { id: 9,  feature: 'Excel export',                      mui: '❌ Not available',   ag: '⚠️ Enterprise',     effort: '1–2 weeks' },
+  { id: 10, feature: 'Pivot / grouping',                  mui: '⚠️ Premium',         ag: '⚠️ Enterprise',     effort: '4–8 weeks' },
+  { id: 11, feature: 'MUI design system integration',     mui: '✅ Native',          ag: '❌ Manual',          effort: 'Ongoing' },
+  { id: 12, feature: 'Theming API',                       mui: '✅ MUI theme',       ag: '⚠️ Custom CSS',     effort: 'Ongoing' },
+]
+
+const featureColumns = [
+  {
+    field: 'feature', headerName: 'Feature', flex: 1.6, minWidth: 200, sortable: false,
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '13px', color: '#374151', fontWeight: '500' }}>{value}</span>
+    ),
+  },
+  {
+    field: 'mui', headerName: 'MUI X Community', flex: 1, minWidth: 150, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#007FFF', display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color: '#007FFF', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>MUI X Community</span>
+      </span>
+    ),
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
+    ),
+  },
+  {
+    field: 'ag', headerName: 'AG Grid Community', flex: 1, minWidth: 150, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#16a34a', display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color: '#16a34a', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>AG Grid Community</span>
+      </span>
+    ),
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
+    ),
+  },
+  {
+    field: 'effort', headerName: 'Build in-house', flex: 0.8, minWidth: 130, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#9ca3af', display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color: '#9ca3af', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Build in-house</span>
+      </span>
+    ),
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '12px', color: '#d97706', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
+    ),
+  },
+]
+
+const paidRows = [
+  { id: 1,  feature: 'Row grouping / aggregation',          mui: '⚠️ Premium',         ag: '✅ Enterprise',      bryntum: '⚠️ Partial',        effort: '4–8 weeks' },
+  { id: 2,  feature: 'Pivoting',                            mui: '⚠️ Premium',         ag: '✅ Enterprise',      bryntum: '❌',                effort: '4–8 weeks' },
+  { id: 3,  feature: 'Excel export',                        mui: '⚠️ Pro/Premium',     ag: '✅ Enterprise',      bryntum: '⚠️ Limited',        effort: '1–2 weeks' },
+  { id: 4,  feature: 'Advanced filtering',                  mui: '⚠️ Pro/Premium',     ag: '✅ Enterprise',      bryntum: '⚠️ Partial',        effort: '2–4 weeks' },
+  { id: 5,  feature: 'Large dataset performance (100k+)',   mui: '⚠️ Premium',         ag: '✅ Strong',          bryntum: '⚠️ Partial',        effort: '4–8 weeks' },
+  { id: 6,  feature: 'Charts integration',                  mui: '✅ Native',          ag: '⚠️ Separate (AG Charts)', bryntum: '❌',           effort: '2–4 weeks' },
+  { id: 7,  feature: 'Design system / theming',             mui: '✅ Native (MUI)',    ag: '❌ Manual',          bryntum: '❌',                effort: 'Ongoing' },
+  { id: 8,  feature: 'Scheduling / Gantt',                  mui: '❌',                 ag: '❌',                 bryntum: '✅ Core strength',  effort: '8–12+ weeks' },
+]
+
+const paidColumns = [
+  {
+    field: 'feature', headerName: 'Feature', flex: 1.8, minWidth: 220, sortable: false,
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '13px', color: '#374151', fontWeight: '500' }}>{value}</span>
+    ),
+  },
+  {
+    field: 'mui', headerName: 'MUI X Pro/Premium', flex: 1, minWidth: 150, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#007FFF', display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color: '#007FFF', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>MUI X Pro/Premium</span>
+      </span>
+    ),
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
+    ),
+  },
+  {
+    field: 'ag', headerName: 'AG Grid Enterprise', flex: 1, minWidth: 160, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#16a34a', display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color: '#16a34a', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>AG Grid Enterprise</span>
+      </span>
+    ),
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
+    ),
+  },
+  {
+    field: 'bryntum', headerName: 'Bryntum', flex: 1, minWidth: 140, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#e67e22', display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color: '#e67e22', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Bryntum</span>
+      </span>
+    ),
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '12px', color: featureColor(value), fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
+    ),
+  },
+  {
+    field: 'effort', headerName: 'Build in-house', flex: 0.8, minWidth: 130, sortable: false,
+    renderHeader: () => (
+      <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#9ca3af', display: 'inline-block' }} />
+        <span style={{ fontWeight: '700', color: '#9ca3af', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Build in-house</span>
+      </span>
+    ),
+    renderCell: ({ value }) => (
+      <span style={{ fontSize: '12px', color: '#d97706', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>
+    ),
+  },
 ]
 
 function featureColor(val) {
@@ -255,6 +372,7 @@ function TabBtn({ active, onClick, color, children }) {
 
 export default function MUIXDemo() {
   const [activeTab, setActiveTab] = useState('mui')
+  const [featureTab, setFeatureTab] = useState('community')
   const prospects = useMemo(() => generateProspects(), [])
 
   const onAgGridReady = useCallback((params) => {
@@ -344,114 +462,148 @@ export default function MUIXDemo() {
 
       {/* API diff callout */}
       <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '40px' }}>
-        <div style={{
-          background: '#eff6ff', border: '1px solid #bfdbfe', borderLeft: '3px solid #007FFF',
-          borderRadius: '8px', padding: '16px 20px',
-        }}>
-          <div style={{ fontSize: '11px', fontWeight: '700', color: '#007FFF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-            MUI X — What's different
-          </div>
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            {[
-              'Prop-based API: rows={} columns={}',
-              'renderCell for custom cell content',
-              'slots={{ toolbar }} for customization',
-              'Integrates natively with MUI theme',
-              'Row virtualisation: Pro tier only',
-            ].map(t => (
-              <li key={t} style={{ fontSize: '12px', color: '#1e40af', fontFamily: "'JetBrains Mono', monospace", display: 'flex', gap: '8px' }}>
-                <span style={{ color: '#007FFF', flexShrink: 0 }}>›</span>{t}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div style={{
-          background: '#f0fdf4', border: '1px solid #bbf7d0', borderLeft: '3px solid #16a34a',
-          borderRadius: '8px', padding: '16px 20px',
-        }}>
-          <div style={{ fontSize: '11px', fontWeight: '700', color: '#16a34a', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-            AG Grid — What's different
-          </div>
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            {[
-              'columnDefs={} rowData={} API',
-              'cellRenderer for custom cells',
-              'Built-in CSV export (no config)',
-              'Row virtualisation: Community ✅',
-              'Theme via themeQuartz.withParams()',
-            ].map(t => (
-              <li key={t} style={{ fontSize: '12px', color: '#166534', fontFamily: "'JetBrains Mono', monospace", display: 'flex', gap: '8px' }}>
-                <span style={{ color: '#16a34a', flexShrink: 0 }}>›</span>{t}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {[
+          {
+            color: '#007FFF',
+            bg: '#eff6ff',
+            border: '#bfdbfe',
+            title: 'MUI X — Key API concepts',
+            items: [
+              { label: 'Data binding',    text: 'Prop-based: ', code: 'rows={}  columns={}' },
+              { label: 'Cell rendering',  text: 'Custom cells via ', code: 'renderCell' },
+              { label: 'Customization',   text: 'Toolbar via ', code: 'slots={{ toolbar }}' },
+              { label: 'Theming',         text: 'Native MUI theme — no extra config' },
+              { label: 'Virtualisation',  text: 'Pro tier only', warn: true },
+            ],
+          },
+          {
+            color: '#16a34a',
+            bg: '#f0fdf4',
+            border: '#bbf7d0',
+            title: 'AG Grid — Key API concepts',
+            items: [
+              { label: 'Data binding',    text: 'Prop-based: ', code: 'columnDefs={}  rowData={}' },
+              { label: 'Cell rendering',  text: 'Custom cells via ', code: 'cellRenderer' },
+              { label: 'Export',          text: 'CSV built-in, no configuration needed' },
+              { label: 'Virtualisation',  text: 'Included in Community tier', ok: true },
+              { label: 'Theming',         text: 'Semantic API: ', code: 'themeQuartz.withParams()' },
+            ],
+          },
+        ].map(({ color, bg, border, title, items }) => (
+          <ThemeProvider key={title} theme={muiTheme}>
+            <Card sx={{
+              background: bg,
+              border: `1px solid ${border}`,
+              borderLeft: `3px solid ${color}`,
+              borderRadius: '8px',
+              boxShadow: 'none',
+            }}>
+              <CardContent sx={{ p: '18px 20px', '&:last-child': { pb: '18px' } }}>
+                <div style={{ fontSize: '11px', fontWeight: '700', color, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
+                  {title}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {items.map(({ label, text, code, warn, ok }) => (
+                    <div key={label} style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+                      <span style={{
+                        fontSize: '10px', fontWeight: '600', color: '#9ca3af',
+                        textTransform: 'uppercase', letterSpacing: '0.07em',
+                        minWidth: '100px', flexShrink: 0,
+                      }}>
+                        {label}
+                      </span>
+                      <span style={{ fontSize: '13px', color: '#374151', lineHeight: '1.5' }}>
+                        {text}
+                        {code && (
+                          <code style={{
+                            fontFamily: "'JetBrains Mono', monospace",
+                            fontSize: '11.5px',
+                            background: 'rgba(0,0,0,0.05)',
+                            borderRadius: '3px',
+                            padding: '1px 5px',
+                            color,
+                          }}>
+                            {code}
+                          </code>
+                        )}
+                        {warn && <span style={{ color: '#d97706', fontWeight: '600' }}> ⚠️ paid tier</span>}
+                        {ok  && <span style={{ color: '#15803d', fontWeight: '600' }}> ✅</span>}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </ThemeProvider>
+        ))}
       </div>
 
-      {/* Feature comparison table */}
+      {/* Feature comparison tables */}
       <div>
         <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#111827', marginBottom: '6px', letterSpacing: '-0.02em' }}>
-          Feature comparison: MUI X vs AG Grid vs Build from scratch
+          Feature comparison
         </h2>
-        <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '20px' }}>
-          Community tier only — no paid plans
+        <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '16px' }}>
+          From baseline capabilities to paid differentiation across MUI X, AG Grid, Bryntum, and build in-house.
         </p>
 
-        <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr style={{ background: '#f8fafc' }}>
-                {[
-                  { label: 'Feature', color: '#6b7280' },
-                  { label: 'MUI X Community', color: '#007FFF' },
-                  { label: 'AG Grid Community', color: '#16a34a' },
-                  { label: 'Build in-house', color: '#6b7280' },
-                ].map(({ label, color }, i) => (
-                  <th key={label} style={{
-                    padding: '12px 18px', textAlign: 'left',
-                    fontSize: '11px', fontWeight: '700', color,
-                    textTransform: 'uppercase', letterSpacing: '0.07em',
-                    borderBottom: '1px solid #e5e7eb',
-                    borderRight: i < 3 ? '1px solid #f0f0f0' : 'none',
-                  }}>
-                    {label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {featureRows.map((row, i) => (
-                <tr key={row.feature} style={{ background: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}>
-                  <td style={{ padding: '11px 18px', fontSize: '13px', color: '#374151', borderBottom: '1px solid #f0f0f0', borderRight: '1px solid #f0f0f0' }}>
-                    {row.feature}
-                  </td>
-                  <td style={{ padding: '11px 18px', fontSize: '12px', color: featureColor(row.mui), borderBottom: '1px solid #f0f0f0', borderRight: '1px solid #f0f0f0', fontFamily: "'JetBrains Mono', monospace" }}>
-                    {row.mui}
-                  </td>
-                  <td style={{ padding: '11px 18px', fontSize: '12px', color: featureColor(row.ag), borderBottom: '1px solid #f0f0f0', borderRight: '1px solid #f0f0f0', fontFamily: "'JetBrains Mono', monospace" }}>
-                    {row.ag}
-                  </td>
-                  <td style={{ padding: '11px 18px', fontSize: '12px', color: '#d97706', borderBottom: '1px solid #f0f0f0', fontFamily: "'JetBrains Mono', monospace" }}>
-                    {row.effort}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <TechLabel tags={['Custom HTML <table>', 'Inline styles']} />
+        <ThemeProvider theme={muiTheme}>
+          <Tabs
+            value={featureTab}
+            onChange={(_, v) => setFeatureTab(v)}
+            sx={{
+              minHeight: '36px',
+              marginBottom: '16px',
+              borderBottom: '1px solid #e5e7eb',
+              '& .MuiTabs-indicator': { backgroundColor: '#007FFF', height: '2px' },
+              '& .MuiTab-root': {
+                minHeight: '36px', padding: '0 16px', fontSize: '13px', fontWeight: '500',
+                color: '#6b7280', textTransform: 'none', letterSpacing: '-0.01em',
+                '&.Mui-selected': { color: '#007FFF', fontWeight: '600' },
+              },
+            }}
+          >
+            <Tab value="community" label="Community tier" />
+            <Tab value="paid" label="Paid capabilities" />
+          </Tabs>
 
-        <div style={{
-          marginTop: '16px',
-          background: '#fef2f2', border: '1px solid #fecaca', borderLeft: '4px solid #dc2626',
-          borderRadius: '8px', padding: '18px 22px', display: 'flex', gap: '12px', alignItems: 'flex-start',
-        }}>
-          <span style={{ fontSize: '16px', marginTop: '1px' }}>🚨</span>
-          <p style={{ fontSize: '14px', color: '#b91c1c', lineHeight: '1.65' }}>
-            <strong style={{ color: '#7f1d1d' }}>6–12 weeks</strong> of senior frontend dev time, before your first feature request.{' '}
-            Every team that has tried to build this has regretted it.
-          </p>
-        </div>
+          {featureTab === 'community' && (
+            <div>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '12px', fontStyle: '' }}>
+                Based on community tiers to provide a consistent baseline across products.<br/><em>Note: some enterprise evaluations start directly with paid plans.</em>
+              </p>
+              <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
+                <DataGrid
+                  rows={featureRows}
+                  columns={featureColumns}
+                  hideFooter
+                  disableColumnMenu
+                  disableRowSelectionOnClick
+                  style={{ minHeight: 200 }}
+                />
+              </div>             
+            </div>
+          )}
+
+          {featureTab === 'paid' && (
+            <div>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '12px', fontStyle: '' }}>
+                Comparison of paid features to show how each solution differentiates beyond the baseline.
+              </p>
+              <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
+                <DataGrid
+                  rows={paidRows}
+                  columns={paidColumns}
+                  hideFooter
+                  disableColumnMenu
+                  disableRowSelectionOnClick
+                  style={{ minHeight: 200 }}
+                />
+              </div>
+              <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'Inline styles']} />
+            </div>
+          )}
+        </ThemeProvider>
       </div>
     </div>
   )
