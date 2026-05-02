@@ -148,36 +148,36 @@ function MuiToolbar() {
 
 const muiColumns = [
   {
-    field: 'company', headerName: 'Company', width: 160,
+    field: 'company', headerName: 'Company', flex: 1.4, minWidth: 140,
     renderCell: ({ value }) => <span style={{ fontWeight: '600', color: '#111827' }}>{value}</span>,
   },
-  { field: 'industry', headerName: 'Industry', width: 150,
+  { field: 'industry', headerName: 'Industry', flex: 1.3, minWidth: 120,
     renderCell: ({ value }) => <span style={{ fontSize: '13px', color: '#374151' }}>{value}</span>,
   },
-  { field: 'teamSize', headerName: 'Dev Team', width: 130,
+  { field: 'teamSize', headerName: 'Dev Team', flex: 1, minWidth: 100,
     renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#9ca3af', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
   },
-  { field: 'stack', headerName: 'Stack', width: 160,
+  { field: 'stack', headerName: 'Stack', flex: 1.2, minWidth: 120,
     renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#6b7280', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
   },
   {
-    field: 'currentGrid', headerName: 'Current Grid', width: 150,
+    field: 'currentGrid', headerName: 'Current Grid', flex: 1.2, minWidth: 120,
     renderCell: ({ value }) => <Badge value={value} styleMap={GRID_STYLES} />,
   },
   {
-    field: 'evalStatus', headerName: 'Status', width: 135,
+    field: 'evalStatus', headerName: 'Status', flex: 1, minWidth: 110,
     renderCell: ({ value }) => <Badge value={value} styleMap={STATUS_STYLES} />,
   },
   {
-    field: 'arrPotential', headerName: 'ARR Potential', width: 140, type: 'number',
+    field: 'arrPotential', headerName: 'ARR Potential', flex: 1.1, minWidth: 120, type: 'number',
     renderCell: ({ value }) => <ARRCell value={value} />,
   },
   {
-    field: 'region', headerName: 'Region', width: 90,
+    field: 'region', headerName: 'Region', flex: 0.8, minWidth: 80,
     renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#9ca3af', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
   },
   {
-    field: 'lastContact', headerName: 'Last Contact', width: 130,
+    field: 'lastContact', headerName: 'Last Contact', flex: 1, minWidth: 110,
     renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#d1d5db', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
   },
 ]
@@ -265,7 +265,7 @@ export default function MUIXDemo() {
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
       <div style={{ marginBottom: '28px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-          Data Grid — Live Comparison
+          Data Grid: Live Comparison
         </h1>
         <p style={{ fontSize: '14px', color: '#6b7280' }}>
           200 enterprise prospects tracked with company, stack, current grid solution, eval status, and ARR potential — rendered with two different libraries.
@@ -290,7 +290,6 @@ export default function MUIXDemo() {
                 columns={muiColumns}
                 pageSizeOptions={[25, 50, 100]}
                 pagination
-                checkboxSelection
                 disableRowSelectionOnClick
                 slots={{ toolbar: MuiToolbar }}
                 initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
@@ -299,6 +298,17 @@ export default function MUIXDemo() {
             </div>
           </ThemeProvider>
           <TechLabel tags={['MUI X — DataGrid', 'MUI X — GridToolbar', '@mui/material — ThemeProvider']} />
+          <div style={{
+            marginTop: '12px',
+            background: '#f9fafb', border: '1px solid #e5e7eb', borderLeft: '4px solid #9ca3af',
+            borderRadius: '8px', padding: '14px 20px', display: 'flex', gap: '12px', alignItems: 'flex-start',
+          }}>
+            <span style={{ fontSize: '16px', marginTop: '1px' }}>📊</span>
+            <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.65', margin: 0 }}>
+              <strong style={{ color: '#374151' }}>About the dataset:</strong>{' '}
+              Company names are real. All other attributes (stack, grid solution, ARR, eval status) are randomly generated for demo purposes only.
+            </p>
+          </div>
         </div>
       )}
 
@@ -318,6 +328,17 @@ export default function MUIXDemo() {
             />
           </div>
           <TechLabel tags={['AG Grid — AgGridReact', 'AG Grid Community (free)']} />
+          <div style={{
+            marginTop: '12px',
+            background: '#f9fafb', border: '1px solid #e5e7eb', borderLeft: '4px solid #9ca3af',
+            borderRadius: '8px', padding: '14px 20px', display: 'flex', gap: '12px', alignItems: 'flex-start',
+          }}>
+            <span style={{ fontSize: '16px', marginTop: '1px' }}>📊</span>
+            <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.65', margin: 0 }}>
+              <strong style={{ color: '#374151' }}>Synthetic dataset.</strong>{' '}
+              Company names are real. All other attributes (stack, grid solution, ARR, eval status) are randomly generated for demo purposes only.
+            </p>
+          </div>
         </div>
       )}
 
@@ -384,7 +405,7 @@ export default function MUIXDemo() {
                   { label: 'Feature', color: '#6b7280' },
                   { label: 'MUI X Community', color: '#007FFF' },
                   { label: 'AG Grid Community', color: '#16a34a' },
-                  { label: 'Built from scratch', color: '#6b7280' },
+                  { label: 'Build in-house', color: '#6b7280' },
                 ].map(({ label, color }, i) => (
                   <th key={label} style={{
                     padding: '12px 18px', textAlign: 'left',
