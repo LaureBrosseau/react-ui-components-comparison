@@ -390,8 +390,8 @@ function Tab3() {
       {/* Body paragraphs */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
         {[
-          `MUI wins on adoption and breadth, and that foundation is what makes the opportunity real. The opportunity isn't to change who MUI speaks to, but to extend the narrative upward along the buying chain.`
-          `Developers are already the champions. What's missing is giving them the language to sell MUI X internally — a story that resonates with the tech lead who recommends, and the Engineering Manager or CTO who approves the budget. That story exists in the product: platform coherence, reduced integration overhead, consistent design system across teams, lower TCO than building in-house or stitching together point solutions.`
+          `MUI wins on adoption and breadth, and that foundation is what makes the opportunity real. The opportunity isn't to change who MUI speaks to, but to extend the narrative upward along the buying chain.`,
+          `Developers are already the champions. What's missing is giving them the language to sell MUI X internally — a story that resonates with the tech lead who recommends, and the Engineering Manager or CTO who approves the budget. That story exists in the product: platform coherence, reduced integration overhead, consistent design system across teams, lower TCO than building in-house or stitching together point solutions.`,
           `The positioning opportunity is not a category shift. It's about making the Enterprise value of MUI X as clear and compelling as its developer experience already is.`,
         ].map((text, i) => (
           <p key={i} style={{ fontSize: '15px', color: '#d1d5db', lineHeight: '1.8' }}>
