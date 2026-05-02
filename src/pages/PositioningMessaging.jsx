@@ -22,7 +22,8 @@ const cards = [
     key: 'mui',
     name: 'MUI X',
     color: COLORS.mui,
-    tagline: '"Performant advanced components for complex use cases"',
+    tagline: '"Advanced and powerful components for complex use cases"',
+    strategicAngle: 'UI platform extension for React teams standardizing on Material UI',
     audience: 'React developers and their managers in multi-product orgs',
     valueProp: 'The only advanced component suite that integrates natively with the world\'s most-used React UI library. One API, one theme, one team.',
     howWin: '"You\'re already on Material UI — MUI X is the natural upgrade path. No new design system to learn."',
@@ -32,7 +33,8 @@ const cards = [
     key: 'ag',
     name: 'AG Grid',
     color: COLORS.ag,
-    tagline: '"The best JavaScript Data Grid in the world"',
+    tagline: '"The best Data Grid in the world"',
+    strategicAngle: 'Specialized data grid for high-performance, data-intensive applications',
     audience: 'Frontend engineers working on data-intensive applications',
     valueProp: 'The most feature-complete, highest-performance data grid available. Used by the most demanding teams in finance, analytics, and enterprise software.',
     howWin: '"Nothing else handles 100k+ rows, pivoting, and Excel export with this level of performance."',
@@ -42,8 +44,8 @@ const cards = [
     key: 'bryntum',
     name: 'Bryntum',
     color: COLORS.bryntum,
-    tagline: '"The most reliable Web Components suite for Project Planning & Resource Management"',
-    strategicAngle: 'Scheduling & planning specialist (Grid is one component in a broader suite)',
+    tagline: '"World Class Web Components"',
+    strategicAngle: 'Scheduling & planning platform for complex enterprise applications',
     audience: 'ISVs and Enterprise teams building scheduling/planning tools',
     valueProp: 'The only complete, production-ready suite for Gantt, scheduling, and resource management, with commercial support and 5,000+ enterprise customers.',
     howWin: '"If scheduling is core to your product, you can\'t realistically build this yourself."',
@@ -54,6 +56,7 @@ const cards = [
     name: 'Build in-house',
     color: COLORS.inhouse,
     tagline: '"Full control, full responsibility"',
+    strategicAngle: 'Build-for-control strategy when no existing solution fits product requirements',
     audience: 'CTOs who believe their use case is unique',
     valueProp: 'No vendor dependency, no licensing cost, complete control over UX and roadmap.',
     howWin: '"Our data model is too specific for any off-the-shelf solution. We need full ownership."',
@@ -110,11 +113,16 @@ function FieldRow({ label, value, mono }) {
 function PositioningCard({ card }) {
   return (
     <Card sx={{
-      background: '#ffffff',
-      border: '1px solid #e5e7eb',
+      background: `${card.color}06`,
+      border: `1px solid ${card.color}30`,
+      borderTop: `3px solid ${card.color}`,
       borderRadius: '10px',
       height: '100%',
-      boxShadow: 'none',
+      boxShadow: `0 2px 8px ${card.color}14, 0 1px 3px rgba(0,0,0,0.06)`,
+      transition: 'box-shadow 200ms ease',
+      '&:hover': {
+        boxShadow: `0 4px 16px ${card.color}22, 0 2px 6px rgba(0,0,0,0.08)`,
+      },
     }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: '4px', p: 3 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
@@ -131,7 +139,7 @@ function PositioningCard({ card }) {
           fontFamily: "'JetBrains Mono', monospace",
           lineHeight: '1.5',
           paddingBottom: '14px',
-          borderBottom: '1px solid #f0f0f0',
+          borderBottom: `1px solid ${card.color}20`,
           margin: '0 0 12px 0',
         }}>
           {card.tagline}
@@ -170,7 +178,7 @@ export default function PositioningMessaging() {
             Positioning & Messaging
           </h1>
           <p style={{ fontSize: '14px', color: '#6b7280' }}>
-            How each player positions itself and an honest PMM assessment
+            How each player positions itself, with a structured analysis of messaging strengths, gaps, and trade-offs.
           </p>
         </div>
 
