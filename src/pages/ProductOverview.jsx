@@ -20,15 +20,15 @@ const companyRows = [
   { id: 3,  dimension: 'Team size',
     mui: '40+', ag: '60+', bryntum: '11–50' },
   { id: 4,  dimension: 'Funding & Backing',
-    mui: 'Bootstrapped — open-core model funded by MUI X commercial revenue + open-source sponsors',
+    mui: 'Bootstrapped, open-core model funded by MUI X commercial revenue + open-source sponsors',
     ag: 'Bootstrapped, self-funded and profitable',
-    bryntum: 'PE-backed — Adelis Equity Partners became majority shareholder in June 2025' },
+    bryntum: 'PE-backed, Adelis Equity Partners became majority shareholder in June 2025' },
   { id: 5,  dimension: 'Revenue (last known)',
     mui: 'Not publicly disclosed', ag: '£16M+ (last public figure, 2022)', bryntum: 'Not publicly disclosed' },
   { id: 6,  dimension: 'Strategic Angle',
-    mui: 'React UI platform — advanced components integrated into a unified ecosystem',
-    ag: 'Data grid specialist — expanding into charts and embedded analytics',
-    bryntum: 'Scheduling & planning specialist — expanding via PE-backed growth strategy' },
+    mui: 'React UI platform, advanced components integrated into a unified ecosystem',
+    ag: 'Data grid specialist, expanding into charts and embedded analytics',
+    bryntum: 'Scheduling & planning specialist, expanding via PE-backed growth strategy' },
   { id: 7,  dimension: 'Full Component Suite',
     mui: 'Data Grid · Charts · Date & Time Pickers · Tree View',
     ag: 'AG Grid · AG Charts · AG Studio (embedded analytics dashboard)',
@@ -38,14 +38,14 @@ const companyRows = [
     ag: 'React · Angular · Vue · Vanilla JS',
     bryntum: 'React · Angular · Vue · Vanilla JS' },
   { id: 9,  dimension: 'OSS Model',
-    mui: 'Open-core — MIT Core (Material UI) + paid MUI X',
-    ag: 'Open-core — MIT Community + paid Enterprise',
-    bryntum: '100% proprietary — no free tier' },
+    mui: 'Open-core, MIT Core (Material UI) + paid MUI X',
+    ag: 'Open-core, MIT Community + paid Enterprise',
+    bryntum: '100% proprietary, no free tier' },
   { id: 10, dimension: 'Pricing (entry point)',
     mono: true,
     mui: 'Free community tier / Pro $299/dev/year',
     ag: 'Free community tier / Enterprise $999/dev (perpetual)',
-    bryntum: 'From $680/dev (small team, 3+ devs) — no free tier' },
+    bryntum: 'From $680/dev (small team, 3+ devs), no free tier' },
   { id: 11, dimension: 'Commercial/SaaS Use',
     mui: '✅ Included in all paid plans',
     ag: '✅ Included in Enterprise license',
@@ -55,8 +55,8 @@ const companyRows = [
     ag: 'J.P. Morgan · MongoDB · NASA',
     bryntum: 'Ferrari · Red Bull · HSBC · IMAX · United Nations · Apple · Samsung (5,000+ customers, 80+ countries)' },
   { id: 13, dimension: '2025 Market Signal',
-    mui: 'v9 launch — Material UI + MUI X unified release',
-    ag: 'Strategic partnership with Bryntum, backed by Adelis Equity — forming a combined group',
+    mui: 'v9 launch, Material UI + MUI X unified release',
+    ag: 'Strategic partnership with Bryntum, backed by Adelis Equity, forming a combined group',
     bryntum: 'PE acquisition by Adelis Equity (June 2025) + strategic partnership with AG Grid (November 2025)' },
 ]
 
@@ -86,7 +86,7 @@ const gridRows = [
   { id: 5, dimension: 'Loses when',
     mui: 'Massive datasets, most advanced grid-specific features needed',
     ag: 'Design system coherence matters, platform approach preferred',
-    bryntum: 'Use case is standard  — overkill and more expensive',
+    bryntum: 'Use case is standard (CRUD/dashboard), overkill and more expensive',
     inhouse: 'Real cost underestimated, time-to-market missed' },
   { id: 6, dimension: 'OSS (grid tier)',
     mui: '✅ Community tier MIT (free)',
@@ -223,10 +223,10 @@ export default function ProductOverview() {
 
       <div style={{ marginBottom: '40px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-          Data Grid & Component Suite Comparison
+          Company & Data Grid Component Suite Comparison
         </h1>
         <p style={{ fontSize: '14px', color: '#6b7280' }}>
-          How the main Enterprise React UI component vendors stack up — and when each one wins.
+          How the main Enterprise React UI component vendors stack up, and when each one wins.
         </p>
       </div>
 
