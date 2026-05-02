@@ -1,24 +1,37 @@
-# React UI Components — Competitive Analysis
+# React UI Components - Competitive Analysis
 
-A PMM competitive analysis tool built to understand MUI X's market positioning vs AG Grid, Bryntum, and the build in-house alternative, as well as key REACT UI components comparison.
+A product marketing exploration of the React enterprise UI components market, focusing on how MUI compares to AG Grid, Bryntum, and the build-in-house alternative.
 
-## What this is
+## Why this project
 
-This project was built as part of a deep-dive into the React enterprise UI components market. It compares:
+The React UI components space is crowded, but also fragmented.
 
-- **MUI X**: Advanced React components (Data Grid, Charts, Pickers)
-- **AG Grid**: High-performance JavaScript data grid
-- **Bryntum**: Scheduling and planning UI components
-- **Build in-house**: The ever-present alternative
+Teams often face the same challenge:        
+_Should we adopt a component library, combine multiple tools, or build everything in-house?_
 
-## Pages
+Each option comes with trade-offs in performance, flexibility, developer experience, and long-term scalability.
 
-1. **Product Overview**: Side-by-side comparison table across 10 dimensions
-2. **Positioning & Messaging**: How each player sells, messaging gaps, and a Build vs Buy cost analysis
-3. **MUI X Live Demo**: MUI X Data Grid Community and AG Grid Community running live side-by-side with 200 rows of enterprise prospect data
-4. **PMM Analysis**: A product marketer's read on positioning, gaps, and opportunities in the React enterprise UI space
-5. **Bonus**: An AI Developer Experience Report
-   
+This project explores how leading solutions approach this trade-off — and highlights key positioning tensions, especially for MUI X.
+
+
+## What this project covers
+
+This project compares four common approaches:
+- **MUI X**: Advanced React components (Data Grid, Charts, Pickers) within a broader UI ecosystem
+- **AG Grid**: High-performance, feature-rich data grid for complex data use cases
+- **Bryntum**: Specialized scheduling and planning components
+- **Build in-house**: A flexible but costly alternative many teams still consider
+
+## What you’ll find
+
+1. **Company Overview**: A structured view of each company’s strategy, product scope, and positioning, followed by a focused comparison of the Data Grid as the primary evaluation entry point.
+2. **Positioning & Messaging**: How each player positions itself, with observations on messaging strengths and gaps
+3. **MUI X Live Demo**: MUI X Data Grid and AG Grid Community running side-by-side with a realistic dataset
+4. **PMM Analysis**: A structured perspective on market dynamics, positioning tensions, and trade-offs
+5. **Bonu: AI Install Experience**: This project was built using with Claude, guided through prompts to implement and compare MUI X and AG Grid.
+The installation and setup process was part of the evaluation, providing a perspective on developer onboarding, friction, and time-to-first-value from an AI-assisted workflow.
+
+
 ## Stack
 
 Vite + React + TailwindCSS + MUI X Community + AG Grid Community

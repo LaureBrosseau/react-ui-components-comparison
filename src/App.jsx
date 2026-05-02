@@ -40,7 +40,7 @@ function Nav() {
 
         <div style={{ display: 'flex', gap: '4px' }}>
           {[
-            { to: '/', label: 'Product Overview' },
+            { to: '/', label: 'Company Overview' },
             { to: '/positioning', label: 'Positioning & Messaging' },
             { to: '/demo', label: 'Live Demo' },
             { to: '/pmm', label: 'PMM Analysis' },
