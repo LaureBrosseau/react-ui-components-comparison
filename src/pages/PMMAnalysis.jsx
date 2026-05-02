@@ -12,23 +12,23 @@ import TechLabel from '../components/TechLabel'
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
 
-const darkTheme = createTheme({
+const lightTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: { main: '#007FFF' },
-    error:   { main: '#ef4444' },
-    warning: { main: '#f59e0b' },
-    success: { main: '#2ecc71' },
-    info:    { main: '#60a5fa' },
-    background: { default: '#0a0a0a', paper: '#111111' },
+    error:   { main: '#dc2626' },
+    warning: { main: '#d97706' },
+    success: { main: '#16a34a' },
+    info:    { main: '#007FFF' },
+    background: { default: '#ffffff', paper: '#ffffff' },
   },
   typography: { fontFamily: "'DM Sans', sans-serif" },
   components: {
     MuiTabs: {
       styleOverrides: {
         root: {
-          background: '#111111',
-          borderBottom: '1px solid #1f1f1f',
+          background: '#ffffff',
+          borderBottom: '1px solid #e5e7eb',
           minHeight: '44px',
         },
         indicator: { background: '#007FFF', height: '2px' },
@@ -44,16 +44,16 @@ const darkTheme = createTheme({
           textTransform: 'none',
           minHeight: '44px',
           padding: '0 20px',
-          '&.Mui-selected': { color: '#f5f5f5', fontWeight: '600' },
-          '&:hover': { color: '#d1d5db' },
+          '&.Mui-selected': { color: '#111827', fontWeight: '600' },
+          '&:hover': { color: '#374151' },
         },
       },
     },
     MuiAccordion: {
       styleOverrides: {
         root: {
-          background: '#111111',
-          border: '1px solid #1f1f1f',
+          background: '#ffffff',
+          border: '1px solid #e5e7eb',
           borderRadius: '8px !important',
           marginBottom: '8px',
           boxShadow: 'none',
@@ -85,7 +85,7 @@ const darkTheme = createTheme({
       styleOverrides: {
         root: {
           padding: '16px 20px 20px',
-          borderTop: '1px solid #1f1f1f',
+          borderTop: '1px solid #e5e7eb',
         },
       },
     },
@@ -116,18 +116,18 @@ const darkTheme = createTheme({
           border: 'none',
           fontFamily: "'DM Sans', sans-serif",
           fontSize: '13px',
-          color: '#d1d5db',
-          '& .MuiDataGrid-cell': { borderColor: '#1a1a1a', alignItems: 'flex-start', paddingTop: '12px', paddingBottom: '12px' },
-          '& .MuiDataGrid-columnHeaders': { background: '#1e293b', borderColor: '#1f1f1f' },
-          '& .MuiDataGrid-columnHeader': { background: '#1e293b' },
-          '& .MuiDataGrid-columnSeparator': { color: '#2a3a50' },
-          '& .MuiDataGrid-row': { background: '#111111' },
-          '& .MuiDataGrid-row:nth-of-type(even)': { background: '#161616' },
-          '& .MuiDataGrid-row:hover': { background: '#1a1a1a' },
+          color: '#374151',
+          '& .MuiDataGrid-cell': { borderColor: '#f0f0f0', alignItems: 'flex-start', paddingTop: '12px', paddingBottom: '12px' },
+          '& .MuiDataGrid-columnHeaders': { background: '#f8fafc', borderColor: '#e5e7eb' },
+          '& .MuiDataGrid-columnHeader': { background: '#f8fafc' },
+          '& .MuiDataGrid-columnSeparator': { color: '#e5e7eb' },
+          '& .MuiDataGrid-row': { background: '#ffffff' },
+          '& .MuiDataGrid-row:nth-of-type(even)': { background: '#f9fafb' },
+          '& .MuiDataGrid-row:hover': { background: '#f3f4f6' },
           '& .MuiDataGrid-footerContainer': { display: 'none' },
-          '& .MuiDataGrid-virtualScroller': { background: '#111111' },
-          '& .MuiDataGrid-filler': { background: '#111111' },
-          '& .MuiDataGrid-scrollbarFiller': { background: '#111111' },
+          '& .MuiDataGrid-virtualScroller': { background: '#ffffff' },
+          '& .MuiDataGrid-filler': { background: '#ffffff' },
+          '& .MuiDataGrid-scrollbarFiller': { background: '#ffffff' },
         },
       },
     },
@@ -166,7 +166,7 @@ function makeCol(field, label, color) {
       </span>
     ),
     renderCell: ({ value }) => (
-      <span style={{ fontSize: '12.5px', color: '#d1d5db', lineHeight: '1.55', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+      <span style={{ fontSize: '12.5px', color: '#374151', lineHeight: '1.55', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
         {value}
       </span>
     ),
@@ -275,7 +275,7 @@ MUI has the assets to position itself as the tool that eliminates the designer-d
 // ─── Subcomponents ────────────────────────────────────────────────────────────
 
 function ExpandIcon() {
-  return <span style={{ color: '#6b7280', fontSize: '16px', lineHeight: 1 }}>▾</span>
+  return <span style={{ color: '#9ca3af', fontSize: '16px', lineHeight: 1 }}>▾</span>
 }
 
 function GapBadge({ type }) {
@@ -283,9 +283,9 @@ function GapBadge({ type }) {
     <span style={{
       fontSize: '10px', fontWeight: '700', textTransform: 'uppercase',
       letterSpacing: '0.08em', padding: '2px 7px', borderRadius: '4px',
-      background: type === 'gap' ? 'rgba(239,68,68,0.1)' : 'rgba(46,204,113,0.1)',
-      color: type === 'gap' ? '#f87171' : '#4ade80',
-      border: `1px solid ${type === 'gap' ? 'rgba(239,68,68,0.25)' : 'rgba(46,204,113,0.25)'}`,
+      background: type === 'gap' ? 'rgba(220,38,38,0.08)' : 'rgba(22,163,74,0.08)',
+      color: type === 'gap' ? '#dc2626' : '#16a34a',
+      border: `1px solid ${type === 'gap' ? 'rgba(220,38,38,0.2)' : 'rgba(22,163,74,0.2)'}`,
       flexShrink: 0,
     }}>
       {type === 'gap' ? 'Gap' : 'Opportunity'}
@@ -300,7 +300,7 @@ function Tab1() {
     <div style={{ paddingTop: '28px' }}>
       <div>
         <div style={{
-          background: '#111111', border: '1px solid #1f1f1f',
+          background: '#ffffff', border: '1px solid #e5e7eb',
           borderRadius: '10px', overflow: 'hidden', marginBottom: '8px',
         }}>
           <DataGrid
@@ -319,14 +319,10 @@ function Tab1() {
       <div style={{ marginTop: '20px' }}>
         <Alert
           severity="info"
-          sx={{
-            background: '#0a1628',
-            border: '1px solid #1e3a5f',
-            '& .MuiAlert-icon': { color: '#60a5fa' },
-            '& .MuiAlert-message': { color: '#cbd5e1', fontSize: '13px', lineHeight: '1.65' },
-          }}
+          sx={{ '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.65' } }}
         >
-          <strong style={{ color: '#93c5fd' }}>AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners.</strong> They now operate as a combined group with aligned roadmaps and shared board leadership — positioning them to cover both data grids and scheduling with a single vendor relationship. This is a direct competitive response to MUI X's breadth advantage.
+          <strong>AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners.</strong>{' '}
+          They now operate as a combined group with aligned roadmaps and shared board leadership — positioning them to cover both data grids and scheduling with a single vendor relationship. This is a direct competitive response to MUI X's breadth advantage.
         </Alert>
         <TechLabel tags={['MUI — Alert']} />
       </div>
@@ -347,15 +343,15 @@ function Tab2() {
         <Accordion key={acc.id} defaultExpanded={i === 0}>
           <AccordionSummary expandIcon={<ExpandIcon />}>
             <GapBadge type={acc.type} />
-            <span style={{ fontSize: '14px', fontWeight: '600', color: '#f5f5f5' }}>
+            <span style={{ fontSize: '14px', fontWeight: '600', color: '#111827' }}>
               {acc.title}
             </span>
           </AccordionSummary>
           <AccordionDetails>
-            <p style={{ fontSize: '12px', color: '#6b7280', marginBottom: '10px', fontStyle: 'italic' }}>
+            <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '10px', fontStyle: 'italic' }}>
               {acc.summary}
             </p>
-            <div style={{ fontSize: '13px', color: '#9ca3af', lineHeight: '1.75', whiteSpace: 'pre-line', marginBottom: '14px' }}>
+            <div style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.75', whiteSpace: 'pre-line', marginBottom: '14px' }}>
               {acc.body}
             </div>
             <Chip label={acc.chip.label} color={acc.chip.color} size="small" />
@@ -373,21 +369,19 @@ function Tab2() {
 function Tab3() {
   return (
     <div style={{ paddingTop: '32px', maxWidth: '780px' }}>
-      {/* Opening statement */}
       <p style={{
         fontSize: '22px',
         fontWeight: '700',
-        color: '#f5f5f5',
+        color: '#111827',
         lineHeight: '1.35',
         letterSpacing: '-0.02em',
         marginBottom: '32px',
         paddingBottom: '24px',
-        borderBottom: '1px solid #1f1f1f',
+        borderBottom: '1px solid #e5e7eb',
       }}>
         "MUI has built remarkable traction in the React ecosystem — millions of developers, a thriving open-source community, and enterprise adoption across some of the world's leading companies."
       </p>
 
-      {/* Body paragraphs */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
         {[
           `The positioning opportunity is not about fixing something broken. It's about giving clearer language to what MUI X already is, so the narrative can match the product's real capabilities.`,
@@ -395,28 +389,24 @@ function Tab3() {
           `Developers are already the champions. What's missing is giving them the language to sell MUI X internally — a story that resonates with the tech lead who recommends, and the Engineering Manager or CTO who approves the budget. That story exists in the product: platform coherence, reduced integration overhead, consistent design system across teams, lower TCO than building in-house or stitching together point solutions.`,
           `The positioning opportunity is not a category shift. It's about making the Enterprise value of MUI X as clear and compelling as its developer experience already is.`,
         ].map((text, i) => (
-          <p key={i} style={{ fontSize: '15px', color: '#d1d5db', lineHeight: '1.8' }}>
+          <p key={i} style={{ fontSize: '15px', color: '#374151', lineHeight: '1.8' }}>
             {text}
           </p>
         ))}
       </div>
 
-      {/* Closing alert */}
       <Alert
         severity="success"
         sx={{
-          background: '#091a0f',
-          border: '1px solid #1a3a24',
           marginBottom: '12px',
-          '& .MuiAlert-icon': { color: '#4ade80' },
-          '& .MuiAlert-message': { color: '#bbf7d0', fontSize: '14px', lineHeight: '1.7' },
+          '& .MuiAlert-message': { fontSize: '14px', lineHeight: '1.7' },
         }}
       >
-        The product is there. The community is there. The opportunity is to make the Enterprise value proposition as clear and compelling as the developer experience already is.{' '}
+        The product is there. The community is there. The opportunity is to make the Enterprise value proposition as clear and compelling as the developer experience already is.
       </Alert>
       <TechLabel tags={['MUI — Alert']} />
 
-      <p style={{ fontSize: '12px', color: '#4b5563', marginTop: '20px', lineHeight: '1.6', fontStyle: 'italic' }}>
+      <p style={{ fontSize: '12px', color: '#9ca3af', marginTop: '20px', lineHeight: '1.6', fontStyle: 'italic' }}>
         Analysis based on public positioning, pricing pages, and product documentation as of May 2026.
         Built with MUI X — Data Grid, Tabs, Accordion, Alert, and Chip.
       </p>
@@ -430,22 +420,21 @@ export default function PMMAnalysis() {
   const [tab, setTab] = useState(0)
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 80px' }}>
 
-        {/* Header */}
         <div style={{ marginBottom: '28px' }}>
-          <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#f5f5f5', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
             Product Marketing Analysis
           </h1>
           <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '10px' }}>
             A product marketer's read on positioning, gaps, and opportunities in the React enterprise UI space.
           </p>
           <p style={{
-            fontSize: '12px', color: '#4b5563', fontStyle: 'italic',
+            fontSize: '12px', color: '#6b7280', fontStyle: 'italic',
             padding: '8px 14px',
-            background: '#0d0d0d',
-            border: '1px solid #1f1f1f',
+            background: '#f9fafb',
+            border: '1px solid #e5e7eb',
             borderRadius: '6px',
             display: 'inline-block',
           }}>
@@ -454,8 +443,7 @@ export default function PMMAnalysis() {
           </p>
         </div>
 
-        {/* Tabs */}
-        <div style={{ background: '#111111', border: '1px solid #1f1f1f', borderRadius: '10px', overflow: 'hidden' }}>
+        <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden' }}>
           <Tabs value={tab} onChange={(_, v) => setTab(v)}>
             <Tab label="Strategic Comparison" />
             <Tab label="Positioning Gaps & Opportunities" />
@@ -469,7 +457,6 @@ export default function PMMAnalysis() {
           </div>
         </div>
 
-        {/* Bottom tech label */}
         <div style={{ marginTop: '8px' }}>
           <TechLabel tags={['MUI — Tabs + Tab', 'MUI — Accordion', 'MUI — Alert', 'MUI — Chip', 'MUI X — DataGrid']} />
         </div>

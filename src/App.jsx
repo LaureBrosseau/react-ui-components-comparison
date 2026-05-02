@@ -10,8 +10,8 @@ function Nav() {
   return (
     <>
     <nav style={{
-      background: 'rgba(8,8,8,0.95)',
-      borderBottom: '1px solid #1f1f1f',
+      background: 'rgba(255,255,255,0.95)',
+      borderBottom: '1px solid #e5e7eb',
       position: 'sticky',
       top: 0,
       zIndex: 100,
@@ -29,7 +29,7 @@ function Nav() {
         <span style={{
           fontSize: '13px',
           fontWeight: '600',
-          color: '#f5f5f5',
+          color: '#111827',
           letterSpacing: '0.02em',
           whiteSpace: 'nowrap',
         }}>
@@ -56,9 +56,9 @@ function Nav() {
                 fontSize: '13px',
                 fontWeight: '500',
                 textDecoration: 'none',
-                color: isActive ? '#f5f5f5' : '#9ca3af',
-                background: isActive ? '#1a1a1a' : 'transparent',
-                border: isActive ? '1px solid #2a2a2a' : '1px solid transparent',
+                color: isActive ? '#111827' : '#6b7280',
+                background: isActive ? '#f3f4f6' : 'transparent',
+                border: isActive ? '1px solid #e5e7eb' : '1px solid transparent',
                 transition: 'all 150ms ease',
               })}
             >

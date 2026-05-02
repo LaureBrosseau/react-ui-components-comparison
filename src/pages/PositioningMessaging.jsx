@@ -79,11 +79,11 @@ const realItems = [
   { icon: '💸', text: 'Opportunity cost: what else could those engineers have shipped?' },
 ]
 
-const darkTheme = createTheme({
+const lightTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: { main: '#007FFF' },
-    background: { paper: '#111111', default: '#0a0a0a' },
+    background: { paper: '#ffffff', default: '#f9fafb' },
   },
   typography: { fontFamily: "'DM Sans', sans-serif" },
 })
@@ -91,12 +91,12 @@ const darkTheme = createTheme({
 function FieldRow({ label, value, mono }) {
   return (
     <div style={{ marginBottom: '12px' }}>
-      <span style={{ fontSize: '10px', fontWeight: '600', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
+      <span style={{ fontSize: '10px', fontWeight: '600', color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
         {label}
       </span>
       <p style={{
         fontSize: mono ? '12px' : '13px',
-        color: '#d1d5db',
+        color: '#374151',
         lineHeight: '1.6',
         margin: 0,
         fontFamily: mono ? "'JetBrains Mono', monospace" : "'DM Sans', sans-serif",
@@ -110,10 +110,11 @@ function FieldRow({ label, value, mono }) {
 function PositioningCard({ card }) {
   return (
     <Card sx={{
-      background: '#111111',
-      border: '1px solid #1f1f1f',
+      background: '#ffffff',
+      border: '1px solid #e5e7eb',
       borderRadius: '10px',
       height: '100%',
+      boxShadow: 'none',
     }}>
       <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: '4px', p: 3 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
@@ -126,11 +127,11 @@ function PositioningCard({ card }) {
         <p style={{
           fontSize: '12px',
           fontStyle: 'italic',
-          color: '#9ca3af',
+          color: '#6b7280',
           fontFamily: "'JetBrains Mono', monospace",
           lineHeight: '1.5',
           paddingBottom: '14px',
-          borderBottom: '1px solid #1a1a1a',
+          borderBottom: '1px solid #f0f0f0',
           margin: '0 0 12px 0',
         }}>
           {card.tagline}
@@ -147,14 +148,10 @@ function PositioningCard({ card }) {
           severity="warning"
           sx={{
             mt: 1,
-            background: '#0d1117',
-            border: '1px solid #2a1f1a',
-            borderRadius: '6px',
-            '& .MuiAlert-icon': { color: '#f59e0b' },
-            '& .MuiAlert-message': { color: '#d1a060', fontSize: '12.5px', lineHeight: '1.55' },
+            '& .MuiAlert-message': { fontSize: '12.5px', lineHeight: '1.55' },
           }}
         >
-          <span style={{ fontSize: '10px', fontWeight: '700', color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
+          <span style={{ fontSize: '10px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
             Messaging gap
           </span>
           {card.gap}
@@ -166,10 +163,10 @@ function PositioningCard({ card }) {
 
 export default function PositioningMessaging() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
         <div style={{ marginBottom: '28px' }}>
-          <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#f5f5f5', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
             Positioning & Messaging
           </h1>
           <p style={{ fontSize: '14px', color: '#6b7280' }}>
@@ -192,13 +189,14 @@ export default function PositioningMessaging() {
 
         {/* Build vs Buy section */}
         <Card sx={{
-          background: '#111111',
-          border: '1px solid #1f1f1f',
+          background: '#ffffff',
+          border: '1px solid #e5e7eb',
           borderRadius: '10px',
+          boxShadow: 'none',
         }}>
           <CardContent sx={{ p: 4 }}>
             <div style={{ marginBottom: '32px' }}>
-              <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#f5f5f5', letterSpacing: '-0.02em', marginBottom: '8px' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: '700', color: '#111827', letterSpacing: '-0.02em', marginBottom: '8px' }}>
                 Why "We'll Build It In-House" Is the Most Expensive Decision
               </h2>
               <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
@@ -207,16 +205,15 @@ export default function PositioningMessaging() {
             </div>
 
             <Grid container spacing={3} sx={{ mb: 3 }}>
-              {/* What teams think */}
               <Grid size={6}>
                 <Chip
                   label="What teams think"
                   size="small"
                   sx={{
                     mb: 2,
-                    background: '#1a1a1a',
-                    border: '1px solid #2a2a2a',
-                    color: '#9ca3af',
+                    background: '#f3f4f6',
+                    border: '1px solid #e5e7eb',
+                    color: '#6b7280',
                     fontWeight: '600',
                     fontSize: '11px',
                     letterSpacing: '0.06em',
@@ -229,8 +226,8 @@ export default function PositioningMessaging() {
                     <ListItem
                       key={i}
                       sx={{
-                        background: '#0f0f0f',
-                        border: '1px solid #1a1a1a',
+                        background: '#f9fafb',
+                        border: '1px solid #e5e7eb',
                         borderRadius: '6px',
                         px: 2,
                         py: 1.25,
@@ -249,16 +246,15 @@ export default function PositioningMessaging() {
                 </List>
               </Grid>
 
-              {/* The real cost */}
               <Grid size={6}>
                 <Chip
                   label="The real cost"
                   size="small"
                   sx={{
                     mb: 2,
-                    background: '#1a0505',
-                    border: '1px solid #ef4444',
-                    color: '#ef4444',
+                    background: '#fef2f2',
+                    border: '1px solid #fca5a5',
+                    color: '#dc2626',
                     fontWeight: '600',
                     fontSize: '11px',
                     letterSpacing: '0.06em',
@@ -271,8 +267,8 @@ export default function PositioningMessaging() {
                     <ListItem
                       key={i}
                       sx={{
-                        background: '#0d1117',
-                        border: '1px solid #1e2a3a',
+                        background: '#fef2f2',
+                        border: '1px solid #fee2e2',
                         borderRadius: '6px',
                         px: 2,
                         py: 1.25,
@@ -284,7 +280,7 @@ export default function PositioningMessaging() {
                       </ListItemIcon>
                       <ListItemText
                         primary={item.text}
-                        slotProps={{ primary: { sx: { fontSize: '12.5px', color: '#94a3b8', lineHeight: '1.5', fontFamily: "'JetBrains Mono', monospace" } } }}
+                        slotProps={{ primary: { sx: { fontSize: '12.5px', color: '#7f1d1d', lineHeight: '1.5', fontFamily: "'JetBrains Mono', monospace" } } }}
                       />
                     </ListItem>
                   ))}
@@ -294,23 +290,16 @@ export default function PositioningMessaging() {
 
             <Alert
               severity="info"
-              sx={{
-                background: '#0a1628',
-                border: '1px solid #1e3a5f',
-                borderLeft: '4px solid #007FFF',
-                borderRadius: '8px',
-                '& .MuiAlert-icon': { color: '#007FFF' },
-                '& .MuiAlert-message': { color: '#93c5fd', fontSize: '14px', lineHeight: '1.7' },
-              }}
+              sx={{ '& .MuiAlert-message': { fontSize: '14px', lineHeight: '1.7' } }}
             >
-              <strong style={{ color: '#60a5fa', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}>
+              <strong style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}>
                 MUI X Pro = $299/dev/year
               </strong>
               {' '}≈ 1.5 days of a senior developer's time. The break-even vs. building in-house is typically reached{' '}
-              <strong style={{ color: '#f5f5f5' }}>within the first sprint</strong>.
+              <strong>within the first sprint</strong>.
               {' '}The question is never{' '}
               <em>"can we build it?"</em> — it's always{' '}
-              <em style={{ color: '#f5f5f5' }}>"what else could the team have shipped instead?"</em>
+              <em>"what else could the team have shipped instead?"</em>
             </Alert>
           </CardContent>
         </Card>

@@ -114,9 +114,9 @@ const gridRows = [
 // ─── Cell helpers ─────────────────────────────────────────────────────────────
 
 function cellColor(value) {
-  if (value?.startsWith('❌')) return '#ef4444'
-  if (value?.startsWith('⚠️')) return '#f59e0b'
-  return '#d1d5db'
+  if (value?.startsWith('❌')) return '#dc2626'
+  if (value?.startsWith('⚠️')) return '#d97706'
+  return '#374151'
 }
 
 function makeDimensionCol(width = 165) {
@@ -183,8 +183,8 @@ const gridColumns = [
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
 
-const darkTheme = createTheme({
-  palette: { mode: 'dark', primary: { main: '#007FFF' } },
+const lightTheme = createTheme({
+  palette: { mode: 'light', primary: { main: '#007FFF' } },
   typography: { fontFamily: "'DM Sans', sans-serif" },
   components: {
     MuiDataGrid: {
@@ -192,17 +192,18 @@ const darkTheme = createTheme({
         root: {
           border: 'none',
           fontFamily: "'DM Sans', sans-serif",
-          '& .MuiDataGrid-columnHeaders': { background: '#0d0d0d', borderColor: '#1f1f1f' },
-          '& .MuiDataGrid-columnHeader': { background: '#0d0d0d' },
-          '& .MuiDataGrid-cell': { borderColor: '#1a1a1a', alignItems: 'flex-start', paddingTop: '12px', paddingBottom: '12px' },
-          '& .MuiDataGrid-row': { background: '#111111' },
-          '& .MuiDataGrid-row:nth-of-type(even)': { background: '#0f0f0f' },
-          '& .MuiDataGrid-row:hover': { background: '#161616' },
+          '& .MuiDataGrid-columnHeaders': { background: '#f8fafc', borderColor: '#e5e7eb' },
+          '& .MuiDataGrid-columnHeader': { background: '#f8fafc' },
+          '& .MuiDataGrid-columnHeaderTitle': { color: '#6b7280' },
+          '& .MuiDataGrid-cell': { borderColor: '#f0f0f0', alignItems: 'flex-start', paddingTop: '12px', paddingBottom: '12px' },
+          '& .MuiDataGrid-row': { background: '#ffffff' },
+          '& .MuiDataGrid-row:nth-of-type(even)': { background: '#f9fafb' },
+          '& .MuiDataGrid-row:hover': { background: '#f3f4f6' },
           '& .MuiDataGrid-footerContainer': { display: 'none' },
-          '& .MuiDataGrid-virtualScroller': { background: '#111111' },
-          '& .MuiDataGrid-filler': { background: '#111111' },
-          '& .MuiDataGrid-scrollbarFiller': { background: '#111111' },
-          '& .MuiDataGrid-columnSeparator': { color: '#2a2a2a' },
+          '& .MuiDataGrid-virtualScroller': { background: '#ffffff' },
+          '& .MuiDataGrid-filler': { background: '#ffffff' },
+          '& .MuiDataGrid-scrollbarFiller': { background: '#ffffff' },
+          '& .MuiDataGrid-columnSeparator': { color: '#e5e7eb' },
         },
       },
     },
@@ -220,9 +221,8 @@ export default function ProductOverview() {
   return (
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
 
-      {/* Page header */}
       <div style={{ marginBottom: '40px' }}>
-        <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#f5f5f5', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+        <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
           Data Grid & Component Suite Comparison
         </h1>
         <p style={{ fontSize: '14px', color: '#6b7280' }}>
@@ -230,11 +230,11 @@ export default function ProductOverview() {
         </p>
       </div>
 
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={lightTheme}>
 
         {/* ── Section 1: Company Overview ─────────────────────────────────── */}
         <div style={{ marginBottom: '12px' }}>
-          <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#f5f5f5', marginBottom: '4px', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#111827', marginBottom: '4px', letterSpacing: '-0.02em' }}>
             Company Overview
           </h2>
           <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '16px' }}>
@@ -243,7 +243,7 @@ export default function ProductOverview() {
 
           <div>
             <div style={{
-              background: '#111111', border: '1px solid #1f1f1f',
+              background: '#ffffff', border: '1px solid #e5e7eb',
               borderRadius: '10px', overflow: 'hidden', marginBottom: '8px',
             }}>
               <DataGrid
@@ -261,15 +261,9 @@ export default function ProductOverview() {
 
           <Alert
             severity="warning"
-            sx={{
-              mt: 2,
-              background: '#1a1200',
-              border: '1px solid #3a2a00',
-              '& .MuiAlert-icon': { color: '#f59e0b' },
-              '& .MuiAlert-message': { color: '#fde68a', fontSize: '13px', lineHeight: '1.7' },
-            }}
+            sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}
           >
-            <strong style={{ color: '#fbbf24' }}>⚡ Market signal:</strong>{' '}
+            <strong>⚡ Market signal:</strong>{' '}
             AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners. The two companies now operate as a combined group with aligned roadmaps and shared board leadership. This consolidation positions them to cover both data grids and scheduling — a broader suite that competes more directly with MUI X's component range.
           </Alert>
         </div>
@@ -278,7 +272,7 @@ export default function ProductOverview() {
 
         {/* ── Section 2: Data Grid Head to Head ───────────────────────────── */}
         <div>
-          <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#f5f5f5', marginBottom: '4px', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#111827', marginBottom: '4px', letterSpacing: '-0.02em' }}>
             Data Grid — Head to Head
           </h2>
           <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '16px' }}>
@@ -287,7 +281,7 @@ export default function ProductOverview() {
 
           <div>
             <div style={{
-              background: '#111111', border: '1px solid #1f1f1f',
+              background: '#ffffff', border: '1px solid #e5e7eb',
               borderRadius: '10px', overflow: 'hidden', marginBottom: '8px',
             }}>
               <DataGrid
@@ -303,11 +297,10 @@ export default function ProductOverview() {
             <TechLabel tags={['MUI X — DataGrid', '@mui/material — ThemeProvider', 'Inline styles']} />
           </div>
 
-          {/* PMM Insight */}
           <div style={{ marginTop: '20px' }}>
             <div style={{
-              background: '#131820',
-              border: '1px solid #1e2a3a',
+              background: '#eff6ff',
+              border: '1px solid #bfdbfe',
               borderLeft: '4px solid #007FFF',
               borderRadius: '8px',
               padding: '18px 22px',
@@ -320,11 +313,11 @@ export default function ProductOverview() {
                 <span style={{ fontSize: '11px', fontWeight: '700', color: '#007FFF', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '6px' }}>
                   PMM Insight
                 </span>
-                <p style={{ fontSize: '14px', color: '#cbd5e1', lineHeight: '1.65' }}>
+                <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.65' }}>
                   In most Enterprise evaluations, the real question isn't which grid has more features — it's{' '}
-                  <strong style={{ color: '#f5f5f5' }}>which solution fits best into the team's existing stack and workflow</strong>.
+                  <strong style={{ color: '#1e3a8a' }}>which solution fits best into the team's existing stack and workflow</strong>.
                   {' '}That's where MUI X has a{' '}
-                  <em style={{ color: '#93c5fd' }}>structural advantage</em> for teams already building on Material UI.
+                  <em>structural advantage</em> for teams already building on Material UI.
                 </p>
               </div>
             </div>
