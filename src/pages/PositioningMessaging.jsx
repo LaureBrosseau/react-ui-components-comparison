@@ -66,22 +66,22 @@ const cards = [
 
 const thinkItems = [
   { icon: '⏱', text: 'Initial build: 2–4 weeks' },
-  { icon: '🎨', text: '"We can do it exactly how we want"' },
+  { icon: '🎨', text: 'We can do it exactly how we want' },
   { icon: '💰', text: 'No license fees' },
   { icon: '🔑', text: 'Full ownership of the codebase' },
   { icon: '🔓', text: 'No external dependency' },
-  { icon: '🧩', text: '"We only need a basic version to start"' },
-  { icon: '🚀', text: '"We can iterate quickly after launch"' },
+  { icon: '🧩', text: 'We only need a basic version to start' },
+  { icon: '🚀', text: 'We can iterate quickly after launch' },
 ]
 
 const realItems = [
   { icon: '📅', text: 'Initial build (production-grade): 3–6 months' },
-  { icon: '♿', text: 'Accessibility compliance (WCAG): +4–8 weeks' },
-  { icon: '🌐', text: 'Cross-browser + device testing: ongoing' },
-  { icon: '⚡', text: 'Performance optimization for large datasets: specialist required' },
-  { icon: '🔧', text: 'Ongoing maintenance as product evolves: 0.5–1 FTE/year' },
-  { icon: '🚫', text: 'No community, no roadmap, no dedicated support' },
-  { icon: '💸', text: 'Opportunity cost: what else could those engineers have shipped?' },
+  { icon: '♿', text: 'Accessibility and edge cases add complexity' },
+  { icon: '💸', text: 'Engineering time outweighs license savings' },
+  { icon: '🔧', text: 'Ongoing maintenance required' },
+  { icon: '🚫', text: 'No community or support' },
+  { icon: '⚡', text: 'Performance issues appear early' },
+  { icon: '🌐', text: 'Cross-browser and device support slow down iteration' },
 ]
 
 const lightTheme = createTheme({
@@ -236,8 +236,9 @@ export default function PositioningMessaging() {
                     <ListItem
                       key={i}
                       sx={{
-                        background: '#f9fafb',
+                        background: '#ffffff',
                         border: '1px solid #e5e7eb',
+                        borderLeft: '3px solid #9ca3af',
                         borderRadius: '6px',
                         px: 2,
                         py: 1.25,
@@ -249,7 +250,7 @@ export default function PositioningMessaging() {
                       </ListItemIcon>
                       <ListItemText
                         primary={item.text}
-                        slotProps={{ primary: { sx: { fontSize: '13px', color: '#6b7280', lineHeight: '1.5', fontFamily: "'DM Sans', sans-serif" } } }}
+                        slotProps={{ primary: { sx: { fontSize: '13px', color: '#374151', lineHeight: '1.5', fontFamily: "'DM Sans', sans-serif" } } }}
                       />
                     </ListItem>
                   ))}
@@ -277,8 +278,9 @@ export default function PositioningMessaging() {
                     <ListItem
                       key={i}
                       sx={{
-                        background: '#fef2f2',
-                        border: '1px solid #fee2e2',
+                        background: '#ffffff',
+                        border: '1px solid #e5e7eb',
+                        borderLeft: '3px solid #dc2626',
                         borderRadius: '6px',
                         px: 2,
                         py: 1.25,
