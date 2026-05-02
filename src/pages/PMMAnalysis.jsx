@@ -384,12 +384,13 @@ function Tab3() {
         paddingBottom: '24px',
         borderBottom: '1px solid #1f1f1f',
       }}>
-        "MUI has built remarkable traction in the React ecosystem, millions of developers, a thriving open-source community, and enterprise adoption across some of the world's leading companies.The positioning opportunity is not about fixing something broken. It's about giving clearer language to what MUI X already is, so the narrative can match the product's real capabilities."
+        "MUI has built remarkable traction in the React ecosystem, millions of developers, a thriving open-source community, and enterprise adoption across some of the world's leading companies."
       </p>
 
       {/* Body paragraphs */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
         {[
+          `The positioning opportunity is not about fixing something broken. It's about giving clearer language to what MUI X already is, so the narrative can match the product's real capabilities.`,
           `MUI wins on adoption and breadth, and that foundation is what makes the opportunity real. The opportunity isn't to change who MUI speaks to, but to extend the narrative upward along the buying chain.`,
           `Developers are already the champions. What's missing is giving them the language to sell MUI X internally — a story that resonates with the tech lead who recommends, and the Engineering Manager or CTO who approves the budget. That story exists in the product: platform coherence, reduced integration overhead, consistent design system across teams, lower TCO than building in-house or stitching together point solutions.`,
           `The positioning opportunity is not a category shift. It's about making the Enterprise value of MUI X as clear and compelling as its developer experience already is.`,
