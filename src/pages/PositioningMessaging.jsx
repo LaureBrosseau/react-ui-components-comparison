@@ -305,13 +305,12 @@ export default function PositioningMessaging() {
               sx={{ '& .MuiAlert-message': { fontSize: '14px', lineHeight: '1.7' } }}
             >
               <strong style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}>
-                MUI X Pro = $299/dev/year
-              </strong>
-              {' '}≈ 1.5 days of a senior developer's time. The break-even vs. building in-house is typically reached{' '}
-              <strong>within the first sprint</strong>.<br />
+                MUI X Pro = $299/dev/year ≈ 1.5 days of a senior developer's time
+              </strong>. <br /> The break-even vs. building in-house is typically reached
+              <strong> within the first sprint</strong>.
                 {' '}The question is never{' '}
-              <strong>"can we build it?"</strong> it's always{' '}
-              <strong>"what else could the team have shipped instead?"</strong>
+              <em>"can we build it?"</em>, it's always{' '}
+              <em>"what else could the team have shipped instead?"</em>
             </Alert>
           </CardContent>
         </Card>
