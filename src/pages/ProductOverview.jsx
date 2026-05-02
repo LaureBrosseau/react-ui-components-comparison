@@ -186,10 +186,10 @@ export default function ProductOverview() {
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
       <div style={{ marginBottom: '28px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#f5f5f5', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-          Product Overview
+          Data Grid Comparison
         </h1>
         <p style={{ fontSize: '14px', color: '#6b7280' }}>
-          Side-by-side competitive comparison across 10 dimensions
+          MUI X, AG Grid, Bryntum, and the build in-house alternative compared, across 10 dimensions
         </p>
       </div>
 
