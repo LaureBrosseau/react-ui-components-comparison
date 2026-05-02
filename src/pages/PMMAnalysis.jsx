@@ -436,7 +436,7 @@ export default function PMMAnalysis() {
         {/* Header */}
         <div style={{ marginBottom: '28px' }}>
           <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#f5f5f5', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-            PMM Analysis — My Take on the Market
+            Product Marketing Analysis
           </h1>
           <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '10px' }}>
             A product marketer's read on positioning, gaps, and opportunities in the React enterprise UI space.
