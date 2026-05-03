@@ -189,7 +189,7 @@ export default function AIInstallExperience() {
           <Label color="#16a34a">Install command</Label>
           <BLOCK>npm install ag-grid-react ag-grid-community</BLOCK>
           <p style={{ fontSize: '13px', color: '#6b7280', marginTop: '10px', lineHeight: '1.6' }}>
-            <strong style={{ color: '#111827' }}>2 packages, no hidden peer deps.</strong>{' '}
+            <strong style={{ color: '#111827' }}>2 packages, no hidden peer deps.</strong>{' '}<br/>
             Significantly simpler install surface. No emotion, no material dependency.
           </p>
         </CARD>
@@ -203,10 +203,10 @@ ModuleRegistry.registerModules([AllCommunityModule])
 // Then in the component:
 <AgGridReact rowData={employees} columnDefs={columns} theme={agTheme} />`}</BLOCK>
           <p style={{ fontSize: '13px', color: '#6b7280', marginTop: '10px', lineHeight: '1.6' }}>
-            This is <strong style={{ color: '#dc2626' }}>the highest-risk failure point for AI code generation</strong>.
-            AG Grid v33 (mid-2024) introduced a mandatory module registration system.
+            This is <strong style={{ color: '#dc2626' }}>the highest-risk failure point for AI code generation</strong>.<br/>
+            AG Grid v33 (mid-2024) introduced a mandatory module registration system.<br/>
             Without it: the component mounts successfully, no console errors, no warnings,
-            but the grid is completely empty. Any AI model trained on pre-v33 examples will generate
+            but the grid is completely empty. <br/>Any AI model trained on pre-v33 examples will generate
             code that silently fails.
           </p>
         </CARD>
@@ -226,8 +226,8 @@ const agTheme = themeQuartz
   })`}</BLOCK>
           <p style={{ fontSize: '13px', color: '#6b7280', marginTop: '10px', lineHeight: '1.6' }}>
             The <CODE>themeQuartz.withParams()</CODE> API is explicit, typed, and requires zero knowledge
-            of internal class names. Every parameter is a semantic token. Far more LLM-friendly than MUI's
-            <CODE>styleOverrides</CODE> approach, but only available in v33+.
+            of internal class names. <br/>Every parameter is a semantic token. Far more LLM-friendly than MUI's
+            <CODE>styleOverrides</CODE> approach, but only available in v33+.<br/>
             Older theming guides (ag-theme-alpine CSS) are now outdated.
           </p>
         </CARD>
@@ -308,7 +308,7 @@ const agTheme = themeQuartz
             MUI X stands out for <strong style={{ color: '#1e3a8a' }}>API stability and design system coherence</strong>, while AG Grid stands out for <strong style={{ color: '#1e3a8a' }}>installation simplicity, theming clarity, and feature depth in the Community tier</strong>.
             </p>
             <p style={{ fontSize: '15px', fontWeight: '600', color: '#1e3a8a' }}>
-            The challenge is not generating code — it’s validating what the user actually sees.
+            The challenge is not generating code, it’s validating what the user actually sees.
             </p>
           </div>
         </div>
