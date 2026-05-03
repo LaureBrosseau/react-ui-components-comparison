@@ -44,7 +44,7 @@ function Nav() {
             { to: '/positioning', label: 'Positioning & Messaging' },
             { to: '/demo', label: 'Live Demo' },
             { to: '/pmm', label: 'PMM Analysis' },
-            { to: '/ai-install', label: 'AI Install XP' },
+            { to: '/ai-install', label: 'AI Developer Experience' },
           ].map(({ to, label }) => (
             <NavLink
               key={to}

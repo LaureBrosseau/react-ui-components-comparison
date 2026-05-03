@@ -114,27 +114,27 @@ export default function AIInstallExperience() {
           </span>
         </div>
         <h1 style={{ fontSize: '26px', fontWeight: '700', color: '#111827', marginBottom: '10px', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
-          Installing MUI X & AG Grid<br />
-          <span style={{ color: '#9ca3af', fontWeight: '400', fontSize: '20px' }}>as an AI agent: what was easy, what wasn't</span>
+          AI Integration Experience: MUI X vs AG Grid<br />
+          <span style={{ color: '#9ca3af', fontWeight: '400', fontSize: '20px' }}>What works, what breaks, and where AI struggles when integrating both libraries</span>
         </h1>
         <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.65', maxWidth: '680px' }}>
-          This page documents the real installation experience of integrating both libraries into this React app,
-          from the perspective of an AI coding agent operating autonomously, without human debugging assistance.
-          Every friction point here is a real friction point.
+          This page documents the real integration experience of MUI X and AG Grid from the perspective of an AI coding agent operating autonomously, without human debugging.
+          <br />
+          Every friction point highlighted here reflects an actual failure mode encountered during implementation.
         </p>
       </div>
 
       {/* MUI X Section */}
-      <SECTION title="MUI X DataGrid: Installation Experience">
+      <SECTION title="MUI X Data Grid: Integration Experience">
 
         <CARD accent="#007FFF">
           <Label color="#007FFF">Install command</Label>
           <BLOCK>npm install @mui/x-data-grid @mui/material @emotion/react @emotion/styled</BLOCK>
           <p style={{ fontSize: '13px', color: '#6b7280', marginTop: '10px', lineHeight: '1.6' }}>
             <strong style={{ color: '#111827' }}>4 packages, not 1.</strong>{' '}
-            <CODE>@mui/x-data-grid</CODE> alone causes silent runtime failures.
+            <CODE>@mui/x-data-grid</CODE> alone causes silent runtime failures.<br />
             The peer dependencies on <CODE>@emotion/react</CODE> and <CODE>@emotion/styled</CODE> are
-            not always obvious from the package name. A model relying on outdated docs may install only the grid
+            not always obvious from the package name. <br />A model relying on outdated docs may install only the grid
             package and spend time debugging non-obvious errors.
           </p>
         </CARD>
@@ -150,7 +150,7 @@ export default function AIInstallExperience() {
   initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
 />`}</BLOCK>
           <p style={{ fontSize: '13px', color: '#6b7280', marginTop: '10px', lineHeight: '1.6' }}>
-            The prop-based API is very LLM-friendly, most props are self-documenting.
+            The prop-based API is very LLM-friendly, most props are self-documenting.<br />
             The <CODE>slots</CODE> pattern for toolbar customization is the one non-intuitive step:
             it requires knowing that <CODE>GridToolbarContainer</CODE> + <CODE>GridToolbarExport</CODE>
             must be composed manually inside a custom component.
@@ -166,24 +166,24 @@ export default function AIInstallExperience() {
 '& .MuiDataGrid-scrollbarFiller':  { background: '#ffffff' }
 //                           ↑ without these, color flashes appear when scrolling`}</BLOCK>
           <p style={{ fontSize: '13px', color: '#6b7280', marginTop: '10px', lineHeight: '1.6' }}>
-            Theming requires targeting internal CSS class names that are not in the primary documentation.
+            Theming requires targeting internal CSS class names that are not in the primary documentation.<br />
             Missing <CODE>filler</CODE> and <CODE>scrollbarFiller</CODE> causes visible color flashes,
-            a visual bug only detectable by actually rendering the component.{' '}
+            a visual bug only detectable by actually rendering the component.{' '}<br />
             <strong style={{ color: '#111827' }}>This is where a screenshot tool was critical</strong>:
             the build succeeds, no JS errors, but the UI is wrong.
           </p>
         </CARD>
-
+<p><strong>Developer Experience Highlights</strong></p>
         <ul style={{ listStyle: 'none', padding: 0, marginTop: '4px' }}>
-          <POINT icon="✅" color="#16a34a">Build passed on first attempt — no compilation errors</POINT>
+          <POINT icon="✅" color="#16a34a">Build passed on first attempt, no compilation errors</POINT>
           <POINT icon="✅" color="#16a34a"><CODE>getRowHeight={() => 'auto'}</CODE> makes cells adapt to multi-line content on Page 1</POINT>
-          <POINT icon="⚠️" color="#d97706">No errors thrown when theming is misconfigured — purely visual, only catchable by rendering</POINT>
-          <POINT icon="⚠️" color="#d97706">Footer hidden via <CODE>display: none</CODE> override — no clean prop for this in Community tier</POINT>
+          <POINT icon="⚠️" color="#d97706">No errors thrown when theming is misconfigured, purely visual, only catchable by rendering</POINT>
+          <POINT icon="⚠️" color="#d97706">Footer hidden via <CODE>display: none</CODE> override, no clean prop for this in Community tier</POINT>
         </ul>
       </SECTION>
 
       {/* AG Grid Section */}
-      <SECTION title="AG Grid Community — Installation Experience">
+      <SECTION title="AG Grid Community: Integration Experience">
 
         <CARD accent="#16a34a">
           <Label color="#16a34a">Install command</Label>
@@ -231,6 +231,7 @@ const agTheme = themeQuartz
             Older theming guides (ag-theme-alpine CSS) are now outdated.
           </p>
         </CARD>
+<p><strong>Developer Experience Highlights</strong></p>
 
         <ul style={{ listStyle: 'none', padding: 0, marginTop: '4px' }}>
           <POINT icon="✅" color="#16a34a">Sort, filter, resize enabled globally with one <CODE>defaultColDef</CODE></POINT>
@@ -242,7 +243,7 @@ const agTheme = themeQuartz
       </SECTION>
 
       {/* Comparison table */}
-      <SECTION title="Head-to-head: AI installation difficulty">
+      <SECTION title="AI Integration Comparison">
         <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
@@ -296,22 +297,20 @@ const agTheme = themeQuartz
         borderLeft: '4px solid #007FFF', borderRadius: '8px',
         padding: '22px 26px',
       }}>
-        <div style={{ fontSize: '11px', fontWeight: '700', color: '#007FFF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>
+        <div style={{ fontSize: '13px', fontWeight: '600', color: '#2563eb', marginBottom: '8px' }}>
           Key takeaway
+          </div>
+            <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.75', marginBottom: '12px' }}>
+            Both libraries are AI-installable, but each has <strong style={{ color: '#1e3a8a' }}>version-sensitive failure modes</strong> that do not surface as build errors.<br />
+            The key limitation is that <strong style={{ color: '#1e3a8a' }}>an AI agent that cannot render and visually validate the result cannot reliably detect these issues.</strong>
+            </p>
+            <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.75', marginBottom: '16px' }}>
+            MUI X stands out for <strong style={{ color: '#1e3a8a' }}>API stability and design system coherence</strong>, while AG Grid stands out for <strong style={{ color: '#1e3a8a' }}>installation simplicity, theming clarity, and feature depth in the Community tier</strong>.
+            </p>
+            <p style={{ fontSize: '15px', fontWeight: '600', color: '#1e3a8a' }}>
+            The challenge is not generating code — it’s validating what the user actually sees.
+            </p>
+          </div>
         </div>
-        <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.75', marginBottom: '12px' }}>
-          Both libraries are AI-installable, but both have <strong style={{ color: '#1e3a8a' }}>version-sensitive failure modes</strong> that
-          only manifest visually, not as build errors. The critical insight:{' '}
-          <strong style={{ color: '#1e3a8a' }}>an AI agent that can't render and screenshot the result
-          cannot reliably validate either integration.</strong>
-        </p>
-        <p style={{ fontSize: '14px', color: '#1e40af', lineHeight: '1.75' }}>
-          MUI X wins on <strong style={{ color: '#1e3a8a' }}>API stability and design system coherence</strong>.
-          AG Grid wins on <strong style={{ color: '#1e3a8a' }}>install simplicity, theming clarity, and Community feature depth</strong>.
-          The real MUI X advantage isn't the grid in isolation, it's not having to maintain
-          two design systems simultaneously.
-        </p>
-      </div>
-    </div>
   )
 }

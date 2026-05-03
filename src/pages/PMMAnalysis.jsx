@@ -388,21 +388,25 @@ function Tab3() {
         From Adoption to Expansion
         </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
-        {[
-          `MUI has built **remarkable** traction in the React ecosystem, with millions of developers, a strong open-source community, and adoption across leading enterprise companies.`,
-          `The positioning opportunity is not about fixing something broken. It is about giving clearer language to what MUI X already is, so the narrative better reflects the product’s capabilities.`,
-          `MUI already wins on adoption and breadth, which makes this opportunity meaningful. The challenge is not to change the audience, but to extend the narrative upward along the buying chain.`,
-          `Developers are already strong advocates. What is missing is giving them the language to position MUI X internally, a story that resonates not only with technical users, but also with the tech leads, engineering managers, and CTOs involved in the decision.`,
-          `That story already exists in the product: platform coherence, reduced integration overhead, a consistent design system across teams, and a compelling alternative to building in-house or combining multiple tools.`,
-          `This is not a category shift. It is an opportunity to make the enterprise value of MUI X as clear and compelling as its developer experience already is.`,
-
-        ].map((text, i) => (
-          <p key={i} style={{ fontSize: '15px', color: '#374151', lineHeight: '1.8' }}>
-            {text}
-          </p>
-        ))}
-      </div>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
+  {[
+    <>MUI has built <strong>remarkable traction in the React ecosystem</strong>, with millions of developers, a strong open-source community, and adoption across leading enterprise companies.</>,
+    
+    <>The positioning opportunity is <strong>not about fixing something broken</strong>. It is about <strong>giving clearer language to what MUI X already is</strong>, so the narrative better reflects the product’s capabilities.</>,
+    
+    <>MUI already wins on <strong>adoption and breadth</strong>, which makes this opportunity meaningful. The challenge is not to change the audience, but to <strong>extend the narrative upward along the buying chain</strong>.</>,
+    
+    <>Developers are already <strong>strong advocates</strong>. What is missing is giving them the language to <strong>position MUI X internally</strong>, a story that resonates not only with technical users, but also with <strong>tech leads, engineering managers, and CTOs</strong> involved in the decision.</>,
+    
+    <>That story already exists in the product: <strong>platform coherence, reduced integration overhead, a consistent design system across teams, and a compelling alternative to building in-house</strong> or combining multiple tools.</>,
+    
+    <>This is <strong>not a category shift</strong>. It is an opportunity to make the <strong>enterprise value of MUI X as clear and compelling</strong> as its developer experience already is.</>,
+  ].map((text, i) => (
+    <p key={i} style={{ fontSize: '15px', color: '#374151', lineHeight: '1.8' }}>
+      {text}
+    </p>
+  ))}
+</div>
 
       <Alert
         severity="success"
@@ -411,7 +415,7 @@ function Tab3() {
           '& .MuiAlert-message': { fontSize: '14px', lineHeight: '1.7' },
         }}
       >
-        The product is there. The community is there. The opportunity is to make the Enterprise value proposition as clear and compelling as the developer experience already is. <br/>
+        The product is there. The community is there. The opportunity is to make the Enterprise value proposition as clear and compelling as the developer experience already is. 
         MUI has already won developers, the next step is to win the buying decision.
       </Alert>
       <TechLabel tags={['MUI — Alert']} />
