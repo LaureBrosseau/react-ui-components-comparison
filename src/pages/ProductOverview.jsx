@@ -223,10 +223,10 @@ export default function ProductOverview() {
 
       <div style={{ marginBottom: '40px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-          Company & Data Grid Component Suite Comparison
+          Market & Product Overview
         </h1>
         <p style={{ fontSize: '14px', color: '#6b7280' }}>
-          How the main Enterprise React UI component vendors stack up, and when each one wins.
+          A structured view of each company’s strategy, product scope, and positioning, followed by a focused comparison of the Data Grid as a common evaluation starting point.
         </p>
       </div>
 

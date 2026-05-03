@@ -223,7 +223,7 @@ export default function PositioningMessaging() {
                     mb: 2,
                     background: '#f3f4f6',
                     border: '1px solid #e5e7eb',
-                    color: '#6b7280',
+                    color: '#33b266',
                     fontWeight: '600',
                     fontSize: '11px',
                     letterSpacing: '0.06em',
@@ -238,7 +238,7 @@ export default function PositioningMessaging() {
                       sx={{
                         background: '#ffffff',
                         border: '1px solid #e5e7eb',
-                        borderLeft: '3px solid #9ca3af',
+                        borderLeft: '3px solid #44b579',
                         borderRadius: '6px',
                         px: 2,
                         py: 1.25,
@@ -263,8 +263,8 @@ export default function PositioningMessaging() {
                   size="small"
                   sx={{
                     mb: 2,
-                    background: '#fef2f2',
-                    border: '1px solid #fca5a5',
+                    background: '#f3f4f6',
+                    border: '1px solid #e5e7eb',
                     color: '#dc2626',
                     fontWeight: '600',
                     fontSize: '11px',
