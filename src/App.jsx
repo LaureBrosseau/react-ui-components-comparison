@@ -26,17 +26,24 @@ function Nav() {
         justifyContent: 'space-between',
         height: '56px',
       }}>
-        <span style={{
-          fontSize: '17px',
-          fontWeight: '600',
-          color: '#111827',
-          letterSpacing: '0.02em',
-          whiteSpace: 'nowrap',
-        }}>
-          The React UI Landscape{' '}
-          <span style={{ color: '#007FFF' }}>—</span>{' '}
-          <span style={{ color: '#9ca3af', fontWeight: 400 }}>A PMM Perspective</span>
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', whiteSpace: 'nowrap' }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="10" height="6" rx="2" fill="#007FFF"/>
+            <rect x="14" y="2" width="8" height="6" rx="2" fill="#007FFF" opacity="0.5"/>
+            <rect x="2" y="10" width="6" height="6" rx="2" fill="#007FFF" opacity="0.5"/>
+            <rect x="10" y="10" width="12" height="6" rx="2" fill="#007FFF"/>
+            <rect x="2" y="18" width="14" height="4" rx="2" fill="#007FFF" opacity="0.3"/>
+            <rect x="18" y="18" width="4" height="4" rx="2" fill="#007FFF" opacity="0.6"/>
+          </svg>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <span style={{ fontSize: '17px', fontWeight: '600', color: '#111827', fontFamily: "'DM Sans', sans-serif" }}>
+              React UI Landscape
+            </span>
+            <span style={{ fontSize: '17px', color: '#9ca3af', fontWeight: '400', fontFamily: "'DM Sans', sans-serif" }}>
+              — A PMM Perspective
+            </span>
+          </span>
+        </div>
 
         <div style={{ display: 'flex', gap: '4px' }}>
           {[
