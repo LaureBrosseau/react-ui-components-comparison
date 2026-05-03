@@ -385,15 +385,18 @@ function Tab3() {
         paddingBottom: '24px',
         borderBottom: '1px solid #e5e7eb',
       }}>
-        "MUI has built remarkable traction in the React ecosystem — millions of developers, a thriving open-source community, and enterprise adoption across some of the world's leading companies."
-      </p>
+        From Adoption to Expansion
+        </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
         {[
-          `The positioning opportunity is not about fixing something broken. It's about giving clearer language to what MUI X already is, so the narrative can match the product's real capabilities.`,
-          `MUI wins on adoption and breadth, and that foundation is what makes the opportunity real. The opportunity isn't to change who MUI speaks to, but to extend the narrative upward along the buying chain.`,
-          `Developers are already the champions. What's missing is giving them the language to sell MUI X internally — a story that resonates with the tech lead who recommends, and the Engineering Manager or CTO who approves the budget. That story exists in the product: platform coherence, reduced integration overhead, consistent design system across teams, lower TCO than building in-house or stitching together point solutions.`,
-          `The positioning opportunity is not a category shift. It's about making the Enterprise value of MUI X as clear and compelling as its developer experience already is.`,
+          `MUI has built **remarkable** traction in the React ecosystem, with millions of developers, a strong open-source community, and adoption across leading enterprise companies.`,
+          `The positioning opportunity is not about fixing something broken. It is about giving clearer language to what MUI X already is, so the narrative better reflects the product’s capabilities.`,
+          `MUI already wins on adoption and breadth, which makes this opportunity meaningful. The challenge is not to change the audience, but to extend the narrative upward along the buying chain.`,
+          `Developers are already strong advocates. What is missing is giving them the language to position MUI X internally, a story that resonates not only with technical users, but also with the tech leads, engineering managers, and CTOs involved in the decision.`,
+          `That story already exists in the product: platform coherence, reduced integration overhead, a consistent design system across teams, and a compelling alternative to building in-house or combining multiple tools.`,
+          `This is not a category shift. It is an opportunity to make the enterprise value of MUI X as clear and compelling as its developer experience already is.`,
+
         ].map((text, i) => (
           <p key={i} style={{ fontSize: '15px', color: '#374151', lineHeight: '1.8' }}>
             {text}
@@ -408,7 +411,8 @@ function Tab3() {
           '& .MuiAlert-message': { fontSize: '14px', lineHeight: '1.7' },
         }}
       >
-        The product is there. The community is there. The opportunity is to make the Enterprise value proposition as clear and compelling as the developer experience already is.
+        The product is there. The community is there. The opportunity is to make the Enterprise value proposition as clear and compelling as the developer experience already is. <br/>
+        MUI has already won developers, the next step is to win the buying decision.
       </Alert>
       <TechLabel tags={['MUI — Alert']} />
 
@@ -453,7 +457,7 @@ export default function PMMAnalysis() {
           <Tabs value={tab} onChange={(_, v) => setTab(v)}>
             <Tab label="Strategic Comparison" />
             <Tab label="Positioning Gaps & Opportunities" />
-            <Tab label="My Take" />
+            <Tab label="Strategic Perspective" />
           </Tabs>
 
           <div style={{ padding: '0 24px 36px' }}>
