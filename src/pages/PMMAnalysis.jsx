@@ -238,43 +238,42 @@ id: 'gap3',
   {
     id: 'opp1',
     type: 'opportunity',
-    title: 'Opportunity #1 — Own "React UI Platform"',
-    summary: 'Define a category MUI can win outright',
+    title: 'Opportunity #1: Clarify the “React UI Platform” positioning',
+    summary: 'Define a category MUI can consistently lead',
     chip: { label: 'Strategic', color: 'success' },
-    body: `Rather than competing on feature depth alone — a crowded and expensive race — or with design system tools on design governance (a crowded space), MUI can define and own a new category:
-
-"The end-to-end UI platform for React product teams"
-
-This positions MUI not as a component library that also has a grid — but as the system that helps product teams design, build, and scale consistent interfaces across their entire product lifecycle. It shifts the conversation from "which grid is best?" to "which platform do we build on?"`,
+    body: `Rather than competing primarily on feature depth or overlapping with design system tooling, MUI has the opportunity to clarify its positioning around a broader category: “End-to-end UI platform for React product teams”.
+    
+    This framing shifts the conversation from individual components to the overall system used to design, build, and scale interfaces across a product.
+    It positions MUI not just as a component library, but as a foundation for product teams working across multiple surfaces and applications.`,
   },
   {
     id: 'opp2',
     type: 'opportunity',
-    title: 'Opportunity #2 — Reframe MUI X for Enterprise',
+    title: 'Opportunity #2: Strengthen the enterprise narrative of MUI X',
     summary: 'Position MUI X as Enterprise UI infrastructure',
     chip: { label: 'Strategic', color: 'success' },
     body: `Current framing: "Advanced components for complex use cases"
-Proposed framing: "Enterprise UI infrastructure for React apps"
+Proposed direction: positioning MUI X as part of an enterprise-ready UI foundation for React applications
 
-This reframe does three things:
-• Elevates the conversation from components to infrastructure (infrastructure = budget, not discretionary spend)
-• Signals Enterprise-grade intent to CTOs and VPs
-• Creates distance from the "just a library" perception
+This evolution would:
+• Expand the conversation from components to broader system-level concerns
+• Make MUI X more legible to technical decision-makers (CTOs, VPs, platform teams)
+• Reduce the perception of MUI as primarily developer-focused
 
-The product already supports this narrative — the opportunity is to activate it explicitly in marketing and sales materials.`,
+The product already supports many of these expectations.
+The opportunity is to make this narrative more explicit in positioning, packaging, and sales materials.`,
   },
   {
     id: 'opp3',
     type: 'opportunity',
-    title: 'Opportunity #3 — The Design+Dev convergence play',
-    summary: 'Bridge designers and developers — no one owns this yet',
+    title: 'Opportunity #3: Leverage the design–development bridge',
+    summary: 'Make the design-to-code workflow a clearer part of the story',
     chip: { label: 'Untapped', color: 'info' },
-    body: `MUI offers Design Kits for Figma alongside its component library — a natural bridge between design and development. No competitor in this space owns this narrative convincingly.
+    body: `MUI provides both a component library and design assets (e.g. Figma kits), creating a natural link between design and development workflows.
 
-AG Grid has no design story.
-Bryntum has no design story.
+While other vendors such as AG Grid and Bryntum focus primarily on engineering use cases, MUI is positioned to address cross-functional collaboration within product teams.
 
-MUI has the assets to position itself as the tool that eliminates the designer-developer gap in product teams. This is a messaging opportunity that hasn't been activated.`,
+This creates an opportunity to more clearly position MUI as supporting a continuous workflow from design to implementation, rather than as a set of isolated components.`,
   },
 ]
 
@@ -341,8 +340,9 @@ function Tab2() {
     <div style={{ paddingTop: '28px' }}>
       <div style={{ marginBottom: '20px' }}>
         <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.6' }}>
-          Six areas where MUI’s current positioning leaves room for clarification, based on observable market patterns.
-        </p>
+          Six areas where MUI’s current positioning leaves room for clarification, based on observable market patterns. <br/>
+          These gaps and opportunities are based on publicly observable patterns and are intended as discussion points rather than prescriptive recommendations.
+          </p>
       </div>
 
       {accordions.map((acc, i) => (
