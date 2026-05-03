@@ -13,6 +13,40 @@ import TechLabel from '../components/TechLabel'
 
 ModuleRegistry.registerModules([AllCommunityModule])
 
+// ─── App-level theme (no DataGrid overrides — inherited automatically) ────────
+
+const appTheme = createTheme({
+  palette: {
+    mode: 'light',
+    primary:   { main: '#007FFF', light: '#5ba4f5', dark: '#0059b2' },
+    secondary: { main: '#9c27b0' },
+    error:     { main: '#d32f2f' },
+    warning:   { main: '#ed6c02' },
+    success:   { main: '#2e7d32' },
+    text: {
+      primary:   '#111827',
+      secondary: '#6b7280',
+      disabled:  '#9ca3af',
+    },
+    background: {
+      default: '#f9fafb',
+      paper:   '#ffffff',
+    },
+    divider: '#e5e7eb',
+  },
+  typography: {
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: 13,
+    h1: { fontWeight: 700, letterSpacing: '-0.02em' },
+    h2: { fontWeight: 600, letterSpacing: '-0.02em' },
+    body1: { fontSize: '13px', lineHeight: 1.6 },
+    body2: { fontSize: '12px', lineHeight: 1.5 },
+    button: { textTransform: 'none', fontWeight: 500 },
+  },
+  shape: { borderRadius: 8 },
+  spacing: 8,
+})
+
 // ─── MUI light theme (feature tables + API cards) ────────────────────────────
 
 const muiTheme = createTheme({
@@ -79,9 +113,7 @@ const muiCustomTheme = createTheme({
           '& .MuiDataGrid-columnHeaderTitle': {
             fontWeight: '700',
             color: '#1d4ed8',
-            fontSize: '11px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.07em',
+            fontSize: '13px',
           },
           '& .MuiDataGrid-row:hover': { background: '#eff6ff' },
           '& .MuiDataGrid-row.Mui-selected': {
@@ -125,8 +157,8 @@ const agThemeCustom = themeQuartz.withPart(colorSchemeLight).withParams({
   accentColor: '#16a34a',
   fontFamily: "'DM Sans', sans-serif",
   fontSize: 13,
-  headerFontSize: 11,
-  headerFontWeight: 700,
+  headerFontSize: 13,
+  headerFontWeight: 600,
   cellHorizontalPaddingScale: 1,
   rowBorder: { color: '#dcfce7', width: 1 },
   columnBorder: false,
@@ -210,6 +242,29 @@ function MuiToolbarLight() {
   )
 }
 
+function MuiToolbarCustom() {
+  return (
+    <GridToolbarContainer style={{
+      padding: '8px 16px', borderBottom: '1px solid #bfdbfe',
+      background: '#dbeafe', display: 'flex', justifyContent: 'flex-end',
+    }}>
+      <GridToolbarExport
+        slotProps={{
+          tooltip: { title: 'Export as CSV' },
+          button: {
+            style: {
+              fontSize: '12px', color: '#1d4ed8', border: '1px solid #93c5fd',
+              borderRadius: '6px', padding: '4px 12px',
+              fontFamily: "'DM Sans', sans-serif", background: '#eff6ff',
+              fontWeight: '500',
+            },
+          },
+        }}
+      />
+    </GridToolbarContainer>
+  )
+}
+
 function MuiToolbarDark() {
   return (
     <GridToolbarContainer style={{
@@ -284,23 +339,23 @@ const agColumnsDefault = [
 ]
 
 const agColumnsCustom = [
-  { field: 'company',      headerName: 'Company',       flex: 1.4,
+  { field: 'company',      headerName: 'Company',       flex: 1.4, filter: true,
     cellStyle: { fontWeight: '600', color: '#111827' } },
-  { field: 'industry',     headerName: 'Industry',      flex: 1,
+  { field: 'industry',     headerName: 'Industry',      flex: 1,   filter: true,
     cellStyle: { color: '#374151' } },
-  { field: 'teamSize',     headerName: 'Dev Team',      flex: 0.8,
+  { field: 'teamSize',     headerName: 'Dev Team',      flex: 0.8, filter: true,
     cellStyle: { color: '#6b7280' } },
-  { field: 'stack',        headerName: 'Stack',         flex: 1,
+  { field: 'stack',        headerName: 'Stack',         flex: 1,   filter: true,
     cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#15803d' } },
-  { field: 'currentGrid',  headerName: 'Current Grid',  flex: 1,
+  { field: 'currentGrid',  headerName: 'Current Grid',  flex: 1,   filter: true,
     cellRenderer: ({ value }) => <Badge value={value} styleMap={GRID_STYLES} /> },
-  { field: 'evalStatus',   headerName: 'Status',        flex: 0.9,
+  { field: 'evalStatus',   headerName: 'Status',        flex: 0.9, filter: true,
     cellRenderer: ({ value }) => <Badge value={value} styleMap={STATUS_STYLES} /> },
-  { field: 'arrPotential', headerName: 'ARR Potential', flex: 1,
+  { field: 'arrPotential', headerName: 'ARR Potential', flex: 1,   filter: 'agNumberColumnFilter',
     cellRenderer: ({ value }) => <ARRCellCustom value={value} /> },
-  { field: 'region',       headerName: 'Region',        flex: 0.7,
+  { field: 'region',       headerName: 'Region',        flex: 0.7, filter: true,
     cellStyle: { color: '#6b7280', fontSize: '12px' } },
-  { field: 'lastContact',  headerName: 'Last Contact',  flex: 0.9,
+  { field: 'lastContact',  headerName: 'Last Contact',  flex: 0.9, filter: true,
     cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#9ca3af' } },
 ]
 
@@ -523,24 +578,27 @@ export default function MUIXDemo() {
           {muiView === 'default' ? (
             <div>
               <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
-                Pure default rendering — no theme, no custom columns, no toolbar.
+                Wrapped in a <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', background: '#f3f4f6', borderRadius: '3px', padding: '1px 4px' }}>ThemeProvider</code> with the app theme — palette, typography, border radius, spacing.
+                No DataGrid-specific overrides: the grid inherits everything automatically.
               </p>
-              <div style={{ marginBottom: '8px' }}>
-                <DataGrid
-                  rows={prospects}
-                  columns={muiColumnsDefault}
-                  pageSizeOptions={[25, 50, 100]}
-                  pagination
-                  initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
-                  style={{ height: 560 }}
-                />
-              </div>
-              <TechLabel tags={['MUI X — DataGrid', 'Default rendering']} />
+              <ThemeProvider theme={appTheme}>
+                <div style={{ marginBottom: '8px' }}>
+                  <DataGrid
+                    rows={prospects}
+                    columns={muiColumnsDefault}
+                    pageSizeOptions={[25, 50, 100]}
+                    pagination
+                    initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
+                    style={{ height: 560 }}
+                  />
+                </div>
+              </ThemeProvider>
+              <TechLabel tags={['MUI X — DataGrid', 'MUI — ThemeProvider', 'App theme inheritance']} />
             </div>
           ) : (
             <div>
               <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
-                Custom light theme — MUI ThemeProvider, blue headers, uppercase, flex columns, styled cells, CSV export toolbar.
+                Custom light theme — MUI ThemeProvider, blue headers, flex columns, styled cells, CSV export toolbar (blue bar above the grid).
               </p>
               <ThemeProvider theme={muiCustomTheme}>
                 <div style={{ marginBottom: '8px' }}>
@@ -551,7 +609,7 @@ export default function MUIXDemo() {
                     pagination
                     initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
                     style={{ height: 560 }}
-                    slots={{ toolbar: MuiToolbarLight }}
+                    slots={{ toolbar: MuiToolbarCustom }}
                     disableRowSelectionOnClick
                   />
                 </div>
