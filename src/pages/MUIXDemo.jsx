@@ -572,7 +572,7 @@ export default function MUIXDemo() {
                 They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '} <br/>
                 The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
                 These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
-                <em>For reference: one week of senior frontend development is often comparable to the annual cost of a commercial component license.</em>
+                <em>For reference: a few days of engineering time often cost more than a full year of licensing.</em>
               </Alert>
             </div>
           )}
@@ -600,7 +600,7 @@ export default function MUIXDemo() {
                 They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '} <br/>
                 The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
                 These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
-                <em>For reference: one week of senior frontend development is often comparable to the annual cost of a commercial component license.</em>              </Alert>
+                <em>For reference: a few days of engineering time often cost more than a full year of licensing.</em>              </Alert>
             </div>
           )}
         </ThemeProvider>

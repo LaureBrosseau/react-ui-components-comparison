@@ -33,9 +33,9 @@ function Nav() {
           letterSpacing: '0.02em',
           whiteSpace: 'nowrap',
         }}>
-          React Enterprise Components{' '}
+          The React UI Landscape{' '}
           <span style={{ color: '#007FFF' }}>—</span>{' '}
-          <span style={{ color: '#9ca3af', fontWeight: 400 }}>Competitive Analysis</span>
+          <span style={{ color: '#9ca3af', fontWeight: 400 }}>A PMM Perspective</span>
         </span>
 
         <div style={{ display: 'flex', gap: '4px' }}>
@@ -72,6 +72,46 @@ function Nav() {
   )
 }
 
+function Footer() {
+  return (
+    <footer style={{
+      borderTop: '1px solid #e5e7eb',
+      background: '#ffffff',
+      padding: '24px',
+    }}>
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '8px',
+      }}>
+        <span style={{ fontSize: '14px', color: '#9ca3af', fontFamily: "'DM Sans', sans-serif" }}>
+          © 2026 Laure Brosseau — Product Marketing Analysis
+        </span>
+        <a
+          href="https://www.linkedin.com/in/laurebrosseau/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontSize: '14px',
+            color: '#007FFF',
+            fontFamily: "'DM Sans', sans-serif",
+            textDecoration: 'none',
+            fontWeight: '500',
+          }}
+          onMouseEnter={e => e.target.style.textDecoration = 'underline'}
+          onMouseLeave={e => e.target.style.textDecoration = 'none'}
+        >
+          LinkedIn ↗
+        </a>
+      </div>
+    </footer>
+  )
+}
+
 function PageWrapper({ children }) {
   const [visible, setVisible] = useState(false)
   const location = useLocation()
@@ -87,7 +127,7 @@ function PageWrapper({ children }) {
       opacity: visible ? 1 : 0,
       transform: visible ? 'translateY(0)' : 'translateY(6px)',
       transition: 'opacity 200ms ease, transform 200ms ease',
-      minHeight: 'calc(100vh - 56px)',
+      flex: 1,
     }}>
       {children}
     </div>
@@ -96,7 +136,7 @@ function PageWrapper({ children }) {
 
 function Inner() {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Nav />
       <PageWrapper>
         <Routes>
@@ -107,7 +147,8 @@ function Inner() {
           <Route path="/ai-install" element={<AIInstallExperience />} />
         </Routes>
       </PageWrapper>
-    </>
+      <Footer />
+    </div>
   )
 }
 
