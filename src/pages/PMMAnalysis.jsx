@@ -321,8 +321,8 @@ function Tab1() {
           severity="info"
           sx={{ '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.65' } }}
         >
-          <strong>AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners.</strong>{' '}
-          They now operate as a combined group with aligned roadmaps and shared board leadership, positioning them to cover both data grids and scheduling with a single vendor relationship. This is a direct competitive response to MUI X's breadth advantage.
+        <strong>Key Observations</strong>: Recent developments highlight changes in product scope across vendors.
+        <strong> MUI X is expanding its component offering</strong> within a unified UI platform, while <strong>AG Grid and Bryntum have announced a <a href="https://bryntum.com/blog/bryntum-and-ag-grid-join-forces/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800" title="AG Grid & Bryntum partnership announcement">strategic partnership</a></strong> combining data grid and scheduling capabilities. Together, these changes reflect <strong>broader product coverage across the UI component landscape</strong>.{' '}  
         </Alert>
         <TechLabel tags={['MUI — Alert']} />
       </div>
