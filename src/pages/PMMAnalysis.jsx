@@ -198,36 +198,42 @@ const accordions = [
   {
     id: 'gap1',
     type: 'gap',
-    title: 'Gap #1 — No sharp category definition',
-    summary: 'MUI oscillates between library, design system, and platform',
+    title: 'Gap #1: Unclear category definition',
+    summary: 'MUI spans multiple adjacent categories between library, design system, and platform',
     chip: { label: 'High Priority', color: 'error' },
-    body: `MUI's positioning spans three adjacent categories — a natural result of a product that has grown faster than its category definition:
+    body: `MUI’s positioning today sits across several adjacent categories, reflecting how the product has evolved over time:
 
-• UI component library (what most developers think it is)
-• Design system platform (what it's evolving toward)
-• Enterprise UI infrastructure (what MUI X could become)
+• UI component library (how it is most commonly perceived by developers)
+• Design system platform (increasingly reflected in its product scope)
+• Enterprise UI infrastructure (a direction enabled by MUI X)
 
-This breadth is a strength for adoption. In Enterprise sales cycles, it's an opportunity to sharpen the story for a more specific buyer.`,
+This breadth supports adoption, especially in developer-led environments.
+In Enterprise buying contexts, it can make the positioning less explicit for non-developer stakeholders, creating an opportunity to clarify how MUI should be evaluated.`,
   },
   {
     id: 'gap2',
     type: 'gap',
-    title: 'Gap #2 — Enterprise narrative underdeveloped',
-    summary: 'MUI X is undersold to CTOs and VPs',
+    title: 'Gap #2: Enterprise narrative underdeveloped',
+    summary: 'Limited visibility of enterprise capabilities in messaging',
     chip: { label: 'High Priority', color: 'error' },
-    body: `MUI's messaging is dev-first, which makes sense for adoption — but it creates a gap at the enterprise buying stage. When a CTO evaluates MUI X against AG Grid, they need to hear about SLAs, support tiers, security, governance, and TCO. These narratives exist in the product but not in the marketing.
-
-AG Grid's positioning is explicitly enterprise-grade. MUI X has the substance — the opportunity is to make that story more explicit for an Enterprise audience.`,
-  },
-  {
-    id: 'gap3',
+    body: `MUI’s messaging is primarily developer-focused, which aligns well with its adoption model.
+    However, in enterprise evaluation contexts, additional elements often become important, such as support models, security, governance, and total cost of ownership.
+    
+    These capabilities exist within the product and offering, but are less prominently reflected in the current positioning.
+    
+    In comparison, competitors like AG Grid more explicitly frame their offering for enterprise use cases.
+    For MUI X, the opportunity is to make its enterprise readiness more visible and easier to evaluate.`},
+{    
+id: 'gap3',
     type: 'gap',
-    title: 'Gap #3 — Data Grid perceived as "good enough"',
-    summary: 'Not winning on grid depth vs. specialists',
+    title: 'Gap #3: Data Grid perception gap',
+    summary: 'Perception differs in data-intensive use cases',
     chip: { label: 'Medium Priority', color: 'warning' },
-    body: `MUI X Data Grid is production-ready and capable for most use cases. But the market perception — especially in data-heavy industries like finance and analytics — is that AG Grid is the "serious" choice and MUI X is "good enough."
-
-This perception gap is hard to close by adding features alone. It requires a deliberate repositioning: MUI X doesn't need to win on grid depth — it needs to win on integration value and total platform coherence.`,
+    body: `MUI X Data Grid is production-ready and suitable for a wide range of applications. However, in data-intensive environments such as finance or analytics, tools like AG Grid are often perceived as more specialized or purpose-built.
+    
+    This is less a feature gap than a perception and positioning gap.
+    
+    Addressing it may not rely solely on adding features, but on clarifying where MUI X creates value, particularly through integration with the broader UI ecosystem.`,
   },
   {
     id: 'opp1',
@@ -335,7 +341,7 @@ function Tab2() {
     <div style={{ paddingTop: '28px' }}>
       <div style={{ marginBottom: '20px' }}>
         <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.6' }}>
-          Six areas where MUI's current positioning leaves room — assessed by priority.
+          Six areas where MUI’s current positioning leaves room for clarification, based on observable market patterns.
         </p>
       </div>
 
