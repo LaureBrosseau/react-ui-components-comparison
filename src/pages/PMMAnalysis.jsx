@@ -139,16 +139,16 @@ const lightTheme = createTheme({
 const COLORS = { mui: '#007FFF', ag: '#2ecc71', bryntum: '#e67e22', inhouse: '#ec4899' }
 
 const strategyRows = [
-  { id: 1,  dimension: 'Category Strategy',  mui: 'Broad UI platform (horizontal)',          ag: 'Category king — data grids',              bryntum: 'Complex UI specialist — scheduling, planning & grid', inhouse: 'No category — full bespoke' },
-  { id: 2,  dimension: 'Product Scope',       mui: 'Wide, moderate depth',                   ag: 'Narrow, extreme depth',                   bryntum: 'Medium scope, deep niche',            inhouse: 'Unlimited scope, zero speed' },
-  { id: 3,  dimension: 'Buyer Perception',    mui: 'Default choice for React UI',            ag: 'Serious enterprise grid',                 bryntum: 'Advanced niche tools',                inhouse: '"We\'re different, our needs are unique"' },
+  { id: 1,  dimension: 'Category Strategy',  mui: 'Horizontal React UI platform',          ag: 'Data grid specialist',              bryntum: 'Complex UI specialist in scheduling, planning & grid', inhouse: 'Bespoke internal build' },
+  { id: 2,  dimension: 'Product Scope',       mui: 'Broad component suite, strongest in React ecosystems',                   ag: 'Deep focus on data grid and charts',                   bryntum: 'Specialized suite for scheduling, planning, and grid use cases',            inhouse: 'ustom scope, constrained by engineering capacity' },
+  { id: 3,  dimension: 'Buyer Perception',    mui: 'Natural choice for teams already using Material UI',            ag: 'Serious option for complex data grids',                 bryntum: 'Specialized solution for planning and scheduling-heavy products',                inhouse: '"Our use case is too specific for off-the-shelf tools"' },
   { id: 4,  dimension: 'Business Model',      mui: 'Open-core (land → expand)',              ag: 'Premium enterprise licensing',            bryntum: 'High-ticket specialized components',  inhouse: '$0 license, hidden FTE cost' },
   { id: 5,  dimension: 'OSS Strategy',        mui: 'Free Core + paid MUI X',                ag: 'Free Community + paid Enterprise',        bryntum: '100% proprietary, no free tier',      inhouse: 'You own everything — and maintain everything' },
   { id: 6,  dimension: 'Primary Strength',    mui: 'Developer mindshare + ecosystem',       ag: 'Feature depth + performance',             bryntum: 'Hard-to-replicate niche features',    inhouse: 'Full control, no vendor dependency' },
-  { id: 7,  dimension: 'Primary Weakness',    mui: 'Enterprise narrative still emerging — opportunity to sharpen', ag: 'Narrow scope, expensive entry', bryntum: 'Brand awareness + OEM complexity', inhouse: 'Underestimates true cost — always' },
-  { id: 8,  dimension: 'Key Proof Points',    mui: '5.8M weekly npm downloads, 93.9k GitHub stars', ag: 'Category leadership in finance/trading', bryntum: '5,000+ customers, 80+ countries', inhouse: '6–12 weeks to replicate basic grid features' },
-  { id: 9,  dimension: 'Notable Customers',   mui: 'Spotify, Amazon, NASA, Netflix, Unity', ag: 'Financial services, trading platforms',   bryntum: 'Ferrari, Red Bull, HSBC, IMAX',       inhouse: 'Every team that underestimated the real cost' },
-  { id: 10, dimension: '2025 Market Signal',  mui: 'v9 launch — Material UI + MUI X unified', ag: 'Formed combined group with Bryntum, backed by Adelis Equity — expanding toward full-stack UI component suite', bryntum: 'PE acquisition by Adelis + partnership with AG Grid — accelerating international expansion and product breadth', inhouse: 'AI-assisted dev makes this more tempting — and more risky' },
+  { id: 7,  dimension: 'Primary Weakness',    mui: 'Enterprise narrative still emerging, opportunity to sharpen', ag: 'Narrower platform story and higher entry price', bryntum: 'Lower self-serve adoption due to no free tier and OEM complexity', inhouse: 'True cost is often underestimated' },
+  { id: 8,  dimension: 'Key Proof Points',    mui: '5.8M weekly npm downloads, 93.9k GitHub stars', ag: 'Strong adoption in data-heavy enterprise use cases', bryntum: 'Enterprise customer logos across scheduling-heavy industries', inhouse: 'Weeks to months to replicate production-grade grid capabilities' },
+  { id: 9,  dimension: 'Notable Customers',   mui: 'Spotify, Amazon, NASA, Netflix, Unity, Apple, Deloitte', ag: 'J.P. Morgan, MongoDB, NASA, Microsoft',   bryntum: 'Red Bull, IMAX, Netflix, Disney, Warner Bros. Discovery',       inhouse: 'N/A' },
+  { id: 10, dimension: 'Recent Market Signals',  mui: 'v9 release: Material UI and MUI X aligned into a unified offering, reinforcing a broader UI platform approach', ag: 'Strategic partnership with Bryntum, expanding beyond data grids into a broader UI component offering', bryntum: 'Adelis majority investment and AG Grid partnership, supporting broader market reach and product expansion', inhouse: 'AI-assisted development lowers the barrier to start, but not the complexity to scale' },
 ]
 
 function makeCol(field, label, color) {
@@ -322,7 +322,7 @@ function Tab1() {
           sx={{ '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.65' } }}
         >
           <strong>AG Grid and Bryntum announced a strategic partnership in November 2025, backed by Adelis Equity Partners.</strong>{' '}
-          They now operate as a combined group with aligned roadmaps and shared board leadership — positioning them to cover both data grids and scheduling with a single vendor relationship. This is a direct competitive response to MUI X's breadth advantage.
+          They now operate as a combined group with aligned roadmaps and shared board leadership, positioning them to cover both data grids and scheduling with a single vendor relationship. This is a direct competitive response to MUI X's breadth advantage.
         </Alert>
         <TechLabel tags={['MUI — Alert']} />
       </div>
