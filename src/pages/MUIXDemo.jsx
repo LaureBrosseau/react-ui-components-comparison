@@ -586,7 +586,7 @@ export default function MUIXDemo() {
           ) : (
             <div>
               <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
-                Custom light theme — MUI ThemeProvider, blue headers, flex columns, styled cells, CSV export toolbar (blue bar above the grid).
+                Custom light theme — MUI ThemeProvider, blue headers, flex columns, styled cells, CSV export toolbar.
               </p>
               <ThemeProvider theme={muiCustomTheme}>
                 <div style={{ marginBottom: '8px' }}>
@@ -614,7 +614,7 @@ export default function MUIXDemo() {
           {agView === 'default' ? (
             <div>
               <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
-                Pure default rendering — themeQuartz with no params, no column customisation.
+                Pure default rendering, themeQuartz with no params, no column customisation.
               </p>
               <div style={{ marginBottom: '8px', height: 600 }}>
                 <AgGridReact
@@ -632,7 +632,7 @@ export default function MUIXDemo() {
           ) : (
             <div>
               <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
-                Custom light theme — themeQuartz.withPart(colorSchemeLight).withParams(), green-tinted headers, styled cell renderers, flex columns.
+                Custom light theme, themeQuartz.withPart(colorSchemeLight).withParams(), green-tinted headers, styled cell renderers, flex columns.
               </p>
               <div style={{ marginBottom: '8px', height: 600 }}>
                 <AgGridReact
@@ -652,13 +652,13 @@ export default function MUIXDemo() {
       )}
 
       <Alert severity="info" sx={{ mt: 3, mb: 1, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
-        <strong>What this demo shows.</strong>{' '}
-        <strong>Default:</strong> MUI X DataGrid wrapped in a <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>ThemeProvider</code> — no DataGrid-specific overrides.
+        <strong>What this demo shows:</strong>{' '} <br/>
+        <strong>Default:</strong> MUI X DataGrid wrapped in a <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>ThemeProvider</code>, no DataGrid-specific overrides.
         Font, colors, border radius, and spacing all inherit from the app theme automatically.
-        AG Grid Default uses <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz</code> with no params — good out of the box, but design system alignment requires explicit configuration.{' '}
-        <strong>Customised:</strong> both grids reach comparable visual quality.
+        <br/>AG Grid Default uses <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz</code> with no params, good out of the box, but design system alignment requires explicit configuration.{' '}
+        <br/><strong>Customised:</strong> both grids reach comparable visual quality.
         MUI X gets there via the standard MUI theming system (<code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>createTheme</code> + component overrides).
-        AG Grid via its own semantic API (<code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz.withParams()</code>).{' '}
+        <br/>AG Grid via its own semantic API (<code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz.withParams()</code>).{' '}
         The key difference: if your app already uses MUI, the DataGrid is a zero-config extension of your design system.
       </Alert>
 
