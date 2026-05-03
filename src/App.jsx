@@ -26,7 +26,7 @@ function Nav() {
         justifyContent: 'space-between',
         height: '56px',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', whiteSpace: 'nowrap' }}>
+        <NavLink to="/" end style={{ display: 'flex', alignItems: 'center', gap: '10px', whiteSpace: 'nowrap', textDecoration: 'none' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <rect x="2" y="2" width="10" height="6" rx="2" fill="#007FFF"/>
             <rect x="14" y="2" width="8" height="6" rx="2" fill="#007FFF" opacity="0.5"/>
@@ -43,7 +43,7 @@ function Nav() {
               — A PMM Perspective
             </span>
           </span>
-        </div>
+        </NavLink>
 
         <div style={{ display: 'flex', gap: '4px' }}>
           {[
@@ -161,7 +161,7 @@ function Inner() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-ui-components-comparison">
       <Inner />
     </BrowserRouter>
   )

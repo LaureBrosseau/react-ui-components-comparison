@@ -30,8 +30,7 @@ const muiTheme = createTheme({
           '& .MuiDataGrid-columnHeaders': { background: '#f8fafc', borderColor: '#e5e7eb' },
           '& .MuiDataGrid-columnHeader': { background: '#f8fafc' },
           '& .MuiDataGrid-columnHeaderTitle': {
-            fontWeight: '600', color: '#6b7280', fontSize: '12px',
-            textTransform: 'uppercase', letterSpacing: '0.05em',
+            fontWeight: '600', color: '#6b7280', fontSize: '13px',
           },
           '& .MuiDataGrid-row:hover': { background: '#f3f4f6' },
           '& .MuiDataGrid-row.Mui-selected': {
@@ -149,56 +148,34 @@ function MuiToolbar() {
   )
 }
 
+// Default MUI X DataGrid — no custom styling applied
 // ─── MUI X columns ───────────────────────────────────────────────────────────
 
 const muiColumns = [
-  {
-    field: 'company', headerName: 'Company', flex: 1.4, minWidth: 140,
-    renderCell: ({ value }) => <span style={{ fontWeight: '600', color: '#111827' }}>{value}</span>,
-  },
-  { field: 'industry', headerName: 'Industry', flex: 1.3, minWidth: 120,
-    renderCell: ({ value }) => <span style={{ fontSize: '13px', color: '#374151' }}>{value}</span>,
-  },
-  { field: 'teamSize', headerName: 'Dev Team', flex: 1, minWidth: 100,
-    renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#9ca3af', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
-  },
-  { field: 'stack', headerName: 'Stack', flex: 1.2, minWidth: 120,
-    renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#6b7280', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
-  },
-  {
-    field: 'currentGrid', headerName: 'Current Grid', flex: 1.2, minWidth: 120,
-    renderCell: ({ value }) => <Badge value={value} styleMap={GRID_STYLES} />,
-  },
-  {
-    field: 'evalStatus', headerName: 'Status', flex: 1, minWidth: 110,
-    renderCell: ({ value }) => <Badge value={value} styleMap={STATUS_STYLES} />,
-  },
-  {
-    field: 'arrPotential', headerName: 'ARR Potential', flex: 1.1, minWidth: 120, type: 'number',
-    renderCell: ({ value }) => <ARRCell value={value} />,
-  },
-  {
-    field: 'region', headerName: 'Region', flex: 0.8, minWidth: 80,
-    renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#9ca3af', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
-  },
-  {
-    field: 'lastContact', headerName: 'Last Contact', flex: 1, minWidth: 110,
-    renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#d1d5db', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
-  },
+  { field: 'company',      headerName: 'Company',      width: 160 },
+  { field: 'industry',     headerName: 'Industry',     width: 150 },
+  { field: 'teamSize',     headerName: 'Dev Team',     width: 130 },
+  { field: 'stack',        headerName: 'Stack',        width: 160 },
+  { field: 'currentGrid',  headerName: 'Current Grid', width: 150 },
+  { field: 'evalStatus',   headerName: 'Status',       width: 130 },
+  { field: 'arrPotential', headerName: 'ARR Potential',width: 140, type: 'number' },
+  { field: 'region',       headerName: 'Region',       width: 90  },
+  { field: 'lastContact',  headerName: 'Last Contact', width: 130 },
 ]
 
-// ─── AG Grid columns ──────────────────────────────────────────────────────────
+// Default AG Grid — no custom styling applied
+// ─── AG Grid columns ─────────────────────────────────────────────────────────
 
 const agColumns = [
-  { field: 'company', headerName: 'Company', width: 160, cellStyle: { fontWeight: '600', color: '#111827' } },
-  { field: 'industry', headerName: 'Industry', width: 150 },
-  { field: 'teamSize', headerName: 'Dev Team', width: 130, cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#9ca3af' } },
-  { field: 'stack', headerName: 'Stack', width: 160, cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#6b7280' } },
-  { field: 'currentGrid', headerName: 'Current Grid', width: 150, cellRenderer: ({ value }) => <Badge value={value} styleMap={GRID_STYLES} /> },
-  { field: 'evalStatus', headerName: 'Status', width: 135, cellRenderer: ({ value }) => <Badge value={value} styleMap={STATUS_STYLES} /> },
-  { field: 'arrPotential', headerName: 'ARR Potential', width: 145, valueFormatter: ({ value }) => value ? `$${value.toLocaleString()}` : '—', cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#4b5563' } },
-  { field: 'region', headerName: 'Region', width: 90, cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#9ca3af' } },
-  { field: 'lastContact', headerName: 'Last Contact', width: 130, cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#d1d5db' } },
+  { field: 'company',      headerName: 'Company'      },
+  { field: 'industry',     headerName: 'Industry'     },
+  { field: 'teamSize',     headerName: 'Dev Team'     },
+  { field: 'stack',        headerName: 'Stack'        },
+  { field: 'currentGrid',  headerName: 'Current Grid' },
+  { field: 'evalStatus',   headerName: 'Status'       },
+  { field: 'arrPotential', headerName: 'ARR Potential'},
+  { field: 'region',       headerName: 'Region'       },
+  { field: 'lastContact',  headerName: 'Last Contact' },
 ]
 
 // ─── Feature table ────────────────────────────────────────────────────────────
@@ -364,12 +341,18 @@ export default function MUIXDemo() {
 
   return (
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
-      <div style={{ marginBottom: '28px' }}>
-        <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
-          Data Grid: Live Comparison
+      <div style={{ marginBottom: '24px' }}>
+        <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '10px', letterSpacing: '-0.02em' }}>
+          Live Demo — MUI X vs AG Grid
         </h1>
-        <p style={{ fontSize: '14px', color: '#6b7280' }}>
-          200 enterprise prospects tracked with company, stack, current grid solution, eval status, and ARR potential — rendered with two different libraries.
+        <p style={{ fontSize: '18px', color: '#111827', lineHeight: '1.5', marginBottom: '16px', fontFamily: "'DM Sans', sans-serif" }}>
+          Real enterprise prospect data. Two libraries. Default configuration. You decide which renders better.
+        </p>
+        <p style={{ fontSize: '14px', color: '#9ca3af', lineHeight: '1.65', marginBottom: '12px', fontFamily: "'DM Sans', sans-serif" }}>
+          200 enterprise prospects tracked with company, stack, current grid solution, eval status, and ARR potential — rendered with MUI X DataGrid and AG Grid, both in default configuration.
+        </p>
+        <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.65', marginBottom: '0', fontStyle: 'italic', fontFamily: "'DM Sans', sans-serif" }}>
+          About the dataset: Company names are real. All other attributes (stack, grid solution, ARR potential, eval status) are randomly generated for demo purposes only.
         </p>
       </div>
 
@@ -384,62 +367,32 @@ export default function MUIXDemo() {
 
       {activeTab === 'mui' && (
         <div>
-          <ThemeProvider theme={muiTheme}>
-            <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
-              <DataGrid
-                rows={prospects}
-                columns={muiColumns}
-                pageSizeOptions={[25, 50, 100]}
-                pagination
-                disableRowSelectionOnClick
-                slots={{ toolbar: MuiToolbar }}
-                initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
-                style={{ height: 560 }}
-              />
-            </div>
-          </ThemeProvider>
-          <TechLabel tags={['MUI X — DataGrid', 'MUI X — GridToolbar', '@mui/material — ThemeProvider']} />
-          <div style={{
-            marginTop: '12px',
-            background: '#f9fafb', border: '1px solid #e5e7eb', borderLeft: '4px solid #9ca3af',
-            borderRadius: '8px', padding: '14px 20px', display: 'flex', gap: '12px', alignItems: 'flex-start',
-          }}>
-            <span style={{ fontSize: '16px', marginTop: '1px' }}>📊</span>
-            <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.65', margin: 0 }}>
-              <strong style={{ color: '#374151' }}>About the dataset:</strong>{' '}
-              Company names are real. All other attributes (stack, grid solution, ARR, eval status) are randomly generated for demo purposes only.
-            </p>
+          <div style={{ marginBottom: '8px' }}>
+            <DataGrid
+              rows={prospects}
+              columns={muiColumns}
+              pageSizeOptions={[25, 50, 100]}
+              pagination
+              initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
+              style={{ height: 560 }}
+            />
           </div>
+          <TechLabel tags={['MUI X — DataGrid']} />
         </div>
       )}
 
       {activeTab === 'ag' && (
         <div>
-          <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px', height: 600 }}>
+          <div style={{ marginBottom: '8px', height: 600 }}>
             <AgGridReact
               rowData={prospects}
               columnDefs={agColumns}
-              theme={agTheme}
               pagination
               paginationPageSize={25}
-              paginationPageSizeSelector={[25, 50, 100]}
-              defaultColDef={{ resizable: true, sortable: true, filter: true }}
-              onGridReady={onAgGridReady}
               style={{ height: '100%', width: '100%' }}
             />
           </div>
           <TechLabel tags={['AG Grid — AgGridReact', 'AG Grid Community (free)']} />
-          <div style={{
-            marginTop: '12px',
-            background: '#f9fafb', border: '1px solid #e5e7eb', borderLeft: '4px solid #9ca3af',
-            borderRadius: '8px', padding: '14px 20px', display: 'flex', gap: '12px', alignItems: 'flex-start',
-          }}>
-            <span style={{ fontSize: '16px', marginTop: '1px' }}>📊</span>
-            <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.65', margin: 0 }}>
-              <strong style={{ color: '#374151' }}>Synthetic dataset.</strong>{' '}
-              Company names are real. All other attributes (stack, grid solution, ARR, eval status) are randomly generated for demo purposes only.
-            </p>
-          </div>
         </div>
       )}
 
