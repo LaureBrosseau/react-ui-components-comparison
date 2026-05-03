@@ -7,13 +7,13 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Alert from '@mui/material/Alert'
 import { AgGridReact } from 'ag-grid-react'
-import { AllCommunityModule, ModuleRegistry, colorSchemeLight, themeQuartz } from 'ag-grid-community'
+import { AllCommunityModule, ModuleRegistry, colorSchemeLight, colorSchemeDark, themeQuartz } from 'ag-grid-community'
 import { generateProspects } from '../data/prospectData'
 import TechLabel from '../components/TechLabel'
 
 ModuleRegistry.registerModules([AllCommunityModule])
 
-// ─── MUI theme ──────────────────────────────────────────────────────────────
+// ─── MUI light theme (feature tables + API cards) ────────────────────────────
 
 const muiTheme = createTheme({
   palette: { mode: 'light', primary: { main: '#007FFF' } },
@@ -59,26 +59,79 @@ const muiTheme = createTheme({
   },
 })
 
-// ─── AG Grid theme ───────────────────────────────────────────────────────────
+// ─── MUI custom light theme (customised DataGrid view) ───────────────────────
 
-const agTheme = themeQuartz.withPart(colorSchemeLight).withParams({
+const muiCustomTheme = createTheme({
+  palette: { mode: 'light', primary: { main: '#007FFF' } },
+  typography: { fontFamily: "'DM Sans', sans-serif" },
+  components: {
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          border: 'none',
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: '13px',
+          background: '#ffffff',
+          color: '#111827',
+          '& .MuiDataGrid-cell': { borderColor: '#e0e7ff' },
+          '& .MuiDataGrid-columnHeaders': { background: '#eff6ff' },
+          '& .MuiDataGrid-columnHeader': { background: '#eff6ff' },
+          '& .MuiDataGrid-columnHeaderTitle': {
+            fontWeight: '700',
+            color: '#1d4ed8',
+            fontSize: '11px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.07em',
+          },
+          '& .MuiDataGrid-row:hover': { background: '#eff6ff' },
+          '& .MuiDataGrid-row.Mui-selected': {
+            background: 'rgba(0,127,255,0.06)',
+            '&:hover': { background: 'rgba(0,127,255,0.10)' },
+          },
+          '& .MuiDataGrid-footerContainer': { borderColor: '#e0e7ff', background: '#f8faff' },
+          '& .MuiDataGrid-row:nth-of-type(even)': { background: '#f8faff', '&:hover': { background: '#eff6ff' } },
+          '& .MuiCheckbox-root': { color: '#bfdbfe', '&.Mui-checked': { color: '#007FFF' } },
+          '& .MuiDataGrid-columnSeparator': { color: '#bfdbfe' },
+          '& .MuiTablePagination-root': { color: '#6b7280', fontFamily: "'DM Sans', sans-serif" },
+          '& .MuiDataGrid-virtualScroller': { background: '#ffffff' },
+          '& .MuiDataGrid-filler': { background: '#ffffff' },
+          '& .MuiDataGrid-scrollbarFiller': { background: '#ffffff' },
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontFamily: "'DM Sans', sans-serif", fontSize: '12px', textTransform: 'none',
+          color: '#6b7280', '&:hover': { background: '#eff6ff', color: '#1d4ed8' },
+        },
+      },
+    },
+  },
+})
+
+// ─── AG Grid themes ───────────────────────────────────────────────────────────
+
+const agThemeDefault = themeQuartz
+
+const agThemeCustom = themeQuartz.withPart(colorSchemeLight).withParams({
   backgroundColor: '#ffffff',
-  foregroundColor: '#374151',
-  borderColor: '#e5e7eb',
-  headerBackgroundColor: '#f8fafc',
-  headerTextColor: '#6b7280',
-  rowHoverColor: '#f3f4f6',
-  selectedRowBackgroundColor: 'rgba(0,127,255,0.06)',
-  accentColor: '#007FFF',
+  foregroundColor: '#111827',
+  borderColor: '#bbf7d0',
+  headerBackgroundColor: '#f0fdf4',
+  headerTextColor: '#15803d',
+  rowHoverColor: '#f0fdf4',
+  selectedRowBackgroundColor: 'rgba(22,163,74,0.06)',
+  accentColor: '#16a34a',
   fontFamily: "'DM Sans', sans-serif",
   fontSize: 13,
-  headerFontSize: 12,
-  headerFontWeight: 600,
+  headerFontSize: 11,
+  headerFontWeight: 700,
   cellHorizontalPaddingScale: 1,
-  rowBorder: { color: '#f0f0f0', width: 1 },
+  rowBorder: { color: '#dcfce7', width: 1 },
   columnBorder: false,
   wrapperBorder: false,
-  oddRowBackgroundColor: '#f9fafb',
+  oddRowBackgroundColor: '#f8fffe',
 })
 
 // ─── Cell renderers ──────────────────────────────────────────────────────────
@@ -124,9 +177,18 @@ function ARRCell({ value }) {
   )
 }
 
-// ─── MUI toolbar ─────────────────────────────────────────────────────────────
+function ARRCellCustom({ value }) {
+  if (!value) return <span style={{ color: '#d1d5db', fontFamily: "'JetBrains Mono', monospace", fontSize: '12px' }}>—</span>
+  return (
+    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#1d4ed8' }}>
+      ${value.toLocaleString()}
+    </span>
+  )
+}
 
-function MuiToolbar() {
+// ─── MUI toolbars ─────────────────────────────────────────────────────────────
+
+function MuiToolbarLight() {
   return (
     <GridToolbarContainer style={{
       padding: '10px 16px', borderBottom: '1px solid #e5e7eb',
@@ -148,34 +210,98 @@ function MuiToolbar() {
   )
 }
 
-// Default MUI X DataGrid — no custom styling applied
+function MuiToolbarDark() {
+  return (
+    <GridToolbarContainer style={{
+      padding: '10px 16px', borderBottom: '1px solid #1e293b',
+      background: '#0d0d0d', display: 'flex', justifyContent: 'flex-end',
+    }}>
+      <GridToolbarExport
+        slotProps={{
+          tooltip: { title: 'Export as CSV' },
+          button: {
+            style: {
+              fontSize: '12px', color: '#94a3b8', border: '1px solid #334155',
+              borderRadius: '6px', padding: '4px 12px',
+              fontFamily: "'DM Sans', sans-serif", background: '#1e293b',
+            },
+          },
+        }}
+      />
+    </GridToolbarContainer>
+  )
+}
+
 // ─── MUI X columns ───────────────────────────────────────────────────────────
 
-const muiColumns = [
-  { field: 'company',      headerName: 'Company',      width: 160 },
-  { field: 'industry',     headerName: 'Industry',     width: 150 },
-  { field: 'teamSize',     headerName: 'Dev Team',     width: 130 },
-  { field: 'stack',        headerName: 'Stack',        width: 160 },
-  { field: 'currentGrid',  headerName: 'Current Grid', width: 150 },
-  { field: 'evalStatus',   headerName: 'Status',       width: 130 },
-  { field: 'arrPotential', headerName: 'ARR Potential',width: 140, type: 'number' },
-  { field: 'region',       headerName: 'Region',       width: 90  },
-  { field: 'lastContact',  headerName: 'Last Contact', width: 130 },
+const muiColumnsDefault = [
+  { field: 'company',      headerName: 'Company',       width: 160 },
+  { field: 'industry',     headerName: 'Industry',      width: 150 },
+  { field: 'teamSize',     headerName: 'Dev Team',      width: 130 },
+  { field: 'stack',        headerName: 'Stack',         width: 160 },
+  { field: 'currentGrid',  headerName: 'Current Grid',  width: 150 },
+  { field: 'evalStatus',   headerName: 'Status',        width: 130 },
+  { field: 'arrPotential', headerName: 'ARR Potential', width: 140, type: 'number' },
+  { field: 'region',       headerName: 'Region',        width: 90  },
+  { field: 'lastContact',  headerName: 'Last Contact',  width: 130 },
 ]
 
-// Default AG Grid — no custom styling applied
+const muiColumnsCustom = [
+  { field: 'company',      headerName: 'Company',       flex: 1.4, minWidth: 140,
+    renderCell: ({ value }) => <span style={{ fontWeight: '600', color: '#111827', fontSize: '13px' }}>{value}</span> },
+  { field: 'industry',     headerName: 'Industry',      flex: 1,   minWidth: 120,
+    renderCell: ({ value }) => <span style={{ color: '#374151', fontSize: '13px' }}>{value}</span> },
+  { field: 'teamSize',     headerName: 'Dev Team',      flex: 0.8, minWidth: 100,
+    renderCell: ({ value }) => <span style={{ color: '#6b7280', fontSize: '13px' }}>{value}</span> },
+  { field: 'stack',        headerName: 'Stack',         flex: 1,   minWidth: 100,
+    renderCell: ({ value }) => (
+      <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#1d4ed8', background: '#eff6ff', borderRadius: '3px', padding: '1px 5px' }}>{value}</code>
+    ) },
+  { field: 'currentGrid',  headerName: 'Current Grid',  flex: 1,   minWidth: 120,
+    renderCell: ({ value }) => <Badge value={value} styleMap={GRID_STYLES} /> },
+  { field: 'evalStatus',   headerName: 'Status',        flex: 0.9, minWidth: 110,
+    renderCell: ({ value }) => <Badge value={value} styleMap={STATUS_STYLES} /> },
+  { field: 'arrPotential', headerName: 'ARR Potential', flex: 1,   minWidth: 120, type: 'number',
+    renderCell: ({ value }) => <ARRCellCustom value={value} /> },
+  { field: 'region',       headerName: 'Region',        flex: 0.7, minWidth: 80,
+    renderCell: ({ value }) => <span style={{ color: '#6b7280', fontSize: '12px' }}>{value}</span> },
+  { field: 'lastContact',  headerName: 'Last Contact',  flex: 0.9, minWidth: 110,
+    renderCell: ({ value }) => <span style={{ color: '#9ca3af', fontFamily: "'JetBrains Mono', monospace", fontSize: '12px' }}>{value}</span> },
+]
+
 // ─── AG Grid columns ─────────────────────────────────────────────────────────
 
-const agColumns = [
-  { field: 'company',      headerName: 'Company'      },
-  { field: 'industry',     headerName: 'Industry'     },
-  { field: 'teamSize',     headerName: 'Dev Team'     },
-  { field: 'stack',        headerName: 'Stack'        },
-  { field: 'currentGrid',  headerName: 'Current Grid' },
-  { field: 'evalStatus',   headerName: 'Status'       },
-  { field: 'arrPotential', headerName: 'ARR Potential'},
-  { field: 'region',       headerName: 'Region'       },
-  { field: 'lastContact',  headerName: 'Last Contact' },
+const agColumnsDefault = [
+  { field: 'company',      headerName: 'Company'       },
+  { field: 'industry',     headerName: 'Industry'      },
+  { field: 'teamSize',     headerName: 'Dev Team'      },
+  { field: 'stack',        headerName: 'Stack'         },
+  { field: 'currentGrid',  headerName: 'Current Grid'  },
+  { field: 'evalStatus',   headerName: 'Status'        },
+  { field: 'arrPotential', headerName: 'ARR Potential' },
+  { field: 'region',       headerName: 'Region'        },
+  { field: 'lastContact',  headerName: 'Last Contact'  },
+]
+
+const agColumnsCustom = [
+  { field: 'company',      headerName: 'Company',       flex: 1.4,
+    cellStyle: { fontWeight: '600', color: '#111827' } },
+  { field: 'industry',     headerName: 'Industry',      flex: 1,
+    cellStyle: { color: '#374151' } },
+  { field: 'teamSize',     headerName: 'Dev Team',      flex: 0.8,
+    cellStyle: { color: '#6b7280' } },
+  { field: 'stack',        headerName: 'Stack',         flex: 1,
+    cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#15803d' } },
+  { field: 'currentGrid',  headerName: 'Current Grid',  flex: 1,
+    cellRenderer: ({ value }) => <Badge value={value} styleMap={GRID_STYLES} /> },
+  { field: 'evalStatus',   headerName: 'Status',        flex: 0.9,
+    cellRenderer: ({ value }) => <Badge value={value} styleMap={STATUS_STYLES} /> },
+  { field: 'arrPotential', headerName: 'ARR Potential', flex: 1,
+    cellRenderer: ({ value }) => <ARRCellCustom value={value} /> },
+  { field: 'region',       headerName: 'Region',        flex: 0.7,
+    cellStyle: { color: '#6b7280', fontSize: '12px' } },
+  { field: 'lastContact',  headerName: 'Last Contact',  flex: 0.9,
+    cellStyle: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#9ca3af' } },
 ]
 
 // ─── Feature table ────────────────────────────────────────────────────────────
@@ -296,6 +422,32 @@ function featureColor(val) {
   return '#374151'
 }
 
+// ─── SubTabs ──────────────────────────────────────────────────────────────────
+
+function SubTabs({ value, onChange }) {
+  return (
+    <ThemeProvider theme={muiTheme}>
+      <Tabs
+        value={value}
+        onChange={(_, v) => onChange(v)}
+        sx={{
+          minHeight: '30px',
+          marginBottom: '12px',
+          borderBottom: '1px solid #e5e7eb',
+          '& .MuiTabs-indicator': { backgroundColor: '#6b7280', height: '2px' },
+          '& .MuiTab-root': {
+            minHeight: '30px', padding: '0 12px', fontSize: '12px', fontWeight: '500',
+            color: '#9ca3af', textTransform: 'none', letterSpacing: '-0.01em',
+            '&.Mui-selected': { color: '#374151', fontWeight: '600' },
+          },
+        }}
+      >
+        <Tab value="default" label="Default" />
+        <Tab value="customised" label="Customised" />
+      </Tabs>
+    </ThemeProvider>
+  )
+}
 
 // ─── Tab button ───────────────────────────────────────────────────────────────
 
@@ -333,6 +485,8 @@ function TabBtn({ active, onClick, color, children }) {
 export default function MUIXDemo() {
   const [activeTab, setActiveTab] = useState('mui')
   const [featureTab, setFeatureTab] = useState('community')
+  const [muiView, setMuiView] = useState('default')
+  const [agView, setAgView] = useState('default')
   const prospects = useMemo(() => generateProspects(), [])
 
   const onAgGridReady = useCallback((params) => {
@@ -343,15 +497,13 @@ export default function MUIXDemo() {
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
       <div style={{ marginBottom: '24px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '10px', letterSpacing: '-0.02em' }}>
-          Live Demo — MUI X vs AG Grid
+          Live Demo MUI X vs AG Grid
         </h1>
-        <p style={{ fontSize: '18px', color: '#111827', lineHeight: '1.5', marginBottom: '16px', fontFamily: "'DM Sans', sans-serif" }}>
+        <p style={{ fontSize: '17px', color: '#6b7280', lineHeight: '1.5', marginBottom: '16px', fontFamily: "'DM Sans', sans-serif" }}>
           Real enterprise prospect data. Two libraries. Default configuration. You decide which renders better.
         </p>
         <p style={{ fontSize: '14px', color: '#9ca3af', lineHeight: '1.65', marginBottom: '12px', fontFamily: "'DM Sans', sans-serif" }}>
-          200 enterprise prospects tracked with company, stack, current grid solution, eval status, and ARR potential — rendered with MUI X DataGrid and AG Grid, both in default configuration.
-        </p>
-        <p style={{ fontSize: '13px', color: '#6b7280', lineHeight: '1.65', marginBottom: '0', fontStyle: 'italic', fontFamily: "'DM Sans', sans-serif" }}>
+          200 enterprise prospects tracked with company, stack, current grid solution, eval status, and ARR potential, rendered with MUI X DataGrid and AG Grid, both in default configuration.<br/>
           About the dataset: Company names are real. All other attributes (stack, grid solution, ARR potential, eval status) are randomly generated for demo purposes only.
         </p>
       </div>
@@ -367,34 +519,99 @@ export default function MUIXDemo() {
 
       {activeTab === 'mui' && (
         <div>
-          <div style={{ marginBottom: '8px' }}>
-            <DataGrid
-              rows={prospects}
-              columns={muiColumns}
-              pageSizeOptions={[25, 50, 100]}
-              pagination
-              initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
-              style={{ height: 560 }}
-            />
-          </div>
-          <TechLabel tags={['MUI X — DataGrid']} />
+          <SubTabs value={muiView} onChange={setMuiView} />
+          {muiView === 'default' ? (
+            <div>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
+                Pure default rendering — no theme, no custom columns, no toolbar.
+              </p>
+              <div style={{ marginBottom: '8px' }}>
+                <DataGrid
+                  rows={prospects}
+                  columns={muiColumnsDefault}
+                  pageSizeOptions={[25, 50, 100]}
+                  pagination
+                  initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
+                  style={{ height: 560 }}
+                />
+              </div>
+              <TechLabel tags={['MUI X — DataGrid', 'Default rendering']} />
+            </div>
+          ) : (
+            <div>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
+                Custom light theme — MUI ThemeProvider, blue headers, uppercase, flex columns, styled cells, CSV export toolbar.
+              </p>
+              <ThemeProvider theme={muiCustomTheme}>
+                <div style={{ marginBottom: '8px' }}>
+                  <DataGrid
+                    rows={prospects}
+                    columns={muiColumnsCustom}
+                    pageSizeOptions={[25, 50, 100]}
+                    pagination
+                    initialState={{ pagination: { paginationModel: { pageSize: 25 } } }}
+                    style={{ height: 560 }}
+                    slots={{ toolbar: MuiToolbarLight }}
+                    disableRowSelectionOnClick
+                  />
+                </div>
+              </ThemeProvider>
+              <TechLabel tags={['MUI X — DataGrid', 'MUI — ThemeProvider', 'MUI — GridToolbarExport', 'Custom light theme']} />
+            </div>
+          )}
         </div>
       )}
 
       {activeTab === 'ag' && (
         <div>
-          <div style={{ marginBottom: '8px', height: 600 }}>
-            <AgGridReact
-              rowData={prospects}
-              columnDefs={agColumns}
-              pagination
-              paginationPageSize={25}
-              style={{ height: '100%', width: '100%' }}
-            />
-          </div>
-          <TechLabel tags={['AG Grid — AgGridReact', 'AG Grid Community (free)']} />
+          <SubTabs value={agView} onChange={setAgView} />
+          {agView === 'default' ? (
+            <div>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
+                Pure default rendering — themeQuartz with no params, no column customisation.
+              </p>
+              <div style={{ marginBottom: '8px', height: 600 }}>
+                <AgGridReact
+                  key="ag-default"
+                  rowData={prospects}
+                  columnDefs={agColumnsDefault}
+                  theme={agThemeDefault}
+                  pagination
+                  paginationPageSize={25}
+                  style={{ height: '100%', width: '100%' }}
+                />
+              </div>
+              <TechLabel tags={['AG Grid — AgGridReact', 'AG Grid Community (free)', 'Default rendering']} />
+            </div>
+          ) : (
+            <div>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
+                Custom light theme — themeQuartz.withPart(colorSchemeLight).withParams(), green-tinted headers, styled cell renderers, flex columns.
+              </p>
+              <div style={{ marginBottom: '8px', height: 600 }}>
+                <AgGridReact
+                  key="ag-custom"
+                  rowData={prospects}
+                  columnDefs={agColumnsCustom}
+                  theme={agThemeCustom}
+                  pagination
+                  paginationPageSize={25}
+                  style={{ height: '100%', width: '100%' }}
+                />
+              </div>
+              <TechLabel tags={['AG Grid — AgGridReact', 'AG Grid Community (free)', 'themeQuartz + colorSchemeLight']} />
+            </div>
+          )}
         </div>
       )}
+
+      <Alert severity="info" sx={{ mt: 3, mb: 1, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
+        <strong>PMM insight.</strong>{' '}
+        AG Grid delivers a more enterprise-ready rendering out of the box — wider columns, cleaner headers, better default spacing.
+        MUI X requires more theme configuration to reach the same visual quality, but offers deeper integration with the MUI design system.
+        The <em>Customised</em> view shows what's achievable with theming APIs: MUI X via <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>createTheme</code> + <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>ThemeProvider</code>,
+        AG Grid via <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz.withPart(colorSchemeLight).withParams()</code>.
+      </Alert>
 
       {/* API diff callout */}
       <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '40px' }}>
@@ -505,7 +722,7 @@ export default function MUIXDemo() {
 
           {featureTab === 'community' && (
             <div>
-              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '12px', fontStyle: '' }}>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '12px' }}>
                 Based on community tiers to provide a consistent baseline across products.<br/><em>Note: some enterprise evaluations start directly with paid plans.</em>
               </p>
               <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
@@ -521,8 +738,8 @@ export default function MUIXDemo() {
               <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'MUI — Alert']} />
               <Alert severity="info" sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
                 <strong>About the "Build in-house" estimates:</strong>{' '}
-                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience). {' '}
-                They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '} <br/>
+                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience).{' '}
+                They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '}<br/>
                 The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
                 These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
                 <em>For reference: a few days of engineering time often cost more than a full year of licensing.</em>
@@ -532,10 +749,9 @@ export default function MUIXDemo() {
 
           {featureTab === 'paid' && (
             <div>
-              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '16px', fontStyle: '' }}>
+              <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '16px' }}>
                 Comparison of paid features to highlight where each solution delivers additional value beyond the community baseline.
               </p>
-
               <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
                 <DataGrid
                   rows={paidRows}
@@ -549,11 +765,12 @@ export default function MUIXDemo() {
               <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'MUI — Alert']} />
               <Alert severity="info" sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
                 <strong>About the "Build in-house" estimates:</strong>{' '}
-                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience). {' '}
-                They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '} <br/>
+                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience).{' '}
+                They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '}<br/>
                 The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
                 These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
-                <em>For reference: a few days of engineering time often cost more than a full year of licensing.</em>              </Alert>
+                <em>For reference: a few days of engineering time often cost more than a full year of licensing.</em>
+              </Alert>
             </div>
           )}
         </ThemeProvider>
