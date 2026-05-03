@@ -248,19 +248,7 @@ function MuiToolbarCustom() {
       padding: '8px 16px', borderBottom: '1px solid #bfdbfe',
       background: '#dbeafe', display: 'flex', justifyContent: 'flex-end',
     }}>
-      <GridToolbarExport
-        slotProps={{
-          tooltip: { title: 'Export as CSV' },
-          button: {
-            style: {
-              fontSize: '12px', color: '#1d4ed8', border: '1px solid #93c5fd',
-              borderRadius: '6px', padding: '4px 12px',
-              fontFamily: "'DM Sans', sans-serif", background: '#eff6ff',
-              fontWeight: '500',
-            },
-          },
-        }}
-      />
+      <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
     </GridToolbarContainer>
   )
 }
@@ -664,11 +652,14 @@ export default function MUIXDemo() {
       )}
 
       <Alert severity="info" sx={{ mt: 3, mb: 1, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
-        <strong>PMM insight.</strong>{' '}
-        AG Grid delivers a more enterprise-ready rendering out of the box — wider columns, cleaner headers, better default spacing.
-        MUI X requires more theme configuration to reach the same visual quality, but offers deeper integration with the MUI design system.
-        The <em>Customised</em> view shows what's achievable with theming APIs: MUI X via <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>createTheme</code> + <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>ThemeProvider</code>,
-        AG Grid via <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz.withPart(colorSchemeLight).withParams()</code>.
+        <strong>What this demo shows.</strong>{' '}
+        <strong>Default:</strong> MUI X DataGrid wrapped in a <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>ThemeProvider</code> — no DataGrid-specific overrides.
+        Font, colors, border radius, and spacing all inherit from the app theme automatically.
+        AG Grid Default uses <code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz</code> with no params — good out of the box, but design system alignment requires explicit configuration.{' '}
+        <strong>Customised:</strong> both grids reach comparable visual quality.
+        MUI X gets there via the standard MUI theming system (<code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>createTheme</code> + component overrides).
+        AG Grid via its own semantic API (<code style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11.5px' }}>themeQuartz.withParams()</code>).{' '}
+        The key difference: if your app already uses MUI, the DataGrid is a zero-config extension of your design system.
       </Alert>
 
       {/* API diff callout */}
