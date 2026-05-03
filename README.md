@@ -2,6 +2,14 @@
 
 A product marketing exploration of the React enterprise UI components market, focusing on how MUI compares to AG Grid, Bryntum, and the build-in-house alternative.
 
+## About this project
+
+This project was created by Laure Brosseau as part of a product marketing deep dive into the React Enterprise UI components space.
+
+It combines competitive analysis, positioning work, and hands-on implementation to explore how MUI X compares to AG Grid, Bryntum, and the build in-house alternative.
+
+→ [Connect on LinkedIn](https://www.linkedin.com/in/laurebrosseau/)
+
 ## Why this project
 
 The React UI components space is crowded, but also fragmented.
@@ -12,7 +20,6 @@ _Should we adopt a component library, combine multiple tools, or build everythin
 Each option comes with trade-offs in performance, flexibility, developer experience, and long-term scalability.
 
 This project explores how leading solutions approach this trade-off — and highlights key positioning tensions, especially for MUI X.
-
 
 ## What this project covers
 
