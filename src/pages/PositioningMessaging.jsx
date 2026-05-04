@@ -309,8 +309,8 @@ export default function PositioningMessaging() {
               </strong>. <br /> The break-even vs. building in-house is typically reached
               <strong> within the first sprint</strong>.
                 {' '}The question is never{' '}
-              <em>"can we build it?"</em>, it's always{' '}
-              <em>"what else could the team have shipped instead?"</em>
+              <em>can we build it?</em>, it's always{' '}
+              <em>what else could the team have shipped instead?</em>
             </Alert>
           </CardContent>
         </Card>
