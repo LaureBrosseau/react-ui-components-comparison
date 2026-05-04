@@ -308,7 +308,7 @@ const agTheme = themeQuartz
             MUI X stands out for <strong style={{ color: '#1e3a8a' }}>API stability and design system coherence</strong>, while AG Grid stands out for <strong style={{ color: '#1e3a8a' }}>installation simplicity, theming clarity, and feature depth in the Community tier</strong>.
             </p>
             <p style={{ fontSize: '15px', fontWeight: '600', color: '#1e3a8a' }}>
-            The challenge is not generating code, it’s validating what the user actually sees.
+            The main challenge for an AI agent is not generating code, it’s validating what the user actually sees.
             </p>
           </div>
         </div>
