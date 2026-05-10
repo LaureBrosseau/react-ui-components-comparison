@@ -357,9 +357,9 @@ const featureRows = [
   { id: 5,  feature: 'CSV export',                        mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
   { id: 6,  feature: 'Checkbox selection',                mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–3 days' },
   { id: 7,  feature: 'Keyboard navigation (accessible)',  mui: '✅ Built-in',        ag: '✅ Built-in',        effort: '2–4 weeks' },
-  { id: 8,  feature: 'Row virtualisation (100k+ rows)',   mui: '⚠️ Pro only',        ag: '✅ Community',       effort: '4–8 weeks' },
-  { id: 9,  feature: 'Excel export',                      mui: '❌ Not available',   ag: '⚠️ Enterprise',     effort: '1–2 weeks' },
-  { id: 10, feature: 'Pivot / grouping',                  mui: '⚠️ Premium',         ag: '⚠️ Enterprise',     effort: '4–8 weeks' },
+  { id: 8,  feature: 'Row virtualisation (100k+ rows)',   mui: '⚠️ Pro only',        ag: '✅ Community',       effort: '2–4 weeks' },
+  { id: 9,  feature: 'Excel export',                      mui: '❌ Not available',   ag: '⚠️ Enterprise',     effort: '1 week' },
+  { id: 10, feature: 'Pivot / grouping',                  mui: '⚠️ Premium',         ag: '⚠️ Enterprise',     effort: '3–6 weeks' },
   { id: 11, feature: 'MUI design system integration',     mui: '✅ Native',          ag: '❌ Manual',          effort: 'Ongoing' },
   { id: 12, feature: 'Theming API',                       mui: '✅ MUI theme',       ag: '⚠️ Custom CSS',     effort: 'Ongoing' },
 ]
@@ -410,13 +410,13 @@ const featureColumns = [
 ]
 
 const paidRows = [
-  { id: 1,  feature: 'Row grouping / aggregation',       mui: '⚠️ Premium only',              ag: '✅ Enterprise',                       bryntum: '⚠️ Partial',                    effort: '4–8 weeks' },
-  { id: 2,  feature: 'Pivoting',                         mui: '⚠️ Premium only',              ag: '✅ Enterprise',                       bryntum: '❌ Not supported',               effort: '4–8 weeks' },
-  { id: 3,  feature: 'Excel export',                     mui: '⚠️ Pro/Premium',               ag: '✅ Enterprise',                       bryntum: '⚠️ Limited',                    effort: '1–2 weeks' },
+  { id: 1,  feature: 'Row grouping / aggregation',       mui: '⚠️ Premium only',              ag: '✅ Enterprise',                       bryntum: '⚠️ Partial',                    effort: '3–6 weeks' },
+  { id: 2,  feature: 'Pivoting',                         mui: '⚠️ Premium only',              ag: '✅ Enterprise',                       bryntum: '❌ Not supported',               effort: '3–6 weeks' },
+  { id: 3,  feature: 'Excel export',                     mui: '⚠️ Pro/Premium',               ag: '✅ Enterprise',                       bryntum: '⚠️ Limited',                    effort: '1 week' },
   { id: 4,  feature: 'Advanced filtering',               mui: '⚠️ Pro/Premium',               ag: '✅ Enterprise',                       bryntum: '⚠️ Partial',                    effort: '2–4 weeks' },
-  { id: 5,  feature: 'Large dataset perf. (100k+ rows)', mui: '⚠️ Premium (gated)',           ag: '✅ Strong — all tiers',               bryntum: '✅ Strong',                      effort: '4–8 weeks' },
-  { id: 6,  feature: 'Tree / hierarchical data',         mui: '✅ Pro+',                       ag: '✅ Enterprise',                       bryntum: '✅ Native (Tree Grid)',           effort: '3–6 weeks' },
-  { id: 7,  feature: 'Inline cell editing',              mui: '✅ Community+',                 ag: '✅ Community+',                       bryntum: '✅ Native',                      effort: '2–4 weeks' },
+  { id: 5,  feature: 'Large dataset perf. (100k+ rows)', mui: '⚠️ Premium (gated)',           ag: '✅ Strong — all tiers',               bryntum: '✅ Strong',                      effort: '2–4 weeks' },
+  { id: 6,  feature: 'Tree / hierarchical data',         mui: '✅ Pro+',                       ag: '✅ Enterprise',                       bryntum: '✅ Native (Tree Grid)',           effort: '2–4 weeks' },
+  { id: 7,  feature: 'Inline cell editing',              mui: '✅ Community+',                 ag: '✅ Community+',                       bryntum: '✅ Native',                      effort: '1–2 weeks' },
   { id: 8,  feature: 'Clipboard / copy-paste',           mui: '⚠️ Limited',                   ag: '✅ Enterprise',                       bryntum: '✅ Native (CellCopyPaste)',       effort: '1–2 weeks' },
   { id: 9,  feature: 'Charts integration',               mui: '✅ Native (same license)',      ag: '⚠️ Separate AG Charts license',      bryntum: '❌ No charts component',         effort: '2–4 weeks' },
   { id: 10, feature: 'Design system / theming',          mui: '✅ Native — MUI theme',         ag: '❌ Manual',                          bryntum: '❌ Standalone only',             effort: 'Ongoing' },
@@ -787,7 +787,7 @@ export default function MUIXDemo() {
               <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'MUI — Alert']} />
               <Alert severity="info" sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
                 <strong>About the "Build in-house" estimates:</strong>{' '}
-                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience).{' '}
+                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer (5+ years experience).{' '}
                 They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '}<br/>
                 The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
                 These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
@@ -814,7 +814,7 @@ export default function MUIXDemo() {
               <TechLabel tags={['MUI X — DataGrid', 'MUI — Tabs', 'MUI — Alert']} />
               <Alert severity="info" sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}>
                 <strong>About the "Build in-house" estimates:</strong>{' '}
-                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer. (5+ years experience).{' '}
+                These estimates reflect the effort required to build production-ready features, including accessibility, testing, cross-browser support, and long-term maintenance, by a senior React developer (5+ years experience).{' '}
                 They are indicative and meant as order-of-magnitude estimates, not project quotes.{' '}<br/>
                 The goal is to shift the conversation from licensing cost to total engineering cost.{' '}
                 These are order-of-magnitude estimates, not project quotes, the goal is to reframe the conversation from "licensing cost" to "total engineering cost."{' '}<br/>
