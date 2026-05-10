@@ -1,4 +1,5 @@
 import TechLabel from '../components/TechLabel'
+import { DataGrid } from '@mui/x-data-grid'
 
 const SECTION = ({ title, children }) => (
   <div style={{ marginBottom: '40px' }}>
@@ -245,50 +246,60 @@ const agTheme = themeQuartz
       {/* Comparison table */}
       <SECTION title="AI Integration Comparison">
         <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', marginBottom: '8px' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr style={{ background: '#f8fafc' }}>
-                {[
-                  { label: 'Criterion', color: '#6b7280' },
-                  { label: 'MUI X DataGrid', color: '#007FFF' },
-                  { label: 'AG Grid Community', color: '#16a34a' },
-                  { label: 'Edge', color: '#6b7280' },
-                ].map(({ label, color }, i) => (
-                  <th key={label} style={{
-                    padding: '12px 18px', textAlign: 'left',
-                    fontSize: '11px', fontWeight: '700', color,
-                    textTransform: 'uppercase', letterSpacing: '0.07em',
-                    borderBottom: '1px solid #e5e7eb',
-                    borderRight: i < 3 ? '1px solid #f0f0f0' : 'none',
-                  }}>
-                    {label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map((row, i) => (
-                <tr key={row.criterion} style={{ background: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}>
-                  <td style={{ padding: '12px 18px', fontSize: '13px', color: '#374151', borderBottom: '1px solid #f0f0f0', borderRight: '1px solid #f0f0f0', fontWeight: '500' }}>
-                    {row.criterion}
-                  </td>
-                  <td style={{ padding: '12px 18px', fontSize: '12px', color: '#4b5563', borderBottom: '1px solid #f0f0f0', borderRight: '1px solid #f0f0f0', fontFamily: "'JetBrains Mono', monospace" }}>
-                    {row.mui}
-                  </td>
-                  <td style={{ padding: '12px 18px', fontSize: '12px', color: '#4b5563', borderBottom: '1px solid #f0f0f0', borderRight: '1px solid #f0f0f0', fontFamily: "'JetBrains Mono', monospace" }}>
-                    {row.ag}
-                  </td>
-                  <td style={{ padding: '12px 18px', fontSize: '12px', borderBottom: '1px solid #f0f0f0', textAlign: 'center' }}>
-                    {row.winner === 'mui' && <span style={{ color: '#007FFF', fontWeight: '700', fontSize: '11px' }}>MUI X ●</span>}
-                    {row.winner === 'ag'  && <span style={{ color: '#16a34a', fontWeight: '700', fontSize: '11px' }}>AG Grid ●</span>}
-                    {row.winner === 'draw' && <span style={{ color: '#9ca3af', fontSize: '11px' }}>Draw</span>}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <DataGrid
+            rows={comparisonRows.map((row, i) => ({ id: i, ...row }))}
+            columns={[
+              {
+                field: 'criterion',
+                headerName: 'Criterion',
+                flex: 1.2,
+                renderHeader: () => <span style={{ fontSize: '11px', fontWeight: '700', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.07em' }}>Criterion</span>,
+                renderCell: ({ value }) => <span style={{ fontSize: '13px', fontWeight: '500', color: '#374151' }}>{value}</span>,
+              },
+              {
+                field: 'mui',
+                headerName: 'MUI X DataGrid',
+                flex: 1.3,
+                renderHeader: () => <span style={{ fontSize: '11px', fontWeight: '700', color: '#007FFF', textTransform: 'uppercase', letterSpacing: '0.07em' }}>MUI X DataGrid</span>,
+                renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#4b5563', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
+              },
+              {
+                field: 'ag',
+                headerName: 'AG Grid Community',
+                flex: 1.3,
+                renderHeader: () => <span style={{ fontSize: '11px', fontWeight: '700', color: '#16a34a', textTransform: 'uppercase', letterSpacing: '0.07em' }}>AG Grid Community</span>,
+                renderCell: ({ value }) => <span style={{ fontSize: '12px', color: '#4b5563', fontFamily: "'JetBrains Mono', monospace" }}>{value}</span>,
+              },
+              {
+                field: 'winner',
+                headerName: 'Edge',
+                flex: 0.6,
+                align: 'center',
+                headerAlign: 'center',
+                renderHeader: () => <span style={{ fontSize: '11px', fontWeight: '700', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.07em' }}>Edge</span>,
+                renderCell: ({ value }) => (
+                  value === 'mui'  ? <span style={{ color: '#007FFF', fontWeight: '700', fontSize: '11px' }}>MUI X ●</span> :
+                  value === 'ag'   ? <span style={{ color: '#16a34a', fontWeight: '700', fontSize: '11px' }}>AG Grid ●</span> :
+                  <span style={{ color: '#9ca3af', fontSize: '11px' }}>Draw</span>
+                ),
+              },
+            ]}
+            hideFooter
+            disableRowSelectionOnClick
+            getRowHeight={() => 'auto'}
+            sx={{
+              border: 'none',
+              '& .MuiDataGrid-columnHeaders': { background: '#f8fafc' },
+              '& .MuiDataGrid-columnSeparator': { display: 'none' },
+              '& .MuiDataGrid-cell': { borderColor: '#f0f0f0', py: '10px' },
+              '& .MuiDataGrid-row:nth-of-type(odd)': { background: '#ffffff' },
+              '& .MuiDataGrid-row:nth-of-type(even)': { background: '#f9fafb' },
+              '& .MuiDataGrid-virtualScroller': { background: '#ffffff' },
+              '& .MuiDataGrid-filler': { background: '#ffffff' },
+            }}
+          />
         </div>
-        <TechLabel tags={['Custom HTML <table>', 'Inline styles']} />
+        <TechLabel tags={['MUI X — DataGrid']} />
       </SECTION>
 
       {/* Conclusion callout */}

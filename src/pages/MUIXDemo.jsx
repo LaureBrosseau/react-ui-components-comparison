@@ -586,7 +586,7 @@ export default function MUIXDemo() {
           ) : (
             <div>
               <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '8px', fontFamily: "'DM Sans', sans-serif" }}>
-                Custom light theme — MUI ThemeProvider, blue headers, flex columns, styled cells, CSV export toolbar.
+                Custom light theme: MUI ThemeProvider, blue headers, flex columns, styled cells.
               </p>
               <ThemeProvider theme={muiCustomTheme}>
                 <div style={{ marginBottom: '8px' }}>
