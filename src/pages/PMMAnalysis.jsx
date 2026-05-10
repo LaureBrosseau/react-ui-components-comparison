@@ -472,7 +472,7 @@ export default function PMMAnalysis() {
         </div>
 
         <div style={{ marginTop: '8px' }}>
-          <TechLabel tags={['MUI — Tabs + Tab', 'MUI — Accordion', 'MUI — Alert', 'MUI — Chip', 'MUI X — DataGrid']} />
+          <TechLabel tags={['MUI — Tabs', 'MUI — Accordion', 'MUI — Alert', 'MUI — Chip', 'MUI X — DataGrid']} />
         </div>
 
       </div>
