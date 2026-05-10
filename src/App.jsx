@@ -57,17 +57,20 @@ function Nav() {
               key={to}
               to={to}
               end={to === '/'}
-              style={({ isActive }) => ({
+              style={({ isActive }) => {
+              const isAI = to === '/ai-install';
+              return {
                 padding: '6px 14px',
                 borderRadius: '6px',
                 fontSize: '13px',
                 fontWeight: '500',
                 textDecoration: 'none',
-                color: isActive ? '#111827' : '#6b7280',
-                background: isActive ? '#f3f4f6' : 'transparent',
-                border: isActive ? '1px solid #e5e7eb' : '1px solid transparent',
+                color: isActive ? (isAI ? '#1d4ed8' : '#111827') : (isAI ? '#2563eb' : '#6b7280'),
+                background: isActive ? (isAI ? '#dbeafe' : '#f3f4f6') : (isAI ? '#eff6ff' : 'transparent'),
+                border: isAI ? '1px solid #bfdbfe' : (isActive ? '1px solid #e5e7eb' : '1px solid transparent'),
                 transition: 'all 150ms ease',
-              })}
+              };
+            }}
             >
               {label}
             </NavLink>
