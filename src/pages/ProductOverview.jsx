@@ -51,9 +51,9 @@ const companyRows = [
     ag: '✅ Included in Enterprise license',
     bryntum: '⚠️ Requires separate OEM license for SaaS/commercial products' },
   { id: 12, dimension: 'Notable Customers',
-    mui: 'Tesla · Apple · Southwest Airlines · Siemens · Volvo · Deloitte',
+    mui: 'a supp',
     ag: 'J.P. Morgan · MongoDB · NASA',
-    bryntum: 'Ferrari · Red Bull · HSBC · IMAX · United Nations · Apple · Samsung (5,000+ customers, 80+ countries)' },
+    bryntum: 'Ferrari, Boeing, SpaceX, Microsoft, Apple, Siemens' },
   { id: 13, dimension: '2025 Market Signal',
     mui: 'v9 launch, Material UI + MUI X unified release',
     ag: 'Strategic partnership with Bryntum, backed by Adelis Equity, forming a combined group',
@@ -105,9 +105,9 @@ const gridRows = [
     bryntum: '⚠️ OEM license required for SaaS',
     inhouse: '✅ No restriction' },
   { id: 9, dimension: 'Notable Customers',
-    mui: 'Tesla · Apple · Southwest · Siemens · Volvo · Deloitte',
-    ag: 'J.P. Morgan · MongoDB · NASA',
-    bryntum: 'Ferrari · Red Bull · HSBC · IMAX',
+    mui: 'Netflix, Spotify, Amazon, Apple, Tesla, NASA, Deloitte',
+    ag: 'J.P. Morgan, MongoDB, NASA, Microsoft',
+    bryntum: 'Ferrari, Boeing, SpaceX, Microsoft, Apple, Siemens',
     inhouse: 'N/A' },
 ]
 
@@ -226,7 +226,8 @@ export default function ProductOverview() {
           Market & Product Overview
         </h1>
         <p style={{ fontSize: '14px', color: '#6b7280' }}>
-          A structured view of each company’s strategy, product scope, and positioning, followed by a focused comparison of the Data Grid as a common evaluation starting point.
+          A structured view of React enterprise UI component libraries — MUI, AG Grid, and Bryntum — covering company strategy, product scope, positioning, OSS model, pricing... <br/>
+          This overview is followed by a detailed Data Grid comparison, including a built-in-house alternative.
         </p>
       </div>
 
@@ -271,14 +272,12 @@ export default function ProductOverview() {
 
         {/* ── Section 2: Data Grid Head to Head ───────────────────────────── */}
         <div>
-          <p style={{ fontSize: '15px', color: '#6b7280', marginBottom: '30px', fontStyle: 'italic' }}>
-            Most evaluations start with a specific component, typically the Data Grid, before expanding to broader needs.
-          </p>
           <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#111827', marginBottom: '4px', letterSpacing: '-0.02em' }}>
             Data Grid Comparison
           </h2>
           <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '16px' }}>
-            Focused comparison of the Data Grid component specifically. Each vendor offers additional components beyond what is compared here.
+            Most evaluations start with a specific component, typically the Data Grid, before expanding to broader needs. <br/>
+            Let's compare MUI, AG Grid, Bryntum and the "build-in-house" Data Grid component specifically. Note that each vendor offers additional components beyond what is compared here.
           </p>
 
           <div>
