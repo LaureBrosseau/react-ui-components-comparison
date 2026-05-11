@@ -543,11 +543,13 @@ export default function MUIXDemo() {
           Live Demo MUI X vs AG Grid
         </h1>
         <p style={{ fontSize: '17px', color: '#6b7280', lineHeight: '1.5', marginBottom: '16px', fontFamily: "'DM Sans', sans-serif" }}>
-          Real enterprise prospect data. Two libraries. Default configuration.
+          Real enterprise prospect data. Two libraries. Default configuration and customised views.
         </p>
         <p style={{ fontSize: '14px', color: '#9ca3af', lineHeight: '1.65', marginBottom: '12px', fontFamily: "'DM Sans', sans-serif" }}>
-          200 enterprise prospects tracked with company, stack, current grid solution, eval status, and ARR potential, rendered with MUI X DataGrid and AG Grid, both in default configuration.<br/>
-          About the dataset: Company names are real. All other attributes (stack, grid solution, ARR potential, eval status) are randomly generated for demo purposes only.
+          200 enterprise prospects tracked with company, stack, current grid solution, eval status, and ARR potential, rendered with MUI X DataGrid and AG Grid, both in default configuration.<br/><br/>
+          <em>
+            About the dataset: Company names are real. All other attributes (stack, grid solution, ARR potential, eval status) are randomly generated for demo purposes only.
+          </em>
         </p>
       </div>
 

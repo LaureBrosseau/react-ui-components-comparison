@@ -38,7 +38,7 @@ const companyRows = [
     ag: 'React · Angular · Vue · Vanilla JS',
     bryntum: 'React · Angular · Vue · Vanilla JS' },
   { id: 9,  dimension: 'OSS Model',
-    mui: 'Open-core, MIT Core (Material UI) + paid MUI X',
+    mui: 'Open-core, MIT Community + paid MUI X',
     ag: 'Open-core, MIT Community + paid Enterprise',
     bryntum: '100% proprietary, no free tier' },
   { id: 10, dimension: 'Pricing (entry point)',
@@ -104,11 +104,6 @@ const gridRows = [
     ag: '✅ Included in Enterprise',
     bryntum: '⚠️ OEM license required for SaaS',
     inhouse: '✅ No restriction' },
-  { id: 9, dimension: 'Notable Customers',
-    mui: 'Netflix, Spotify, Amazon, Apple, Tesla, NASA, Deloitte',
-    ag: 'J.P. Morgan, MongoDB, NASA, Microsoft',
-    bryntum: 'Ferrari, Boeing, SpaceX, Microsoft, Apple, Siemens',
-    inhouse: 'N/A' },
 ]
 
 // ─── Cell helpers ─────────────────────────────────────────────────────────────

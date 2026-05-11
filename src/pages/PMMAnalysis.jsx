@@ -140,10 +140,10 @@ const COLORS = { mui: '#007FFF', ag: '#2ecc71', bryntum: '#e67e22', inhouse: '#e
 
 const strategyRows = [
   { id: 1,  dimension: 'Category Strategy',  mui: 'Horizontal React UI platform',          ag: 'Data grid specialist',              bryntum: 'Complex UI specialist in scheduling, planning & grid', inhouse: 'Bespoke internal build' },
-  { id: 2,  dimension: 'Product Scope',       mui: 'Broad component suite, strongest in React ecosystems',                   ag: 'Deep focus on data grid and charts',                   bryntum: 'Specialized suite for scheduling, planning, and grid use cases',            inhouse: 'ustom scope, constrained by engineering capacity' },
+  { id: 2,  dimension: 'Product Scope',       mui: 'Broad component suite, strongest in React ecosystems',                   ag: 'Deep focus on data grid and charts',                   bryntum: 'Specialized suite for scheduling, planning, and grid use cases',            inhouse: 'custom scope, constrained by engineering capacity' },
   { id: 3,  dimension: 'Buyer Perception',    mui: 'Natural choice for teams already using Material UI',            ag: 'Serious option for complex data grids',                 bryntum: 'Specialized solution for planning and scheduling-heavy products',                inhouse: '"Our use case is too specific for off-the-shelf tools"' },
   { id: 4,  dimension: 'Business Model',      mui: 'Open-core (land → expand)',              ag: 'Premium enterprise licensing',            bryntum: 'High-ticket specialized components',  inhouse: '$0 license, hidden FTE cost' },
-  { id: 5,  dimension: 'OSS Strategy',        mui: 'Free Core + paid MUI X',                ag: 'Free Community + paid Enterprise',        bryntum: '100% proprietary, no free tier',      inhouse: 'You own everything — and maintain everything' },
+  { id: 5,  dimension: 'OSS Strategy',        mui: 'Free Core + paid MUI X',                ag: 'Free Community + paid Enterprise',        bryntum: '100% proprietary, no free tier',      inhouse: 'You own everything and maintain everything' },
   { id: 6,  dimension: 'Primary Strength',    mui: 'Developer mindshare + ecosystem',       ag: 'Feature depth + performance',             bryntum: 'Hard-to-replicate niche features',    inhouse: 'Full control, no vendor dependency' },
   { id: 7,  dimension: 'Primary Weakness',    mui: 'Enterprise narrative still emerging, opportunity to sharpen', ag: 'Narrower platform story and higher entry price', bryntum: 'Lower self-serve adoption due to no free tier and OEM complexity', inhouse: 'True cost is often underestimated' },
   { id: 8,  dimension: 'Key Proof Points',    mui: '5.8M weekly npm downloads, 93.9k GitHub stars', ag: 'Strong adoption in data-heavy enterprise use cases', bryntum: 'Enterprise customer logos across scheduling-heavy industries', inhouse: 'Weeks to months to replicate production-grade grid capabilities' },
@@ -229,11 +229,13 @@ id: 'gap3',
     title: 'Gap #3: Data Grid perception gap',
     summary: 'Perception differs in data-intensive use cases',
     chip: { label: 'Medium Priority', color: 'warning' },
-    body: `MUI X Data Grid is production-ready and suitable for a wide range of applications. However, in data-intensive environments such as finance or analytics, tools like AG Grid are often perceived as more specialized or purpose-built.
-    
-    This is less a feature gap than a perception and positioning gap.
-    
-    Addressing it may not rely solely on adding features, but on clarifying where MUI X creates value, particularly through integration with the broader UI ecosystem.`,
+    body: `MUI X Data Grid is production-ready and suitable for a wide range of applications. However, in data-intensive environments such as finance or analytics, tools like AG Grid are often perceived as more specialized or purpose-built. 
+
+The challenge is not capability, it's credibility in high-stakes data environments. 
+
+Notably, some organizations use both MUI and AG Grid simultaneously, which suggests the competitive question is less "which one" and more "when does MUI X become the right default ».
+
+Closing that perception gap is a positioning opportunity. Addressing it may not rely solely on adding features, but on clarifying where MUI X creates value, particularly through integration with the broader UI ecosystem.`,
   },
   {
     id: 'opp1',
@@ -266,7 +268,7 @@ The opportunity is to make this narrative more explicit in positioning, packagin
   {
     id: 'opp3',
     type: 'opportunity',
-    title: 'Opportunity #3: Leverage the design–development bridge',
+    title: 'Opportunity #3: Leverage the design-development bridge',
     summary: 'Make the design-to-code workflow a clearer part of the story',
     chip: { label: 'Untapped', color: 'info' },
     body: `MUI provides both a component library and design assets (e.g. Figma kits), creating a natural link between design and development workflows.
@@ -326,7 +328,10 @@ function Tab1() {
           severity="info"
           sx={{ '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.65' } }}
         >
-        <strong>Key Observations</strong>: Recent developments highlight changes in product scope across vendors.
+        <strong>Key Observations</strong>: <br/>
+        Some organizations appear across multiple vendors: Apple uses both MUI and Bryntum, NASA uses both MUI and AG Grid. 
+        This reflects real-world adoption patterns: different tools for different use cases within the same organization.<br/>
+        Recent developments highlight changes in product scope across vendors.
         <strong> MUI X is expanding its component offering</strong> within a unified UI platform, while <strong>AG Grid and Bryntum have announced a <a href="https://bryntum.com/blog/bryntum-and-ag-grid-join-forces/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800" title="AG Grid & Bryntum partnership announcement">strategic partnership</a></strong> combining data grid and scheduling capabilities. Together, these changes reflect <strong>broader product coverage across the UI component landscape</strong>.{' '}  
         </Alert>
         <TechLabel tags={['MUI — Alert']} />
