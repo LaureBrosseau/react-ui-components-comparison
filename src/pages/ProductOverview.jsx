@@ -259,9 +259,8 @@ export default function ProductOverview() {
             severity="warning"
             sx={{ mt: 2, '& .MuiAlert-message': { fontSize: '13px', lineHeight: '1.7' } }}
           >
-            <strong>Market signal:</strong>{' '}
-            AG Grid and Bryntum announced a <strong>strategic partnership in November 2025</strong>, backed by Adelis Equity Partners. The two companies now operate as a <strong>combined group</strong> with aligned roadmaps and shared board leadership. This consolidation positions them to cover both data grids and scheduling, a broader suite that competes more directly with MUI X's component range.
-          </Alert>
+            <strong>Market signals:</strong>{' '} AG Grid and Bryntum announced a <strong>strategic partnership in November 2025</strong>, backed by Adelis Equity Partners. The two companies now operate as a <strong>combined group with aligned roadmaps and shared board leadership</strong>. This consolidation positions them to cover both data grids and scheduling, <strong>a broader suite that competes more directly with MUI X's component range</strong>.<br/>
+            {' '}At the same time, <strong>real-world adoption patterns</strong> suggest these tools are <strong>not always in direct competition</strong>. Organizations like <strong>NASA, Apple, and Microsoft</strong> appear in the customer lists of multiple vendors simultaneously, <strong>using different libraries for different use cases</strong> within the same engineering organization. This reflects a common enterprise reality: <strong>component choice is often use-case driven, not winner-takes-all</strong>.          </Alert>
         </div>
         <div style={{ marginBottom: '30px' }} />
 
