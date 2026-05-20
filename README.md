@@ -1,6 +1,6 @@
 # React UI Components - Competitive Analysis
 
-A product marketing exploration of the React enterprise UI components market, focusing on how MUI compares to AG Grid, Bryntum, and the build-in-house alternative.
+A product marketing exploration of the React enterprise UI components market, focusing on how MUI compares to AG Grid, Bryntum, and the build in-house alternative.
 
 ## About this project
 
