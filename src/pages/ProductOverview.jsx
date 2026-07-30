@@ -212,13 +212,13 @@ const lightTheme = createTheme({
 
 function Foreword() {
   const paragraphs = [
-    'I built this project while preparing for a Product Marketing interview at Material UI (MUI).',
-    'Rather than simply reading documentation and marketing pages, I wanted to gain a deeper understanding of the React UI component ecosystem by comparing the leading open-source libraries side by side.',
-    "The goal wasn't just to compare features. I wanted to analyze how each library is positioned, who it's built for, where it excels, and the trade-offs developers and engineering teams face when choosing one.",
-    'Building this comparison also gave me the opportunity to combine several things I enjoy: market analysis, competitive research, product positioning, and creating practical tools that make complex information easier to explore.',
-    "Although I wasn't selected for the role, I decided to keep this project online because I believe it can still be useful for developers, Product Managers, Product Marketers, and anyone evaluating the React UI ecosystem.",
-    'More importantly, it reflects how I approach Product Marketing: learning by doing, diving deep into a market, synthesizing large amounts of information, and turning research into practical, accessible resources.',
-    'I hope you find it useful.',
+    "A few months ago, I met with Material UI (MUI), they were looking for their 1st Marketing hire. I built this website to get a better sense of MUI's products and landscape.",
+    "Rather than simply reading documentation and browsing webpages, I wanted to gain a deeper understanding of the React UI component ecosystem by comparing the leading open-source libraries side by side.",
+    "The goal wasn't just to compare features. I wanted to actually use the components, and analyze how each library is positioned, who it's built for, their strengths and weaknesses, and the trade-offs developers and/or engineering teams face when selecting one React UI library.",
+    "Building this comparison also gave me the opportunity to do what I enjoy the most: market analysis, competitive research, product positioning, and creating practical tools that make complex information easier to explore.",
+    "Although I didn't get the role, I decided to keep this project online because I believe it can still be useful for developers, Product Managers, Product Designers, and anyone evaluating the React UI ecosystem.",
+    'This project reflects how I approach strategic work: quickly building domain expertise, connecting product, market and customer perspectives, and turning research into actionable resources. ',
+    'I hope you find it useful and insightful!',
   ]
 
   return (
