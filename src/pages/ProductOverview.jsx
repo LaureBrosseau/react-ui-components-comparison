@@ -249,7 +249,7 @@ function Foreword() {
       }}>
         Foreword
       </h1>
-      <div style={{ maxWidth: '850px' }}>
+      <div>
         {paragraphs.map((paragraph) => (
           <p
             key={paragraph}
