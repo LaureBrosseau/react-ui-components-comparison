@@ -87,7 +87,7 @@ function Footer() {
     <footer style={{
       borderTop: '1px solid #e5e7eb',
       background: '#ffffff',
-      padding: '24px',
+      padding: '28px 24px',
     }}>
       <div style={{
         maxWidth: '1400px',
@@ -96,27 +96,50 @@ function Footer() {
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        gap: '8px',
+        gap: '16px',
       }}>
-        <span style={{ fontSize: '14px', color: '#9ca3af', fontFamily: "'DM Sans', sans-serif" }}>
-          © 2026 Laure Brosseau — Product Marketing Analysis
-        </span>
-        <a
-          href="https://www.linkedin.com/in/laurebrosseau/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontSize: '14px',
-            color: '#007FFF',
-            fontFamily: "'DM Sans', sans-serif",
-            textDecoration: 'none',
-            fontWeight: '500',
-          }}
-          onMouseEnter={e => e.target.style.textDecoration = 'underline'}
-          onMouseLeave={e => e.target.style.textDecoration = 'none'}
-        >
-          LinkedIn ↗
-        </a>
+        <div>
+          <p style={{ fontSize: '14px', color: '#111827', fontFamily: "'DM Sans', sans-serif", fontWeight: '500', marginBottom: '4px' }}>
+            Analysis and foreword by Laure Brosseau
+          </p>
+          <p style={{ fontSize: '13px', color: '#9ca3af', fontFamily: "'DM Sans', sans-serif" }}>
+            Product Marketing & Strategic Programs
+          </p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+          <a
+            href="https://laurebrosseau.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '14px',
+              color: '#007FFF',
+              fontFamily: "'DM Sans', sans-serif",
+              textDecoration: 'none',
+              fontWeight: '600',
+            }}
+            onMouseEnter={e => e.target.style.textDecoration = 'underline'}
+            onMouseLeave={e => e.target.style.textDecoration = 'none'}
+          >
+            laurebrosseau.com ↗
+          </a>
+          <a
+            href="https://www.linkedin.com/in/laurebrosseau/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '14px',
+              color: '#6b7280',
+              fontFamily: "'DM Sans', sans-serif",
+              textDecoration: 'none',
+              fontWeight: '500',
+            }}
+            onMouseEnter={e => e.target.style.textDecoration = 'underline'}
+            onMouseLeave={e => e.target.style.textDecoration = 'none'}
+          >
+            LinkedIn ↗
+          </a>
+        </div>
       </div>
     </footer>
   )

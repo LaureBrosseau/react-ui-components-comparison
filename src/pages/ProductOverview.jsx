@@ -210,11 +210,79 @@ const lightTheme = createTheme({
   },
 })
 
+function Foreword() {
+  const paragraphs = [
+    'I built this project while preparing for a Product Marketing interview at Material UI (MUI).',
+    'Rather than simply reading documentation and marketing pages, I wanted to gain a deeper understanding of the React UI component ecosystem by comparing the leading open-source libraries side by side.',
+    "The goal wasn't just to compare features. I wanted to analyze how each library is positioned, who it's built for, where it excels, and the trade-offs developers and engineering teams face when choosing one.",
+    'Building this comparison also gave me the opportunity to combine several things I enjoy: market analysis, competitive research, product positioning, and creating practical tools that make complex information easier to explore.',
+    "Although I wasn't selected for the role, I decided to keep this project online because I believe it can still be useful for developers, Product Managers, Product Marketers, and anyone evaluating the React UI ecosystem.",
+    'More importantly, it reflects how I approach Product Marketing: learning by doing, diving deep into a market, synthesizing large amounts of information, and turning research into practical, accessible resources.',
+    'I hope you find it useful.',
+  ]
+
+  return (
+    <section style={{
+      background: '#ffffff',
+      border: '1px solid #e5e7eb',
+      borderRadius: '10px',
+      padding: '28px 32px',
+      marginBottom: '40px',
+      boxShadow: '0 10px 30px rgba(17, 24, 39, 0.04)',
+    }}>
+      <p style={{
+        fontSize: '11px',
+        fontWeight: '700',
+        color: '#007FFF',
+        textTransform: 'uppercase',
+        letterSpacing: '0.08em',
+        marginBottom: '10px',
+      }}>
+        Context
+      </p>
+      <h1 style={{
+        fontSize: '24px',
+        fontWeight: '600',
+        color: '#111827',
+        marginBottom: '18px',
+        letterSpacing: '-0.02em',
+      }}>
+        Foreword
+      </h1>
+      <div style={{ maxWidth: '850px' }}>
+        {paragraphs.map((paragraph) => (
+          <p
+            key={paragraph}
+            style={{
+              fontSize: '15px',
+              color: '#374151',
+              lineHeight: '1.75',
+              marginBottom: '14px',
+            }}
+          >
+            {paragraph}
+          </p>
+        ))}
+        <p style={{
+          fontSize: '15px',
+          color: '#111827',
+          lineHeight: '1.75',
+          marginTop: '4px',
+          fontWeight: '500',
+        }}>
+          — Laure Brosseau
+        </p>
+      </div>
+    </section>
+  )
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProductOverview() {
   return (
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 60px' }}>
+      <Foreword />
 
       <div style={{ marginBottom: '40px' }}>
         <h1 style={{ fontSize: '22px', fontWeight: '600', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
