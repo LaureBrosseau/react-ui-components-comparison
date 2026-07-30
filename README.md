@@ -9,6 +9,8 @@ This project was created by Laure Brosseau as part of a product marketing deep d
 It combines competitive analysis, positioning work, and hands-on implementation to explore how MUI X compares to AG Grid, Bryntum, and the build in-house alternative.
 
 → [Connect on LinkedIn](https://www.linkedin.com/in/laurebrosseau/)
+→ [Explore my work](https://www.laurebrosseau.com/)
+
 
 ## Why this project
 
