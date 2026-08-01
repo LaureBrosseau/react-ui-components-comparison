@@ -102,29 +102,37 @@ export default function AIInstallExperience() {
   return (
     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 80px' }}>
       
-      {/* Header */}
-      <div style={{ marginBottom: '40px' }}>
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: '8px',
-          padding: '4px 12px', borderRadius: '99px',
-          background: 'rgba(0,127,255,0.06)', border: '1px solid rgba(0,127,255,0.2)',
-          marginBottom: '14px',
-        }}>
-          <span style={{ fontSize: '11px', color: '#007FFF', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-            AI Developer Experience Report
-          </span>
-        </div>
-        <h1 style={{ fontSize: '26px', fontWeight: '700', color: '#111827', marginBottom: '10px', letterSpacing: '-0.03em', lineHeight: '1.2' }}>
-          AI Integration Experience: MUI X vs AG Grid<br />
-          <span style={{ color: '#9ca3af', fontWeight: '400', fontSize: '20px' }}>What works, what breaks, and where AI struggles when integrating both libraries</span>
-        </h1>
-        <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: '1.65', maxWidth: '680px' }}>
-          This page documents the real integration experience of MUI X and AG Grid from the perspective of an AI coding agent operating autonomously, without human debugging.
-          <br />
-          Every friction point highlighted here reflects an actual failure mode encountered during implementation.
-        </p>
-      </div>
-
+      {/* Header — Context card, same design as the homepage Foreword */}
+          <section style={{
+            background: '#ffffff',
+            border: '1px solid #e5e7eb',
+            borderRadius: '10px',
+            padding: '28px 32px',
+            marginBottom: '40px',
+            boxShadow: '0 10px 30px rgba(17, 24, 39, 0.04)',
+          }}>
+            <p style={{
+              fontSize: '11px',
+              fontWeight: '700',
+              color: '#007FFF',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              marginBottom: '10px',
+            }}>
+              AI Developer Experience Report
+            </p>
+            <h1 style={{ fontSize: '24px', fontWeight: '600', color: '#111827', marginBottom: '18px', letterSpacing: '-0.02em', lineHeight: '1.3' }}>
+              AI Integration Experience: MUI X vs AG Grid<br />
+              <span style={{ color: '#9ca3af', fontWeight: '400', fontSize: '18px' }}>What works, what breaks, and where AI struggles when integrating both libraries</span>
+            </h1>
+            <p style={{ fontSize: '15px', color: '#374151', lineHeight: '1.75', marginBottom: '14px' }}>
+              This page documents the real integration experience of MUI X and AG Grid from the perspective of an AI coding agent operating autonomously, without human debugging.
+            </p>
+            <p style={{ fontSize: '15px', color: '#374151', lineHeight: '1.75' }}>
+              Every friction point highlighted here reflects an actual failure mode encountered during implementation.
+            </p>
+          </section>
+      
       {/* MUI X Section */}
       <SECTION title="MUI X Data Grid: Integration Experience">
 
