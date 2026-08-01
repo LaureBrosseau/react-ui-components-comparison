@@ -122,14 +122,22 @@ export default function AIInstallExperience() {
               AI Developer Experience Report
             </p>
             <h1 style={{ fontSize: '24px', fontWeight: '600', color: '#111827', marginBottom: '18px', letterSpacing: '-0.02em', lineHeight: '1.3' }}>
-              AI Integration Experience: MUI X vs AG Grid<br />
-              <span style={{ color: '#9ca3af', fontWeight: '400', fontSize: '18px' }}>What works, what breaks, and where AI struggles when integrating both libraries</span>
+            What if AI Experience is the future of Developer Experience? I vibe coded this project with Claude, then asked it for a REX. Here's Claude's answer.
             </h1>
             <p style={{ fontSize: '15px', color: '#374151', lineHeight: '1.75', marginBottom: '14px' }}>
-              This page documents the real integration experience of MUI X and AG Grid from the perspective of an AI coding agent operating autonomously, without human debugging.
+              I built this comparison site with Claude: I gave the guidelines, the structure, the components to test, and we iterated together. Once it was done, I asked Claude for an honest debrief: what worked, what issues it ran into, and how it worked around them.
             </p>
-            <p style={{ fontSize: '15px', color: '#374151', lineHeight: '1.75' }}>
-              Every friction point highlighted here reflects an actual failure mode encountered during implementation.
+            <p style={{ fontSize: '15px', color: '#374151', lineHeight: '1.75', marginBottom: '14px' }}>
+              The answer was very interesting. Claude ran into errors because it used outdated API patterns from before a major redesign, and hit silent rendering failures with no error message to catch. It was relying on what it knew rather than checking the live documentation.
+            </p>
+            <p style={{ fontSize: '15px', color: '#374151', lineHeight: '1.75', marginBottom: '14px' }}>
+              As a Product Marketing Manager, that's the part that stayed with me. We spend a lot of time crafting messaging for developers, engineering managers and CTOs, but AI coding agents are now part of that audience too. They install dependencies, write code, and quietly form opinions about which library to use or recommend.
+            </p>
+            <p style={{ fontSize: '15px', color: '#374151', lineHeight: '1.75', marginBottom: '14px' }}>
+              This page is that debrief, organized and fact-checked. A side-by-side look at how an AI coding agent actually experiences MUI X and AG Grid when installing and integrating them, without a human debugging along the way. Every friction point below reflects an actual failure mode encountered during implementation.
+            </p>
+            <p style={{ fontSize: '15px', color: '#111827', lineHeight: '1.75', fontWeight: '500' }}>
+              Laure Brosseau
             </p>
           </section>
       
