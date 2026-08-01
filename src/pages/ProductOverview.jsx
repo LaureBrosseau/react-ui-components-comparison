@@ -216,6 +216,7 @@ function Foreword() {
     "Rather than reading documentation and browsing webpages, I wanted a deeper understanding of the React UI component ecosystem: using the components myself, and analyzing how each library is positioned, who it's built for, its strengths and weaknesses, and the trade-offs developers and engineering teams face when choosing one.",
     "Building this comparison also gave me the chance to do what I enjoy most: market analysis, competitive research, product positioning, and turning complex information into a practical, usable tool.",
     "Although I didn't get the role, I decided to keep this project online because it can still be useful for developers, Product Managers, Product Designers, and anyone evaluating the React UI ecosystem.",
+    'I also tested how an AI coding agent experiences MUI X and AG Grid firsthand. Click on "AI Developer Experience" in the menu to learn more.',
     "This project reflects how I approach strategic work: quickly building domain expertise, connecting product, market and customer perspectives, and turning research into actionable resources.",
     'I hope you find it useful and insightful!',
   ]
