@@ -100,8 +100,8 @@ const comparisonRows = [
 
 export default function AIInstallExperience() {
   return (
-    <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '40px 24px 80px' }}>
-
+    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 80px' }}>
+      
       {/* Header */}
       <div style={{ marginBottom: '40px' }}>
         <div style={{
